@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data & Wealth-Tech Terminology — Study Guide</title>
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --surface:#FFFFFF;
+    --surface-2:#F2EFEA;
+    --line-solid:#DDD6C9;
+    --text:#161412;
+    --muted:#5A5147;
+    --muted-2:#8A8074;
+    --orange:#D9691A;
+    --orange-bright:#E87722;
+    --orange-dark:#8C3F00;
+    --black:#0B0B0A;
+    --white:#F5F1E9;
+    --wood:#6B4226;
+    --wood-dark:#40271A;
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --slab: "Rockwell", "Roboto Slab", Georgia, serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+  a{color:var(--orange-bright); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--orange-bright); outline-offset:3px; border-radius:4px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px; position:relative; z-index:1;}
+  .horn{display:inline-block; width:16px; height:16px; vertical-align:-3px; flex-shrink:0;}
+  .horn path{fill:var(--orange-bright);}
+
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:#000000;
+    border-bottom:3px solid var(--orange-bright);
+  }
+  .nav-inner{
+    max-width:1080px; margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:var(--slab); font-size:13.5px; letter-spacing:0.05em;
+    text-transform:uppercase; color:#F5F1E9; font-weight:700;
+  }
+  .navlinks{display:flex; gap:20px; flex-wrap:wrap;}
+  .navlinks a{
+    color:#C9BDAA; font-size:12.5px; font-family:var(--mono);
+    letter-spacing:0.04em; text-transform:uppercase;
+  }
+  .navlinks a:hover{color:var(--orange-bright); text-decoration:none;}
+
+  header.hero{
+    padding:64px 0 50px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 800px 460px at 88% -8%, #D9691A18, transparent),
+      #FFFFFF;
+    border-bottom:1px solid var(--line-solid);
+  }
+  .hero-flex{display:flex; align-items:flex-start; justify-content:space-between; gap:40px; flex-wrap:wrap;}
+  .hero-copy{flex:1 1 480px; max-width:600px;}
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.16em;
+    text-transform:uppercase; color:var(--orange-bright); margin-bottom:16px;
+    display:flex; align-items:center; gap:8px; font-weight:600;
+  }
+  h1{
+    font-family:var(--serif); font-weight:600; font-size:clamp(30px,4.4vw,50px);
+    line-height:1.1; letter-spacing:-0.01em; color:var(--text);
+  }
+  h1 em{font-style:italic; color:var(--orange-bright); font-weight:500;}
+  .hero-sub{font-size:16px; color:var(--muted); max-width:560px; margin-top:20px;}
+  .howdy-badge{flex:0 0 auto; width:210px; position:relative; margin-top:6px;}
+
+  .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:28px;}
+  .pill{
+    font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--orange-bright); border:1px solid var(--orange-bright); padding:5px 12px; border-radius:20px;
+  }
+
+  section{padding:0 0 60px; border-top:1px solid var(--line-solid);}
+  .header-bar{background:#0B0B0A; padding:30px 0; margin-bottom:34px;}
+  .header-bar .wrap.section-head{display:flex; align-items:center; gap:16px;}
+  .sign-badge{flex-shrink:0; width:44px; height:44px;}
+  h2{
+    font-family:var(--serif); font-size:clamp(20px,2.8vw,28px); font-weight:600;
+    color:#F5F1E9; line-height:1.3; margin:0;
+  }
+  .lede{color:var(--muted); max-width:680px; margin:0 0 26px; font-size:15.5px;}
+
+  .cat-header{
+    background:#0B0B0A;
+    padding:12px 20px;
+    margin:36px 0 16px;
+    border-radius:2px;
+  }
+  .cat-header:first-of-type{margin-top:0;}
+  .cat-header .cat-label{
+    font-family:var(--mono); font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--orange-bright); font-weight:700;
+  }
+
+  .term{
+    background:var(--surface); border:1px solid var(--line-solid); border-left:4px solid var(--orange-bright);
+    padding:22px 24px; margin:0 0 14px; border-radius:2px;
+  }
+  .term-head{
+    display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    background:#0B0B0A;
+    margin:-22px -24px 16px -24px;
+    padding:14px 22px;
+  }
+  .term-name{font-family:var(--serif); font-size:19px; font-weight:600; color:#F5F1E9;}
+  .term-tag{
+    font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--orange-bright); border:1px solid var(--orange-bright); padding:2px 8px; border-radius:20px;
+    white-space:nowrap;
+  }
+  .term-def{color:var(--text); font-size:14.5px; margin-top:10px;}
+  .term-def + .term-def{margin-top:10px;}
+  .term-context{
+    color:var(--muted); font-size:13.5px; margin-top:12px; padding-top:12px;
+    border-top:1px dashed var(--line-solid);
+  }
+  .term-context b{color:var(--orange-bright); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:4px;}
+
+  #quiz-progress{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:20px;
+  }
+  #score-pill{
+    background:var(--orange-bright); color:#141210; padding:5px 14px; border-radius:20px; font-size:12px; font-weight:700;
+  }
+  .q-card{
+    background:var(--surface); border:1px solid var(--line-solid); border-top:4px solid var(--orange-bright);
+    padding:24px; margin-bottom:16px; border-radius:2px;
+  }
+  .q-meta{font-family:var(--mono); font-size:11px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;}
+  .q-text{font-family:var(--serif); font-size:18px; color:var(--text); margin-bottom:18px; font-weight:600;}
+  .choices{display:flex; flex-direction:column; gap:10px;}
+  .choice{
+    text-align:left; background:var(--surface-2); border:1px solid var(--line-solid);
+    color:var(--text); padding:13px 16px; font-size:14.5px; cursor:pointer;
+    font-family:var(--sans); border-radius:2px; transition:border-color .15s, background .15s;
+  }
+  .choice:hover{border-color:var(--orange-bright);}
+  .choice.correct{border-color:#4C9A4C; background:#4C9A4C22; color:var(--text); font-weight:600;}
+  .choice.incorrect{border-color:#C4432E; background:#C4432E22; color:var(--text);}
+  .choice[disabled]{cursor:default;}
+  .explain{
+    margin-top:14px; font-size:13.5px; color:var(--muted);
+    border-left:2px solid var(--orange-bright); padding-left:14px; display:none;
+  }
+  .explain.show{display:block;}
+  #quiz-results{
+    text-align:center; padding:50px 20px; background:var(--surface);
+    border:1px solid var(--line-solid); border-top:4px solid var(--orange-bright); display:none;
+  }
+  #quiz-results.show{display:block;}
+  #quiz-results .big{font-family:var(--serif); font-size:44px; color:var(--orange-bright);}
+  .btn{
+    font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.06em;
+    background:var(--orange-bright); color:#141210; border:none; padding:12px 24px;
+    cursor:pointer; margin-top:18px; border-radius:2px; font-weight:700;
+  }
+  .btn:hover{background:#F08C3D;}
+
+  footer{
+    padding:50px 0 70px; text-align:center; color:var(--muted-2);
+    font-family:var(--mono); font-size:11.5px; border-top:1px solid var(--line-solid);
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+    background:#000000;
+  }
+
+  @media (max-width:760px){ .howdy-badge{display:none;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <svg class="horn" viewBox="0 0 100 100"><path d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
+      Data & Wealth-Tech Terminology
+    </div>
+    <div class="navlinks">
+      <a href="#glossary">Glossary</a>
+      <a href="#quiz">Quiz</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-flex">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          <svg class="horn" viewBox="0 0 100 100"><path d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
+          Self-Study · Wealth Management Data & Client Portal Terminology
+        </div>
+        <h1>Know the vocabulary <em>cold</em>, wherever you take it.</h1>
+        <p class="hero-sub">
+          A glossary of every technical term and role from a real client-portal data program, written to
+          travel with you — not tied to one company. Each term gets a full definition, plus the real vendors
+          and competitors you'd actually run into in this space. Then a quiz to prove you've got it.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Vendors & Custody</span>
+          <span class="pill">Data Platforms</span>
+          <span class="pill">Pipeline Concepts</span>
+          <span class="pill">Program Roles</span>
+        </div>
+      </div>
+
+      <div class="howdy-badge">
+        <svg viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="8" width="200" height="12" rx="2" fill="#2A1710"/>
+          <line x1="55" y1="20" x2="55" y2="55" stroke="#8A6D3B" stroke-width="3"/>
+          <line x1="165" y1="20" x2="165" y2="55" stroke="#8A6D3B" stroke-width="3"/>
+          <g transform="rotate(-3 110 130)">
+            <rect x="20" y="52" width="180" height="150" rx="6" fill="#40271A" stroke="#2A1710" stroke-width="4"/>
+            <rect x="32" y="64" width="156" height="126" rx="3" fill="none" stroke="#D9691A" stroke-width="2" stroke-dasharray="4 4" opacity="0.7"/>
+            <text x="110" y="110" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="34" fill="#F5F1E9" letter-spacing="2">HOWDY</text>
+            <text x="110" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#E87722" letter-spacing="4">TEXAS</text>
+            <path transform="translate(94,152) scale(1.1)" d="M16 0 L19.6 11 L31 11 L21.7 17.8 L25.3 28.8 L16 22 L6.7 28.8 L10.3 17.8 L1 11 L12.4 11 Z" fill="#F5F1E9"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="glossary">
+  <div class="header-bar">
+    <div class="wrap section-head">
+      <svg class="sign-badge" viewBox="0 0 100 100"><polygon points="50,4 95,32 95,68 50,96 5,68 5,32" fill="#0B0B0A" stroke="#E87722" stroke-width="5"/><text x="50" y="60" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="30" fill="#F5F1E9">TX</text></svg>
+      <h2>Glossary of Key Terms</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="lede">
+      Every term is defined on its own, then anchored with a short "in practice" note so you can see how it
+      shows up on a real program — written generically so it applies at your next job too.
+    </p>
+
+    <div class="cat-header"><span class="cat-label">Program & Governance</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">End Client</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">The organization actually receiving the work — the company whose business the program serves — as distinct from any outside vendor supplying software or any consulting partner supplying expertise. Keeping this distinction clear is useful on any program: you'll usually have one end client, one or more vendors, and sometimes a consulting partner layered in between.</p>
+      <div class="term-context"><b>In practice</b>This guide uses "end client" as a stand-in for whatever company is actually implementing the program, so the concepts transfer cleanly to a different employer.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Strategic Program</span><span class="term-tag">Governance</span></div>
+      <p class="term-def">A body of work formally recognized by leadership as important enough to warrant dedicated budget, executive sponsorship, and regular visibility — as opposed to a routine project run entirely within one team. Strategic programs typically get a steering committee, milestone reporting up the chain, and cross-team coordination that ordinary projects don't.</p>
+      <div class="term-context"><b>In practice</b>Executive visibility raises the bar on documentation, communication cadence, and how carefully vendor decisions get evaluated before work starts.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Vendor Evaluation</span><span class="term-tag">Governance</span></div>
+      <p class="term-def">A structured process for comparing outside vendors against defined criteria — cost, capability fit, security posture, integration effort, references — before committing to one. A real evaluation produces a scored comparison and a documented recommendation, not just a preference.</p>
+      <div class="term-context"><b>In practice</b>A consulting partner is often brought in specifically to run this evaluation objectively before any building starts.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Vendors & Consulting Partners</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Third-Party Vendor (Client Portal / Portfolio Reporting)</span><span class="term-tag">Vendor</span></div>
+      <p class="term-def">An outside software company whose packaged product you configure and integrate with, rather than building the same capability from scratch. In wealth management specifically, the "client portal" category is usually filled by a portfolio-reporting platform: something that aggregates holdings across custodians and asset types and produces the performance and allocation views clients see.</p>
+      <p class="term-def">Well-known names in this category include Addepar (built for complex, multi-entity, alternative-asset portfolios and considered the benchmark for ultra-high-net-worth reporting), Orion Advisor Tech (a broader all-in-one platform that also bundles CRM and trading), SS&C Black Diamond (known for polished, branded client reporting and a large integrations network), and Envestnet | Tamarac (common in firms already inside the Envestnet ecosystem). Each trades off implementation complexity against depth of reporting — the more complex the underlying portfolios, the more setup and ongoing operational ownership the platform tends to need.</p>
+      <div class="term-context"><b>In practice</b>The pipeline's whole job is producing clean, correctly-shaped files this kind of vendor can ingest to power the client-facing portfolio and performance views.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Consulting Partner</span><span class="term-tag">Partner</span></div>
+      <p class="term-def">An outside firm engaged to supply expertise the internal team doesn't have in-house — commonly vendor evaluation, general consulting, and technology strategy. A consulting partner advises and often staffs the program day to day, but doesn't own the underlying product being implemented.</p>
+      <p class="term-def">One example of this kind of firm is Incedo Inc., a digital transformation, data, and AI consulting company founded in 2012 and headquartered in New Jersey, with additional delivery centers internationally. Incedo works across financial services, telecom, life sciences, and product engineering, pairing engineering and data-science capability with domain expertise, and holds a formal technology partnership with Databricks specifically around building and modernizing data platforms — directly relevant to a program like this one.</p>
+      <div class="term-context"><b>In practice</b>Consulting partners are typically where the "domain SME" running day-to-day KT sessions comes from.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Domain SME</span><span class="term-tag">Role</span></div>
+      <p class="term-def">"SME" stands for Subject Matter Expert. A domain SME understands the business rules, terminology, and real-world workflow of an area deeply — here, wealth management — but isn't necessarily the person writing code. Their job is making sure what gets built actually matches how the business works, translating business needs into requirements a technical team can build against.</p>
+      <div class="term-context"><b>In practice</b>Domain, not developer, is the key distinction: this role owns correctness of the business logic, not the implementation of the pipeline itself.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Scrum Master</span><span class="term-tag">Role</span></div>
+      <p class="term-def">The Agile team role responsible for running process — standups, sprint planning, removing blockers — rather than doing hands-on technical or business-analysis work. A good Scrum Master protects the team's focus and keeps progress visible to stakeholders.</p>
+      <div class="term-context"><b>In practice</b>On an executive-visible program, this role is often the connective tissue between the working team and leadership reporting.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Client Experience</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Client Portal</span><span class="term-tag">Product</span></div>
+      <p class="term-def">A self-service web or app interface that lets end clients log in and see their own information directly, without calling an advisor. In wealth management, this centers on account holdings, transactions, and performance — increasingly with mobile access expected as standard.</p>
+      <div class="term-context"><b>In practice</b>The portal is the visible tip of a much larger back-end pipeline; most of the actual program effort goes into what feeds it.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Portfolio & Performance</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">"Portfolio" refers to the full set of holdings — stocks, funds, cash, alternatives — in an account. "Performance" refers to how that portfolio's value has changed over time: returns, gains and losses, usually benchmarked against a comparison index. These two views are the core of what a wealth-management client wants from a portal.</p>
+      <div class="term-context"><b>In practice</b>These are the two things the portal is ultimately built to show — everything upstream exists to get this data correct and current.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Data & Systems</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Platform (Lakehouse)</span><span class="term-tag">Platform</span></div>
+      <p class="term-def">A unified data platform — often called a "lakehouse" — that combines large-scale data storage with the compute needed to process, transform, and analyze that data in one place, instead of storage and processing living in separate, disconnected tools. Databricks is a leading example, built on the open-source Apache Spark project and Delta Lake storage format, and is commonly used for data engineering, streaming, and machine-learning workloads.</p>
+      <p class="term-def">Databricks is frequently compared to Snowflake, another major cloud data platform. Snowflake began as a SQL-first, fully-managed data warehouse optimized for business intelligence and reporting — minimal setup, strong for analysts running dashboards. Databricks leans toward large-scale engineering and ML workloads and gives teams more direct control over infrastructure. Many organizations run both together: a lakehouse platform like Databricks for ingestion and transformation, and a warehouse like Snowflake for downstream analytics and reporting.</p>
+      <div class="term-context"><b>In practice</b>This is where source-system data lands, gets checked for quality, and has business logic applied before files are built for the portal vendor.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Databricks Architecture Deep-Dive</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Apache Spark</span><span class="term-tag">Engine</span></div>
+      <p class="term-def">An open-source distributed data-processing engine that splits large computations across many machines so they run in parallel, instead of on one machine at a time. Spark can process data in-memory, which makes it fast for the kind of large-scale transformations a wealth-management pipeline needs, and it supports multiple languages — Python, SQL, Scala, and R — often in the same notebook.</p>
+      <div class="term-context"><b>In practice</b>Databricks was built by the original creators of Spark, and Spark is the compute engine actually running the transformation code underneath every Databricks job.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Delta Lake</span><span class="term-tag">Storage Format</span></div>
+      <p class="term-def">An open-source storage layer that adds database-like reliability to files sitting in cheap cloud storage. Specifically, it adds ACID transactions (so a write either fully succeeds or fully fails — never leaves data half-written), schema enforcement (rejecting data that doesn't match the expected structure), schema evolution (safely adding new fields over time), and "time travel" (the ability to query a table as it existed at an earlier point, which is invaluable for debugging a bad run).</p>
+      <div class="term-context"><b>In practice</b>Delta Lake is the default table format across a Databricks pipeline — every layer of the pipeline is typically stored as Delta tables rather than plain files.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Unity Catalog</span><span class="term-tag">Governance</span></div>
+      <p class="term-def">Databricks' centralized governance layer for data and AI assets. It provides fine-grained access control (down to specific columns, not just whole tables), a searchable catalog of what data exists and where, lineage tracking (showing exactly which upstream tables and columns fed into a given result), and audit logging of who accessed what.</p>
+      <div class="term-context"><b>In practice</b>This is what lets a program prove — to auditors or to itself — exactly where a number in the client portal actually came from.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Medallion Architecture (Bronze / Silver / Gold)</span><span class="term-tag">Pattern</span></div>
+      <p class="term-def">A data design pattern, sometimes called "multi-hop," that organizes a lakehouse into progressively refined layers. The Bronze layer holds raw, largely untouched data exactly as it arrived from source systems — append-only, kept for history and auditability. The Silver layer cleans, deduplicates, and standardizes that data into a validated, joined view. The Gold layer holds business-ready, aggregated tables shaped specifically for reporting and downstream consumption.</p>
+      <p class="term-def">Keeping the raw Bronze copy matters because it lets a team rebuild Silver and Gold from scratch if a transformation turns out to be wrong — without needing to re-pull from the original source system.</p>
+      <div class="term-context"><b>In practice</b>The files eventually delivered to the portal vendor are effectively a Gold-layer output — the end product of data that has already passed through Bronze and Silver.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Batch vs. Streaming</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Two different ways to move data through a pipeline. Batch processing handles data in scheduled, discrete chunks — for example, a job that runs once every night. Streaming (in Databricks, using Spark Structured Streaming) processes data continuously as it arrives, which matters when near-real-time freshness is required rather than a daily snapshot.</p>
+      <div class="term-context"><b>In practice</b>Most portfolio and performance reporting is well served by batch processing on a daily schedule; streaming is reserved for cases where staleness of even a few hours would be a real problem.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Cluster & Notebook</span><span class="term-tag">Compute</span></div>
+      <p class="term-def">A cluster is the actual set of compute resources — virtual machines — that runs the processing work; clusters can scale up or down with the workload and shut off automatically when idle to control cost. A notebook is the interactive, cell-by-cell coding environment engineers use to write and run that processing code, mixing Python, SQL, and markdown documentation in one place.</p>
+      <div class="term-context"><b>In practice</b>Ad hoc exploration usually happens in a notebook run manually on a small cluster; the finished logic then gets scheduled to run automatically as part of the production pipeline.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Source System</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Any system where data originates — the "system of record" for a particular kind of information, before it's copied or transformed anywhere else. Common examples on a wealth-management program include account-opening tools and the CRM.</p>
+      <div class="term-context"><b>In practice</b>Every downstream number should be traceable back to a specific source system — that traceability is what makes debugging a bad number possible.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">CRM (Customer Relationship Management)</span><span class="term-tag">System</span></div>
+      <p class="term-def">Software for tracking clients, advisors, interactions, and account relationships — the operational record of who a firm serves and how. In wealth management specifically, firms typically choose between a large, highly customizable horizontal platform and a purpose-built advisor CRM.</p>
+      <p class="term-def">Salesforce, through its Financial Services Cloud product, is the dominant horizontal option — powerful and extensively customizable, but more expensive and more complex to configure, and generally favored by larger enterprise firms. Purpose-built alternatives like Redtail (the longtime market-share leader on affordability and integrations) and Wealthbox (newer, known for a modern interface and faster onboarding) trade some of that flexibility for lower cost and CRM features built specifically around advisor workflows, and are more common at small-to-mid-sized firms.</p>
+      <div class="term-context"><b>In practice</b>Whichever CRM is in use, it's typically one of the named source systems feeding client and account data into the data platform.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Ecosystem</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">The full collection of systems, pipelines, storage, and tools that together produce, move, transform, and consume an organization's data — the bigger picture that any one source system or pipeline is just a piece of.</p>
+      <div class="term-context"><b>In practice</b>Early program work often includes mapping this whole ecosystem before committing to a specific pipeline design, so nothing gets missed.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Quality Checks</span><span class="term-tag">Process</span></div>
+      <p class="term-def">Automated validation rules that confirm data is accurate, complete, and consistent before it's trusted or passed downstream — checking for things like missing fields, out-of-range values, or mismatched records between systems.</p>
+      <div class="term-context"><b>In practice</b>These checks typically run inside the data platform, before any file is generated for the vendor — catching problems before a client ever sees them.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Business Logic</span><span class="term-tag">Process</span></div>
+      <p class="term-def">The set of rules that encode how the business actually wants data handled or transformed, beyond simply copying it from one place to another. Business logic is what turns raw data into the correct answer for a specific real-world use case — for example, how to treat an account differently depending on which custodian holds it.</p>
+      <div class="term-context"><b>In practice</b>Business logic is usually scoped around a specific, limited set of integrations rather than built generically for every possible case up front.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Exception Queue</span><span class="term-tag">Process</span></div>
+      <p class="term-def">A holding area where records that fail a validation or business-logic rule get routed, instead of either silently passing through wrong or breaking the whole pipeline. Someone, or some downstream process, works the queue to fix or discard those records.</p>
+      <div class="term-context"><b>In practice</b>A healthy exception queue is actively worked, not just accumulated — an ever-growing queue is usually a sign the upstream data or rules need attention.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Production Pipeline</span><span class="term-tag">Process</span></div>
+      <p class="term-def">An automated data workflow running in the live ("production") environment on a real schedule, with monitoring and alerting — as opposed to a one-off script or something only running in development or testing.</p>
+      <div class="term-context"><b>In practice</b>This is the machinery that reliably moves data from source systems to the vendor on an ongoing basis, not just for the initial rollout.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Custody & Integrations</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Custodian</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">A financial institution that physically holds and safeguards a client's securities and cash on behalf of the advisor or firm, and handles trade settlement and recordkeeping. Advisors direct the investment decisions; the custodian holds the assets and is subject to regulatory oversight designed to protect them.</p>
+      <p class="term-def">The custody market is concentrated among a handful of large players. Charles Schwab is generally the largest, followed by Fidelity, then BNY Pershing and LPL Financial — together these four control the large majority of custodied assets among independent advisory firms in the U.S. Pershing tends to serve larger, more operationally complex firms and family offices; LPL operates as both a broker-dealer and a custodian, appealing to hybrid advisors; and newer, tech-first entrants like Altruist target smaller firms with modern digital tools, no account minimums, and simplified pricing. Most sizeable advisory firms end up integrating with more than one custodian rather than just one.</p>
+      <div class="term-context"><b>In practice</b>Because almost every wealth-management data program eventually has to build a custodian integration, this is one of the highest-value concepts to understand cold.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Charles Schwab</span><span class="term-tag">Custodian</span></div>
+      <p class="term-def">Charles Schwab & Co., through its Schwab Advisor Services division, is one of the largest and most established custodians serving independent Registered Investment Advisors in the U.S. It provides custody, trade execution, and account administration for client assets, along with the technology and support services advisors rely on to run their practices — account opening, reporting integrations, and consultative support for growing a firm.</p>
+      <p class="term-def">As a registered broker-dealer and SIPC member, Schwab is subject to extensive regulatory oversight designed to protect assets held in accounts at the firm. Its scale is a major differentiator: Schwab custodies several trillion dollars in advisory assets across well over ten thousand advisory firms, more than any other custodian, which is part of why so many wealth-management data programs treat a Schwab integration as a default rather than an edge case.</p>
+      <div class="term-context"><b>In practice</b>A named custodian integration like this is typically one of a small, explicitly-scoped set the business logic is built around — not an open-ended list.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Direct Business</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Assets or accounts held directly by the firm itself, rather than through an outside custodian relationship. Direct business typically needs its own data-handling rules, since it doesn't arrive through a standardized custodian feed the way custodied accounts do.</p>
+      <div class="term-context"><b>In practice</b>Direct business is often the trickier of any two paired integrations, precisely because there's no external custodian format to lean on.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Process & Delivery</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Knowledge Transfer (KT) Session</span><span class="term-tag">Process</span></div>
+      <p class="term-def">A working session, usually led by whoever already knows a system or domain, designed to transfer that knowledge to a new or growing team — walking through file structures, logic, and history rather than just handing over documentation.</p>
+      <div class="term-context"><b>In practice</b>Effective KT is often two-track: one thread onboarding people to the technical environment, another onboarding them to the business/domain context — both matter equally.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Phased Rollout</span><span class="term-tag">Process</span></div>
+      <p class="term-def">Delivering a program in stages over time, rather than launching everything at once (a "big bang" release). Each phase typically expands scope, user population, or functionality once the prior phase has proven stable.</p>
+      <div class="term-context"><b>In practice</b>An initial client-facing release usually lands well before the program is fully "done" — the remaining phases continue to expand coverage afterward.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Practice</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">A formalized, repeatable organizational capability for managing data — standards, roles, tooling, and process — as opposed to data work happening ad hoc, project by project. Building one is a long-term investment that outlasts any single implementation.</p>
+      <div class="term-context"><b>In practice</b>A single high-visibility implementation like a client-portal build is often used as the proof point that justifies investing in a broader, lasting data practice.</div>
+    </div>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="header-bar">
+    <div class="wrap section-head">
+      <svg class="sign-badge" viewBox="0 0 100 100"><polygon points="50,4 95,32 95,68 50,96 5,68 5,32" fill="#0B0B0A" stroke="#E87722" stroke-width="5"/><text x="50" y="60" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="30" fill="#F5F1E9">TX</text></svg>
+      <h2>Terminology Check</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="lede">
+      50 questions testing whether you actually understand each term — including a deep run through Databricks
+      architecture — not just the definition. Progress saves on this device.
+    </p>
+
+    <div id="quiz-progress">
+      <span id="progress-text">Question 1 of 50</span>
+      <span id="score-pill">Score: 0 / 50</span>
+    </div>
+
+    <div id="quiz-container"></div>
+
+    <div id="quiz-results">
+      <div class="big" id="final-score">0 / 50</div>
+      <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in the glossary and retake — the vendor-comparison questions are worth another pass.</p>
+      <button class="btn" id="retry-btn">Retake Quiz</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg width="26" height="26" viewBox="0 0 100 100"><path fill="#E87722" d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
+  Wealth Management Data & Client Portal Terminology · Self-Study Guide
+</footer>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "What distinguishes an 'end client' from a vendor or consulting partner?",
+    choices: ["They're interchangeable terms", "The end client is the organization actually receiving/using the program's output, not a company supplying software or expertise", "The end client always builds the software in-house", "There is no meaningful difference"],
+    correct: 1,
+    explain: "End client = who the work is for. Vendor = who supplies the product. Consulting partner = who supplies outside expertise."
+  },
+  {
+    q: "A 'strategic program' is best distinguished from a routine project by:",
+    choices: ["Being smaller in scope", "Formal executive sponsorship, dedicated budget, and regular visibility up the leadership chain", "Never having a timeline", "Being run without any documentation"],
+    correct: 1,
+    explain: "Executive-visible programs get steering committees and milestone reporting that routine projects skip."
+  },
+  {
+    q: "A proper vendor evaluation produces:",
+    choices: ["A single person's gut-feel recommendation", "A structured, scored comparison against defined criteria, with a documented recommendation", "A verbal agreement with no paper trail", "An automatic default to the cheapest option"],
+    correct: 1,
+    explain: "Evaluation means criteria + scoring + documentation, not just a preference."
+  },
+  {
+    q: "In the client-portal / portfolio-reporting vendor category, Addepar is generally considered strongest for:",
+    choices: ["Simple, single-account retail portfolios", "Complex, multi-entity, alternative-asset portfolios at the ultra-high-net-worth level", "Free budgeting apps for individuals", "Only CRM functionality"],
+    correct: 1,
+    explain: "Addepar is widely regarded as the benchmark for complex, multi-entity UHNW reporting."
+  },
+  {
+    q: "What differentiates SS&C Black Diamond from Addepar in this vendor category?",
+    choices: [
+      "Black Diamond is a CRM only",
+      "Black Diamond is generally viewed as more accessible with polished client reporting, while Addepar handles deeper portfolio complexity",
+      "They are the same product under different names",
+      "Neither offers a client portal"
+    ],
+    correct: 1,
+    explain: "Black Diamond trades some of Addepar's complexity-handling for a lighter implementation and more approachable interface."
+  },
+  {
+    q: "A consulting partner's typical role on a program like this is to:",
+    choices: [
+      "Own and sell the client-facing product",
+      "Supply outside expertise — evaluation, consulting, technology strategy — without owning the underlying vendor product",
+      "Replace the end client's leadership team",
+      "Serve exclusively as the custodian"
+    ],
+    correct: 1,
+    explain: "Consulting partners advise and often staff the work, but the vendor still owns the product being implemented."
+  },
+  {
+    q: "A 'domain SME' is best described as:",
+    choices: [
+      "A developer who writes the pipeline code",
+      "Someone with deep business/workflow knowledge who ensures what's built matches real business needs, without necessarily coding it",
+      "The vendor's account manager",
+      "A synonym for Scrum Master"
+    ],
+    correct: 1,
+    explain: "Domain, not developer, is the defining trait — the value is business/workflow expertise."
+  },
+  {
+    q: "A Scrum Master's core responsibility is:",
+    choices: ["Writing the business requirements", "Running the Agile process and removing blockers for the team", "Approving vendor contracts", "Performing data quality checks"],
+    correct: 1,
+    explain: "Scrum Master is a process-facilitation role, not a technical or business-analysis role."
+  },
+  {
+    q: "What does a client portal fundamentally provide?",
+    choices: [
+      "Internal reporting for the exec team",
+      "Self-service access for end clients to view their own information directly",
+      "A place for advisors to log support tickets",
+      "A vendor evaluation scorecard"
+    ],
+    correct: 1,
+    explain: "Client portals let end clients see their own data without going through an advisor."
+  },
+  {
+    q: "In wealth management, 'performance' specifically refers to:",
+    choices: ["The list of holdings in an account", "How a portfolio's value has changed over time, usually benchmarked", "The custodian's uptime", "The vendor's delivery timeline"],
+    correct: 1,
+    explain: "Portfolio = what you hold. Performance = how it has done over time, benchmarked against a comparison."
+  },
+  {
+    q: "Why is a 'lakehouse' platform like Databricks described as combining two older approaches?",
+    choices: [
+      "It only stores files, nothing else",
+      "It merges data-warehouse structure/governance with data-lake flexibility and raw storage, plus the compute to process it all in one place",
+      "It's a CRM system",
+      "It's the client-facing portal"
+    ],
+    correct: 1,
+    explain: "Lakehouse = warehouse-style reliability + lake-style flexibility, unified with compute."
+  },
+  {
+    q: "How does Snowflake generally differ from Databricks?",
+    choices: [
+      "Snowflake and Databricks are the same product",
+      "Snowflake is a SQL-first, fully-managed data warehouse optimized for BI/reporting; Databricks leans toward large-scale engineering, streaming, and ML",
+      "Snowflake only runs on-premises",
+      "Databricks cannot run SQL at all"
+    ],
+    correct: 1,
+    explain: "Many organizations run both: Databricks for engineering/ML, Snowflake for downstream analytics."
+  },
+  {
+    q: "A 'source system' is:",
+    choices: [
+      "Any system where data originates, before being copied elsewhere",
+      "The final destination file sent to the vendor",
+      "A synonym for exception queue",
+      "The custodian's internal database"
+    ],
+    correct: 0,
+    explain: "Account opening tools and the CRM are typical source systems — origin points for data."
+  },
+  {
+    q: "For a large enterprise wealth management firm, which CRM approach is generally favored?",
+    choices: [
+      "A highly customizable horizontal platform like Salesforce Financial Services Cloud",
+      "A free spreadsheet",
+      "No CRM at all",
+      "Exclusively mobile apps"
+    ],
+    correct: 0,
+    explain: "Salesforce FSC is powerful and customizable but costs more and takes more effort to configure — a fit for larger firms."
+  },
+  {
+    q: "Purpose-built advisor CRMs like Redtail and Wealthbox typically trade what for what?",
+    choices: [
+      "They trade cost for extra features nobody uses",
+      "They trade some customization flexibility for lower cost, faster setup, and native advisor-workflow features",
+      "They trade compliance for speed",
+      "They have no meaningful tradeoffs versus Salesforce"
+    ],
+    correct: 1,
+    explain: "Purpose-built CRMs are faster and cheaper to stand up, with less raw flexibility than a platform like Salesforce."
+  },
+  {
+    q: "How does a 'data ecosystem' differ from a single source system?",
+    choices: [
+      "They're identical terms",
+      "A data ecosystem is the full interconnected collection of systems, pipelines, and tools; a source system is just one origin point within it",
+      "A data ecosystem only refers to one platform",
+      "A source system is larger than a data ecosystem"
+    ],
+    correct: 1,
+    explain: "Ecosystem = the whole web of systems/tools. Source system = one piece of it."
+  },
+  {
+    q: "What is the purpose of data quality checks?",
+    choices: [
+      "To make the pipeline run faster",
+      "To confirm data is accurate, complete, and consistent before it's trusted downstream",
+      "To replace the need for business logic",
+      "To evaluate vendors"
+    ],
+    correct: 1,
+    explain: "Quality checks validate data before it's passed further down the pipeline."
+  },
+  {
+    q: "'Business logic' in a data pipeline refers to:",
+    choices: [
+      "The org chart for the program",
+      "Rules that transform raw data according to real business/use-case requirements, not just copying it",
+      "The custodian's legal terms",
+      "The KT session schedule"
+    ],
+    correct: 1,
+    explain: "Business logic encodes how the business wants data handled — the 'right answer' logic, not raw pass-through."
+  },
+  {
+    q: "An exception queue exists to:",
+    choices: [
+      "Store all successfully processed records",
+      "Hold records that fail validation or business rules so they can be reviewed/fixed instead of silently breaking the pipeline",
+      "Log every KT session",
+      "House the vendor's source code"
+    ],
+    correct: 1,
+    explain: "It's a holding pen for problem records — not a general-purpose log."
+  },
+  {
+    q: "What distinguishes a 'production pipeline' from a script used only in testing?",
+    choices: [
+      "Nothing — they're the same",
+      "A production pipeline runs live, on a schedule, with monitoring, and its output actually reaches downstream systems and clients",
+      "Production pipelines don't touch real data",
+      "Production pipelines skip data quality checks"
+    ],
+    correct: 1,
+    explain: "Production means live, scheduled, monitored — with real consequences if it breaks."
+  },
+  {
+    q: "Which four firms are generally described as controlling the large majority of RIA custodied assets in the U.S.?",
+    choices: [
+      "Salesforce, Redtail, Wealthbox, Orion",
+      "Charles Schwab, Fidelity, BNY Pershing, and LPL Financial",
+      "Addepar, Black Diamond, Orion, Tamarac",
+      "Databricks, Snowflake, AWS, Azure"
+    ],
+    correct: 1,
+    explain: "These four are typically cited as the dominant RIA custodians, controlling most custodied assets."
+  },
+  {
+    q: "What makes Charles Schwab's Advisor Services division notable in scale?",
+    choices: [
+      "It serves fewer than 100 advisory firms",
+      "It custodies several trillion dollars in advisory assets across well over ten thousand firms — more than any other custodian",
+      "It only serves individual retail investors",
+      "It does not custody any assets"
+    ],
+    correct: 1,
+    explain: "Schwab is generally the largest RIA custodian by both assets and number of firms served."
+  },
+  {
+    q: "'Direct business' means:",
+    choices: [
+      "Business run entirely through a single named custodian",
+      "Assets/accounts held directly by the firm itself, not through an outside custodian",
+      "Any account opened via the CRM",
+      "A type of exception queue"
+    ],
+    correct: 1,
+    explain: "Direct business is the counterpart to custodian-held business — it needs its own handling rules since there's no external custodian feed format to lean on."
+  },
+  {
+    q: "Why does a program often care about building a lasting 'data practice,' beyond just one implementation?",
+    choices: [
+      "It doesn't — it's unrelated to any single build",
+      "A data practice is a repeatable organizational capability (standards, roles, tooling) for managing data long-term, and one visible program is often used to justify investing in it",
+      "It's another name for a lakehouse platform",
+      "It refers only to the KT session schedule"
+    ],
+    correct: 1,
+    explain: "A single high-visibility build is frequently the proof point for a broader, lasting data capability."
+  },
+  {
+    q: "What is Apache Spark, at its core?",
+    choices: [
+      "A CRM for financial advisors",
+      "An open-source distributed data-processing engine that splits large computations across many machines to run them in parallel",
+      "A custodian data feed format",
+      "A client portal vendor"
+    ],
+    correct: 1,
+    explain: "Spark distributes processing across machines rather than running everything on one — that's what makes it fast at scale."
+  },
+  {
+    q: "How is Databricks related to Apache Spark?",
+    choices: [
+      "They are unrelated products",
+      "Databricks was built by Spark's original creators and uses Spark as its underlying compute engine",
+      "Spark is a competitor CRM to Databricks",
+      "Spark only runs on Snowflake"
+    ],
+    correct: 1,
+    explain: "Databricks grew directly out of the Apache Spark project and runs transformation code on top of Spark."
+  },
+  {
+    q: "Why does Spark's ability to process data in-memory matter for a pipeline like this?",
+    choices: [
+      "It doesn't matter at all",
+      "In-memory processing is significantly faster for large-scale transformations than repeatedly reading and writing to disk",
+      "It removes the need for data quality checks",
+      "It replaces the need for a data platform entirely"
+    ],
+    correct: 1,
+    explain: "In-memory computation is a major reason Spark-based platforms handle large transformations quickly."
+  },
+  {
+    q: "What does Delta Lake add on top of plain files sitting in cloud storage?",
+    choices: [
+      "Nothing beyond basic file storage",
+      "ACID transactions, schema enforcement/evolution, and time travel — database-like reliability for lakehouse data",
+      "A client-facing portal",
+      "CRM contact records"
+    ],
+    correct: 1,
+    explain: "Delta Lake is what turns raw files into something with transactional guarantees and version history."
+  },
+  {
+    q: "What does 'ACID transaction' mean in the context of Delta Lake?",
+    choices: [
+      "A marketing term with no real meaning",
+      "A write either fully succeeds or fully fails — data is never left half-written or in an inconsistent state",
+      "It means data is automatically deleted after use",
+      "It refers only to how fast a query runs"
+    ],
+    correct: 1,
+    explain: "ACID guarantees prevent partial, corrupted writes — critical when a job fails partway through."
+  },
+  {
+    q: "What is 'time travel' in Delta Lake used for?",
+    choices: [
+      "Predicting future portfolio performance",
+      "Querying a table as it existed at an earlier point in time — useful for debugging a bad transformation",
+      "Scheduling future KT sessions",
+      "Automatically archiving old client accounts"
+    ],
+    correct: 1,
+    explain: "Time travel lets engineers see exactly what a table looked like before a problematic change, without restoring from a separate backup."
+  },
+  {
+    q: "What does schema enforcement in Delta Lake protect against?",
+    choices: [
+      "Slow query performance",
+      "Data that doesn't match the expected structure silently corrupting a table",
+      "Unauthorized custodian access",
+      "Vendor evaluation errors"
+    ],
+    correct: 1,
+    explain: "Schema enforcement rejects writes that don't match the expected structure, catching problems before they spread downstream."
+  },
+  {
+    q: "What is Unity Catalog primarily used for?",
+    choices: [
+      "Running Spark jobs faster",
+      "Centralized data governance — access control, a searchable catalog, lineage tracking, and audit logging across the platform",
+      "Generating client-facing performance reports",
+      "Custodian trade settlement"
+    ],
+    correct: 1,
+    explain: "Unity Catalog is the governance layer: who can see what, where data came from, and who accessed it."
+  },
+  {
+    q: "What does 'lineage tracking' in Unity Catalog let a team do?",
+    choices: [
+      "Track advisor sales performance",
+      "Trace exactly which upstream tables and columns fed into a given downstream result",
+      "Automatically fix data quality issues",
+      "Replace the need for exception queues"
+    ],
+    correct: 1,
+    explain: "Lineage shows the full trail from a final number back to its original source — essential for debugging and audits."
+  },
+  {
+    q: "In the medallion architecture, what does the Bronze layer contain?",
+    choices: [
+      "Fully aggregated, business-ready reporting tables",
+      "Raw, largely untouched data exactly as it arrived from source systems, kept for history and auditability",
+      "Only data that has passed all quality checks",
+      "Client-facing portal content"
+    ],
+    correct: 1,
+    explain: "Bronze is the raw, append-only landing zone — the unaltered source of truth."
+  },
+  {
+    q: "What happens to data in the Silver layer of a medallion architecture?",
+    choices: [
+      "It is deleted to save storage",
+      "It is cleaned, deduplicated, and standardized into a validated, joined view",
+      "It is sent directly to the client portal untouched",
+      "It skips all validation"
+    ],
+    correct: 1,
+    explain: "Silver is where cleansing, deduplication, and standardization happen — a validated, joined view of the data."
+  },
+  {
+    q: "What is the Gold layer designed for?",
+    choices: [
+      "Storing raw, unvalidated data",
+      "Business-ready, aggregated tables shaped specifically for reporting and downstream consumption",
+      "Holding failed records for review",
+      "Running Spark clusters"
+    ],
+    correct: 1,
+    explain: "Gold tables are the polished, consumption-ready output — the layer closest to what a report or portal actually uses."
+  },
+  {
+    q: "Why does the medallion architecture keep a raw Bronze copy instead of transforming data immediately?",
+    choices: [
+      "It doesn't — Bronze is deleted after use",
+      "So the team can rebuild Silver and Gold from scratch if a transformation turns out to be wrong, without re-pulling from the original source",
+      "Because source systems require it contractually",
+      "Bronze is purely a legal formality with no technical purpose"
+    ],
+    correct: 1,
+    explain: "Keeping raw history means a bad transformation is recoverable — you can always reprocess from Bronze."
+  },
+  {
+    q: "Why is medallion architecture sometimes called 'multi-hop'?",
+    choices: [
+      "Because data must physically move between different countries",
+      "Because data progressively 'hops' through Bronze, Silver, and Gold layers, improving in quality at each stage",
+      "Because it requires multiple vendors",
+      "Because it only applies to streaming data"
+    ],
+    correct: 1,
+    explain: "Each layer is a 'hop' — the data is the same information, progressively refined as it moves forward."
+  },
+  {
+    q: "What's the practical difference between batch and streaming data processing?",
+    choices: [
+      "There is no real difference",
+      "Batch processes data in scheduled, discrete chunks; streaming processes data continuously as it arrives",
+      "Streaming is always slower than batch",
+      "Batch only works with Delta Lake"
+    ],
+    correct: 1,
+    explain: "Batch = scheduled chunks (e.g. nightly). Streaming = continuous, near-real-time processing."
+  },
+  {
+    q: "For most portfolio and performance reporting, which processing approach is typically sufficient?",
+    choices: [
+      "Streaming, because clients need second-by-second updates",
+      "Batch processing on a regular schedule, since daily freshness is usually enough",
+      "Neither — reporting requires manual data entry",
+      "Only Unity Catalog, with no processing engine"
+    ],
+    correct: 1,
+    explain: "Streaming is reserved for cases where even a few hours of staleness is a real problem — most reporting doesn't need that."
+  },
+  {
+    q: "What is a Databricks cluster?",
+    choices: [
+      "A type of client portal",
+      "The actual set of compute resources (virtual machines) that runs the processing work, which can scale up/down and shut off when idle",
+      "A CRM data table",
+      "A custodian's trading desk"
+    ],
+    correct: 1,
+    explain: "A cluster is the compute layer — the machines actually doing the processing."
+  },
+  {
+    q: "What is a notebook used for in a Databricks workflow?",
+    choices: [
+      "Storing client contact information",
+      "An interactive, cell-by-cell coding environment for writing and running processing code, often mixing Python, SQL, and documentation",
+      "Running the client-facing portal",
+      "Replacing Unity Catalog"
+    ],
+    correct: 1,
+    explain: "Notebooks are where engineers write and test the code that a cluster then executes."
+  },
+  {
+    q: "How does exploratory work in a notebook typically relate to the production pipeline?",
+    choices: [
+      "They are entirely unrelated",
+      "Logic is often prototyped manually in a notebook, then scheduled to run automatically as part of the production pipeline once finished",
+      "Notebooks replace the need for a production pipeline",
+      "Production pipelines cannot use any code written in a notebook"
+    ],
+    correct: 1,
+    explain: "Notebooks are common for prototyping; the finished logic then gets scheduled as an automated job."
+  },
+  {
+    q: "What role does a data platform like Databricks play relative to Unity Catalog, Delta Lake, and Spark?",
+    choices: [
+      "They are four unrelated, competing products",
+      "Spark is the processing engine, Delta Lake is the storage format, and Unity Catalog is the governance layer — all unified within the Databricks platform",
+      "Unity Catalog replaces the need for Spark",
+      "Delta Lake is a competitor to Databricks"
+    ],
+    correct: 1,
+    explain: "These pieces work together: Spark processes, Delta Lake stores reliably, and Unity Catalog governs access and lineage across it all."
+  },
+  {
+    q: "Which of the following best describes the relationship between an 'end client' and a 'vendor' on a program like this?",
+    choices: [
+      "They are the same organization",
+      "The end client receives and uses the outcome of the program; the vendor supplies a packaged product the program implements",
+      "The vendor always outranks the end client",
+      "There is no functional distinction between them"
+    ],
+    correct: 1,
+    explain: "Keeping this distinction straight is useful on any program, regardless of employer."
+  },
+  {
+    q: "What typically triggers a formal vendor evaluation rather than an informal choice?",
+    choices: [
+      "A program being small and low-visibility",
+      "A strategic, executive-visible program, where a documented, criteria-based comparison is expected before committing to a vendor",
+      "The absence of any consulting partner",
+      "A program with no budget"
+    ],
+    correct: 1,
+    explain: "Executive visibility raises the bar — decisions need to be justified with a scored comparison, not just a preference."
+  },
+  {
+    q: "Why does traceability from the client portal's 'performance' number back to a specific source system matter?",
+    choices: [
+      "It doesn't — clients only care about the final number",
+      "It's what makes debugging a wrong number possible, and is central to what data quality checks and lineage tracking are for",
+      "It is only relevant to the CRM, not the data platform",
+      "It replaces the need for a custodian"
+    ],
+    correct: 1,
+    explain: "Without traceability back to source, a wrong number in the portal is nearly impossible to root-cause."
+  },
+  {
+    q: "Why would a program pair a custodian integration with its own dedicated business logic, rather than one generic rule set for all data?",
+    choices: [
+      "Generic rules always work fine for every custodian",
+      "Different custodians (and direct business) arrive in different formats and need their own handling rules to be processed correctly",
+      "Business logic is unrelated to custodians",
+      "Custodians do not provide any data at all"
+    ],
+    correct: 1,
+    explain: "Each integration typically needs its own explicitly scoped business logic, since the underlying data formats differ."
+  },
+  {
+    q: "Taken together, what's the actual path data travels in a program like this, start to finish?",
+    choices: [
+      "Client portal → CRM → custodian, in that order",
+      "Source systems → data platform (Bronze/Silver/Gold, with quality checks and business logic) → exception handling → files → vendor → client portal",
+      "Custodian → exception queue → CRM, with no data platform involved",
+      "Vendor → source systems → client portal, skipping the data platform entirely"
+    ],
+    correct: 1,
+    explain: "This is the full chain: raw data in, progressively refined and validated, then delivered out to the vendor and finally the portal."
+  },
+  {
+    q: "The term 'lakehouse' is meant to capture the idea that Databricks combines:",
+    choices: [
+      "Two completely unrelated products bundled together for marketing purposes",
+      "The flexibility and raw-storage economics of a data lake with the structure, reliability, and governance of a data warehouse",
+      "A CRM and a custodian in a single tool",
+      "Streaming with no support for batch processing at all"
+    ],
+    correct: 1,
+    explain: "Lakehouse = data lake flexibility + data warehouse reliability, unified in one platform via Delta Lake and Unity Catalog."
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = new Array(QUESTIONS.length).fill(false);
+
+const container = document.getElementById('quiz-container');
+const progressText = document.getElementById('progress-text');
+const scorePill = document.getElementById('score-pill');
+const resultsBox = document.getElementById('quiz-results');
+const finalScore = document.getElementById('final-score');
+
+function loadState(){
+  try{
+    const saved = JSON.parse(localStorage.getItem('wealthTechGlossaryQuiz'));
+    if(saved && saved.answered && saved.answered.length === QUESTIONS.length){
+      answered = saved.answered;
+      score = saved.score;
+    }
+  }catch(e){}
+}
+function saveState(){
+  try{
+    localStorage.setItem('wealthTechGlossaryQuiz', JSON.stringify({answered, score}));
+  }catch(e){}
+}
+
+function renderQuestion(i){
+  const item = QUESTIONS[i];
+  const card = document.createElement('div');
+  card.className = 'q-card';
+  card.innerHTML = `
+    <div class="q-meta">Question ${i+1} of ${QUESTIONS.length}</div>
+    <div class="q-text">${item.q}</div>
+    <div class="choices"></div>
+    <div class="explain"></div>
+  `;
+  const choicesEl = card.querySelector('.choices');
+  const explainEl = card.querySelector('.explain');
+
+  item.choices.forEach((choiceText, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice';
+    btn.textContent = choiceText;
+    btn.addEventListener('click', () => {
+      if(btn.disabled) return;
+      const allBtns = choicesEl.querySelectorAll('.choice');
+      allBtns.forEach(b => b.disabled = true);
+      if(idx === item.correct){
+        btn.classList.add('correct');
+        if(!answered[i]){ score++; }
+      } else {
+        btn.classList.add('incorrect');
+        allBtns[item.correct].classList.add('correct');
+      }
+      answered[i] = true;
+      explainEl.textContent = item.explain;
+      explainEl.classList.add('show');
+      saveState();
+      updateProgress();
+      setTimeout(() => advance(i), 500);
+    });
+    choicesEl.appendChild(btn);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(card);
+}
+
+function advance(i){
+  if(i < QUESTIONS.length - 1){
+    current = i + 1;
+    renderQuestion(current);
+  } else {
+    showResults();
+  }
+}
+
+function updateProgress(){
+  progressText.textContent = `Question ${current+1} of ${QUESTIONS.length}`;
+  scorePill.textContent = `Score: ${score} / ${QUESTIONS.length}`;
+}
+
+function showResults(){
+  container.innerHTML = '';
+  document.getElementById('quiz-progress').style.display = 'none';
+  resultsBox.classList.add('show');
+  finalScore.textContent = `${score} / ${QUESTIONS.length}`;
+}
+
+document.getElementById('retry-btn').addEventListener('click', () => {
+  current = 0; score = 0;
+  answered = new Array(QUESTIONS.length).fill(false);
+  saveState();
+  resultsBox.classList.remove('show');
+  document.getElementById('quiz-progress').style.display = 'flex';
+  updateProgress();
+  renderQuestion(current);
+});
+
+loadState();
+updateProgress();
+renderQuestion(current);
+</script>
+
+</body>
+</html>
