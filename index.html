@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data & Wealth-Tech Terminology — Study Guide</title>
+<title>Wealth Management Data Analyst — Technical Vocabulary Study Guide</title>
 <style>
   :root{
     --bg:#FFFFFF;
@@ -75,18 +75,18 @@
     border-bottom:1px solid var(--line-solid);
   }
   .hero-flex{display:flex; align-items:flex-start; justify-content:space-between; gap:40px; flex-wrap:wrap;}
-  .hero-copy{flex:1 1 480px; max-width:600px;}
+  .hero-copy{flex:1 1 480px; max-width:620px;}
   .eyebrow{
     font-family:var(--mono); font-size:12px; letter-spacing:0.16em;
     text-transform:uppercase; color:var(--orange-bright); margin-bottom:16px;
     display:flex; align-items:center; gap:8px; font-weight:600;
   }
   h1{
-    font-family:var(--serif); font-weight:600; font-size:clamp(30px,4.4vw,50px);
+    font-family:var(--serif); font-weight:600; font-size:clamp(28px,4.2vw,46px);
     line-height:1.1; letter-spacing:-0.01em; color:var(--text);
   }
   h1 em{font-style:italic; color:var(--orange-bright); font-weight:500;}
-  .hero-sub{font-size:16px; color:var(--muted); max-width:560px; margin-top:20px;}
+  .hero-sub{font-size:16px; color:var(--muted); max-width:580px; margin-top:20px;}
   .howdy-badge{flex:0 0 auto; width:210px; position:relative; margin-top:6px;}
 
   .pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:28px;}
@@ -135,6 +135,10 @@
   }
   .term-def{color:var(--text); font-size:14.5px; margin-top:10px;}
   .term-def + .term-def{margin-top:10px;}
+  .term-def code{
+    font-family:var(--mono); font-size:13px; background:var(--surface-2);
+    padding:1px 6px; border-radius:3px; color:var(--orange-dark);
+  }
   .term-context{
     color:var(--muted); font-size:13.5px; margin-top:12px; padding-top:12px;
     border-top:1px dashed var(--line-solid);
@@ -198,7 +202,7 @@
   <div class="nav-inner">
     <div class="brand">
       <svg class="horn" viewBox="0 0 100 100"><path d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
-      Data & Wealth-Tech Terminology
+      Wealth Data Analyst Vocabulary
     </div>
     <div class="navlinks">
       <a href="#glossary">Glossary</a>
@@ -213,19 +217,22 @@
       <div class="hero-copy">
         <div class="eyebrow">
           <svg class="horn" viewBox="0 0 100 100"><path d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
-          Self-Study · Wealth Management Data & Client Portal Terminology
+          Self-Study · Wealth Management Data Analyst Role
         </div>
-        <h1>Know the vocabulary <em>cold</em>, wherever you take it.</h1>
+        <h1>Know the vocabulary <em>cold</em> before the interview.</h1>
         <p class="hero-sub">
-          A glossary of every technical term and role from a real client-portal data program, written to
-          travel with you — not tied to one company. Each term gets a full definition, plus the real vendors
-          and competitors you'd actually run into in this space. Then a quiz to prove you've got it.
+          Every technical and wealth-management term pulled straight from the job description — SQL, ETL,
+          reconciliation, AUM, custodians, Databricks, PySpark, governance, certifications. Each one gets a
+          full definition, then a quiz to prove you've actually got it.
         </p>
         <div class="pill-row">
-          <span class="pill">Vendors & Custody</span>
-          <span class="pill">Data Platforms</span>
-          <span class="pill">Pipeline Concepts</span>
-          <span class="pill">Program Roles</span>
+          <span class="pill">SQL & Query Design</span>
+          <span class="pill">Data Validation & ETL</span>
+          <span class="pill">Wealth Management Data</span>
+          <span class="pill">Databricks & PySpark</span>
+          <span class="pill">Governance & Certifications</span>
+          <span class="pill">CI/CD & DevOps</span>
+          <span class="pill">Householding</span>
         </div>
       </div>
 
@@ -256,203 +263,314 @@
   </div>
   <div class="wrap">
     <p class="lede">
-      Every term is defined on its own, then anchored with a short "in practice" note so you can see how it
-      shows up on a real program — written generically so it applies at your next job too.
+      Organized to match the job description, section by section — query skills first, then data validation,
+      then the wealth-management domain knowledge, then the tooling and governance around it.
     </p>
 
-    <div class="cat-header"><span class="cat-label">Program & Governance</span></div>
+    <div class="cat-header"><span class="cat-label">SQL & Query Design</span></div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">End Client</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">The organization actually receiving the work — the company whose business the program serves — as distinct from any outside vendor supplying software or any consulting partner supplying expertise. Keeping this distinction clear is useful on any program: you'll usually have one end client, one or more vendors, and sometimes a consulting partner layered in between.</p>
-      <div class="term-context"><b>In practice</b>This guide uses "end client" as a stand-in for whatever company is actually implementing the program, so the concepts transfer cleanly to a different employer.</div>
+      <div class="term-head"><span class="term-name">SQL (Structured Query Language)</span><span class="term-tag">Language</span></div>
+      <p class="term-def">The standard language for querying and manipulating data stored in relational databases. "Expert-level SQL" means being fluent well beyond basic <code>SELECT</code> statements — comfortable combining multiple tables, writing readable multi-step logic, and reasoning about performance on large datasets.</p>
+      <div class="term-context"><b>In practice</b>SQL is the primary tool for both building analysis and validating that a pipeline's output actually matches what it should.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Strategic Program</span><span class="term-tag">Governance</span></div>
-      <p class="term-def">A body of work formally recognized by leadership as important enough to warrant dedicated budget, executive sponsorship, and regular visibility — as opposed to a routine project run entirely within one team. Strategic programs typically get a steering committee, milestone reporting up the chain, and cross-team coordination that ordinary projects don't.</p>
-      <div class="term-context"><b>In practice</b>Executive visibility raises the bar on documentation, communication cadence, and how carefully vendor decisions get evaluated before work starts.</div>
+      <div class="term-head"><span class="term-name">Multi-Table Joins</span><span class="term-tag">SQL Skill</span></div>
+      <p class="term-def">Combining rows from two or more tables based on a related column — for example, joining an accounts table to a transactions table on account ID. An <code>INNER JOIN</code> keeps only matching rows; a <code>LEFT JOIN</code> keeps every row from the first table even without a match, which matters when you specifically need to see what's missing.</p>
+      <div class="term-context"><b>In practice</b>Wealth-management questions almost always span several tables — accounts, holdings, transactions, fees — so comfortable multi-table joins are a baseline expectation, not a bonus skill.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Vendor Evaluation</span><span class="term-tag">Governance</span></div>
-      <p class="term-def">A structured process for comparing outside vendors against defined criteria — cost, capability fit, security posture, integration effort, references — before committing to one. A real evaluation produces a scored comparison and a documented recommendation, not just a preference.</p>
-      <div class="term-context"><b>In practice</b>A consulting partner is often brought in specifically to run this evaluation objectively before any building starts.</div>
-    </div>
-
-    <div class="cat-header"><span class="cat-label">Vendors & Consulting Partners</span></div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">Third-Party Vendor (Client Portal / Portfolio Reporting)</span><span class="term-tag">Vendor</span></div>
-      <p class="term-def">An outside software company whose packaged product you configure and integrate with, rather than building the same capability from scratch. In wealth management specifically, the "client portal" category is usually filled by a portfolio-reporting platform: something that aggregates holdings across custodians and asset types and produces the performance and allocation views clients see.</p>
-      <p class="term-def">Well-known names in this category include Addepar (built for complex, multi-entity, alternative-asset portfolios and considered the benchmark for ultra-high-net-worth reporting), Orion Advisor Tech (a broader all-in-one platform that also bundles CRM and trading), SS&C Black Diamond (known for polished, branded client reporting and a large integrations network), and Envestnet | Tamarac (common in firms already inside the Envestnet ecosystem). Each trades off implementation complexity against depth of reporting — the more complex the underlying portfolios, the more setup and ongoing operational ownership the platform tends to need.</p>
-      <div class="term-context"><b>In practice</b>The pipeline's whole job is producing clean, correctly-shaped files this kind of vendor can ingest to power the client-facing portfolio and performance views.</div>
+      <div class="term-head"><span class="term-name">CTE (Common Table Expression)</span><span class="term-tag">SQL Skill</span></div>
+      <p class="term-def">A named, temporary result set defined with a <code>WITH</code> clause at the start of a query, which the rest of the query can then reference like a table. CTEs break a complex query into readable, logical steps instead of one dense nested subquery, and can be chained one after another.</p>
+      <div class="term-context"><b>In practice</b>CTEs are how you make a multi-step reconciliation or aggregation query something a reviewer can actually follow.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Consulting Partner</span><span class="term-tag">Partner</span></div>
-      <p class="term-def">An outside firm engaged to supply expertise the internal team doesn't have in-house — commonly vendor evaluation, general consulting, and technology strategy. A consulting partner advises and often staffs the program day to day, but doesn't own the underlying product being implemented.</p>
-      <p class="term-def">One example of this kind of firm is Incedo Inc., a digital transformation, data, and AI consulting company founded in 2012 and headquartered in New Jersey, with additional delivery centers internationally. Incedo works across financial services, telecom, life sciences, and product engineering, pairing engineering and data-science capability with domain expertise, and holds a formal technology partnership with Databricks specifically around building and modernizing data platforms — directly relevant to a program like this one.</p>
-      <div class="term-context"><b>In practice</b>Consulting partners are typically where the "domain SME" running day-to-day KT sessions comes from.</div>
+      <div class="term-head"><span class="term-name">Window Functions</span><span class="term-tag">SQL Skill</span></div>
+      <p class="term-def">Functions that calculate a value across a set of related rows — a "window" — without collapsing those rows into a single output row the way <code>GROUP BY</code> does. Common examples include <code>ROW_NUMBER()</code>, running totals, and calculating period-over-period change using <code>LAG()</code>/<code>LEAD()</code>.</p>
+      <div class="term-context"><b>In practice</b>Window functions are exactly what's needed to calculate something like month-over-month portfolio performance without losing the individual transaction-level detail.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Domain SME</span><span class="term-tag">Role</span></div>
-      <p class="term-def">"SME" stands for Subject Matter Expert. A domain SME understands the business rules, terminology, and real-world workflow of an area deeply — here, wealth management — but isn't necessarily the person writing code. Their job is making sure what gets built actually matches how the business works, translating business needs into requirements a technical team can build against.</p>
-      <div class="term-context"><b>In practice</b>Domain, not developer, is the key distinction: this role owns correctness of the business logic, not the implementation of the pipeline itself.</div>
+      <div class="term-head"><span class="term-name">Subqueries</span><span class="term-tag">SQL Skill</span></div>
+      <p class="term-def">A query nested inside another query, used to filter, compare against, or supply values to the outer query. Subqueries can appear in the <code>WHERE</code>, <code>FROM</code>, or <code>SELECT</code> clause, and are often an alternative to — or combined with — a CTE.</p>
+      <div class="term-context"><b>In practice</b>Knowing when a subquery is clearer than a CTE (and vice versa) is part of what "analytical query design" is actually testing for.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Scrum Master</span><span class="term-tag">Role</span></div>
-      <p class="term-def">The Agile team role responsible for running process — standups, sprint planning, removing blockers — rather than doing hands-on technical or business-analysis work. A good Scrum Master protects the team's focus and keeps progress visible to stakeholders.</p>
-      <div class="term-context"><b>In practice</b>On an executive-visible program, this role is often the connective tissue between the working team and leadership reporting.</div>
+      <div class="term-head"><span class="term-name">Analytical Query Design</span><span class="term-tag">Skill</span></div>
+      <p class="term-def">The broader skill of structuring a query — or a sequence of queries — to answer a real business question efficiently and readably, not just technically correctly. This includes choosing the right join strategy, breaking logic into clear steps, and writing something a teammate could pick up and understand later.</p>
+      <div class="term-context"><b>In practice</b>This is the difference between a query that happens to return the right numbers and one that's maintainable, explainable, and fast on a large dataset.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Client Experience</span></div>
+    <div class="cat-header"><span class="cat-label">Requirements, Discovery & Validation</span></div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Client Portal</span><span class="term-tag">Product</span></div>
-      <p class="term-def">A self-service web or app interface that lets end clients log in and see their own information directly, without calling an advisor. In wealth management, this centers on account holdings, transactions, and performance — increasingly with mobile access expected as standard.</p>
-      <div class="term-context"><b>In practice</b>The portal is the visible tip of a much larger back-end pipeline; most of the actual program effort goes into what feeds it.</div>
+      <div class="term-head"><span class="term-name">Functional Requirements & Acceptance Criteria</span><span class="term-tag">Process</span></div>
+      <p class="term-def">Functional requirements describe what a piece of work needs to do, gathered from business stakeholders in their own language. Acceptance criteria translate that into specific, testable conditions — the concrete checklist used to determine whether the finished work actually satisfies the requirement.</p>
+      <div class="term-context"><b>In practice</b>A data analyst's job is often turning a stakeholder's plain-language ask ("show me fee revenue by advisor") into acceptance criteria precise enough for someone else to build and test against.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Portfolio & Performance</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">"Portfolio" refers to the full set of holdings — stocks, funds, cash, alternatives — in an account. "Performance" refers to how that portfolio's value has changed over time: returns, gains and losses, usually benchmarked against a comparison index. These two views are the core of what a wealth-management client wants from a portal.</p>
-      <div class="term-context"><b>In practice</b>These are the two things the portal is ultimately built to show — everything upstream exists to get this data correct and current.</div>
+      <div class="term-head"><span class="term-name">Data Discovery & Profiling</span><span class="term-tag">Process</span></div>
+      <p class="term-def">The process of exploring an unfamiliar dataset before relying on it — understanding what tables and fields exist, how they relate, what a "normal" value looks like, and where the gaps, duplicates, or inconsistencies are. Profiling typically means running summary statistics, checking for nulls, and spot-checking against known-good records.</p>
+      <div class="term-context"><b>In practice</b>This is usually the first real step on any new dataset, well before writing analysis — you can't trust a query's output if you don't understand the data feeding it.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Data & Systems</span></div>
+    <div class="term">
+      <div class="term-head"><span class="term-name">ETL (Extract, Transform, Load)</span><span class="term-tag">Process</span></div>
+      <p class="term-def">The general pattern for moving data from source systems into a destination system usable for analysis: Extract pulls raw data out, Transform cleans and reshapes it according to business rules, and Load writes the result into its destination (a table, a file, another system). "ELT" is a common variant where the raw data is loaded first and transformed afterward, inside the destination platform.</p>
+      <div class="term-context"><b>In practice</b>Validating an ETL process means checking each of those three steps independently — did extraction miss anything, did the transform logic apply correctly, did the load land intact.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Reconciliation (Source vs. Target)</span><span class="term-tag">Validation</span></div>
+      <p class="term-def">Comparing data at its origin (the source) against the same data after it has moved through a pipeline (the target) to confirm nothing was lost, duplicated, or altered incorrectly along the way. This might mean comparing row counts, sums of key fields (like total AUM), or matching individual records one-to-one.</p>
+      <div class="term-context"><b>In practice</b>Reconciliation is the core technique for proving a pipeline's business logic is correct — not just that it ran without errors, but that its output actually ties back to the source.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Test Cases (Data Validation)</span><span class="term-tag">Validation</span></div>
+      <p class="term-def">Specific, documented scenarios written to verify a pipeline or piece of logic behaves correctly — including edge cases, not just the typical case. A good test case states the input, the expected output, and how to check it, so someone else can run it and get the same result.</p>
+      <div class="term-context"><b>In practice</b>Writing test cases for a new custodian feed or business-logic rule is how you catch problems before they reach a client-facing report.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Quality Issues</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Problems in a dataset that make it inaccurate, incomplete, or inconsistent — missing values, duplicate records, mismatched formats between systems, outdated reference data, or values that fall outside a plausible range. Documenting these clearly (what's wrong, how big the impact is, which records are affected) is as important as finding them.</p>
+      <div class="term-context"><b>In practice</b>Clear documentation of a quality issue is what lets a business stakeholder or engineer actually act on it, rather than just being told "something's off."</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Wealth Management Data Concepts</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">AUM (Assets Under Management)</span><span class="term-tag">Metric</span></div>
+      <p class="term-def">The total market value of the investments a firm or advisor manages on behalf of clients, typically calculated by summing the current value of all client holdings. AUM is a central metric in wealth management — it usually drives both how a firm's success is measured and how many fee structures are calculated.</p>
+      <div class="term-context"><b>In practice</b>Reconciling AUM between a custodian feed and an internal system is one of the most common validation exercises in this kind of role.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Portfolio Holdings</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">The specific set of investments — stocks, bonds, funds, cash, alternatives — held in an account at a given point in time, including quantity and market value for each position. Holdings data is typically snapshot-based (as-of a date) rather than continuous.</p>
+      <div class="term-context"><b>In practice</b>Holdings are usually the largest and most detail-heavy dataset in a wealth-management pipeline, since every account can hold dozens of individual positions.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Performance Returns</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">How a portfolio's value has changed over a period, usually expressed as a percentage and often benchmarked against a comparison index. Calculating returns correctly requires accounting for cash flows in and out of the account (deposits, withdrawals) so the number reflects investment performance, not just account activity.</p>
+      <div class="term-context"><b>In practice</b>Performance calculations are a common source of reconciliation disputes, since small differences in methodology (time-weighted vs. money-weighted return) can produce genuinely different, both "correct," numbers.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Fees</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Charges applied to a client's account — most commonly an advisory or management fee calculated as a percentage of AUM, billed on a regular schedule (often quarterly). Fee data needs to tie precisely back to the AUM and billing methodology it was calculated from, since it directly affects client statements and revenue reporting.</p>
+      <div class="term-context"><b>In practice</b>Fee logic is a classic candidate for a validation test case — a small error in the calculation compounds across every client account it touches.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Transactions</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Individual events that change an account's holdings or cash balance — buys, sells, dividends, deposits, withdrawals, fee debits, and transfers. Transaction-level data is what holdings and performance are ultimately built from, so errors here tend to cascade downstream.</p>
+      <div class="term-context"><b>In practice</b>When a holdings or performance number looks wrong, tracing it back to the underlying transactions is usually the first debugging step.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Custodians & Wealth-Tech Platforms</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Custodian Feeds</span><span class="term-tag">Data Source</span></div>
+      <p class="term-def">A custodian is a financial institution that holds and safeguards client assets and handles trade settlement and recordkeeping. Custodians deliver data — holdings, transactions, balances — to advisory firms as structured feed files, typically on a daily basis, and each custodian tends to have its own file format and quirks.</p>
+      <p class="term-def">The custody market is concentrated: Charles Schwab is generally the largest custodian for independent advisory firms, followed by Fidelity, then BNY Pershing and LPL Financial — together these four control the large majority of custodied assets in the U.S. Reconciling a custodian's feed against internal records is a routine, recurring task, since format changes or dropped records on the custodian side happen and need to be caught.</p>
+      <div class="term-context"><b>In practice</b>Exposure to more than one custodian's feed format (Schwab, Pershing, Fidelity) is exactly what lets an analyst spot when something is off before it reaches a client report.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Wealth & Portfolio Management Platforms</span><span class="term-tag">Vendor</span></div>
+      <p class="term-def">Software platforms that aggregate holdings across custodians and asset types to produce performance, allocation, and client-facing reports. Addepar is generally considered the benchmark for complex, multi-entity, alternative-asset portfolios at the high-net-worth level. Orion Advisor Tech is a broader all-in-one platform that also bundles CRM and trading. SS&C Black Diamond is known for polished, branded client reporting with a large integrations network and a lighter implementation footprint than Addepar.</p>
+      <div class="term-context"><b>In practice</b>Whichever platform is in use, an analyst's work usually ends with data landing in one of these — so understanding the shape of data they expect matters directly.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Python & Data Tooling</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Python for Data Analysis</span><span class="term-tag">Language</span></div>
+      <p class="term-def">Python is a general-purpose programming language widely used for ad hoc data exploration, scripting, and automation because of its readable syntax and mature data-analysis libraries. In this kind of role it typically supplements SQL — used for tasks SQL is clumsier at, like complex reshaping, statistical checks, or generating a one-off report.</p>
+      <div class="term-context"><b>In practice</b>A common workflow is pulling data with SQL, then using Python for the last mile of analysis or validation logic that's awkward to express in a query.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">pandas</span><span class="term-tag">Library</span></div>
+      <p class="term-def">The standard Python library for working with tabular data — think of it as a spreadsheet inside Python. Its core object, the DataFrame, supports filtering, joining, grouping, and reshaping data with code instead of clicking through a UI, and it's the most common tool for ad hoc data profiling and validation scripts.</p>
+      <div class="term-context"><b>In practice</b>pandas is typically where a reconciliation script actually lives — pulling both source and target data, then comparing them programmatically instead of by hand.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">NumPy</span><span class="term-tag">Library</span></div>
+      <p class="term-def">A foundational Python library for fast numerical computation, built around efficient array operations. pandas itself is built on top of NumPy — so even when an analyst doesn't call NumPy directly, it's usually doing the underlying math whenever pandas performs a calculation across a column of numbers.</p>
+      <div class="term-context"><b>In practice</b>NumPy shows up directly when doing vectorized calculations — like computing returns across thousands of accounts at once — faster than looping row by row.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">PySpark</span><span class="term-tag">Library</span></div>
+      <p class="term-def">The Python interface to Apache Spark, the distributed data-processing engine. PySpark lets an analyst write familiar-feeling Python/pandas-style code that actually runs across a cluster of machines in parallel, which matters once a dataset is too large for a single machine's memory to handle efficiently.</p>
+      <div class="term-context"><b>In practice</b>PySpark is the tool of choice once profiling or transformation work outgrows what pandas can comfortably handle on one machine — commonly inside Databricks.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Databricks & Cloud Data Platforms</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Data Platform (Lakehouse)</span><span class="term-tag">Platform</span></div>
-      <p class="term-def">A unified data platform — often called a "lakehouse" — that combines large-scale data storage with the compute needed to process, transform, and analyze that data in one place, instead of storage and processing living in separate, disconnected tools. Databricks is a leading example, built on the open-source Apache Spark project and Delta Lake storage format, and is commonly used for data engineering, streaming, and machine-learning workloads.</p>
-      <p class="term-def">Databricks is frequently compared to Snowflake, another major cloud data platform. Snowflake began as a SQL-first, fully-managed data warehouse optimized for business intelligence and reporting — minimal setup, strong for analysts running dashboards. Databricks leans toward large-scale engineering and ML workloads and gives teams more direct control over infrastructure. Many organizations run both together: a lakehouse platform like Databricks for ingestion and transformation, and a warehouse like Snowflake for downstream analytics and reporting.</p>
-      <div class="term-context"><b>In practice</b>This is where source-system data lands, gets checked for quality, and has business logic applied before files are built for the portal vendor.</div>
+      <p class="term-def">A unified data platform — often called a "lakehouse" — that combines large-scale data storage with the compute needed to process, transform, and analyze that data in one place, instead of storage and processing living in separate, disconnected tools. Databricks is a leading example, built on the open-source Apache Spark project and the Delta Lake storage format.</p>
+      <div class="term-context"><b>In practice</b>This is typically where a wealth-management analyst would query and profile large datasets — custodian feeds, transaction history — using SQL or PySpark.</div>
     </div>
-
-    <div class="cat-header"><span class="cat-label">Databricks Architecture Deep-Dive</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Apache Spark</span><span class="term-tag">Engine</span></div>
-      <p class="term-def">An open-source distributed data-processing engine that splits large computations across many machines so they run in parallel, instead of on one machine at a time. Spark can process data in-memory, which makes it fast for the kind of large-scale transformations a wealth-management pipeline needs, and it supports multiple languages — Python, SQL, Scala, and R — often in the same notebook.</p>
-      <div class="term-context"><b>In practice</b>Databricks was built by the original creators of Spark, and Spark is the compute engine actually running the transformation code underneath every Databricks job.</div>
+      <p class="term-def">An open-source distributed data-processing engine that splits large computations across many machines so they run in parallel, instead of on one machine at a time. Spark can process data in-memory, which makes it fast for large-scale transformations, and it supports multiple languages — Python, SQL, Scala, and R — often in the same notebook.</p>
+      <div class="term-context"><b>In practice</b>Databricks was built by Spark's original creators, and Spark is the engine actually executing the query or transformation underneath every Databricks job.</div>
     </div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Delta Lake</span><span class="term-tag">Storage Format</span></div>
-      <p class="term-def">An open-source storage layer that adds database-like reliability to files sitting in cheap cloud storage. Specifically, it adds ACID transactions (so a write either fully succeeds or fully fails — never leaves data half-written), schema enforcement (rejecting data that doesn't match the expected structure), schema evolution (safely adding new fields over time), and "time travel" (the ability to query a table as it existed at an earlier point, which is invaluable for debugging a bad run).</p>
-      <div class="term-context"><b>In practice</b>Delta Lake is the default table format across a Databricks pipeline — every layer of the pipeline is typically stored as Delta tables rather than plain files.</div>
+      <p class="term-def">An open-source storage layer that adds database-like reliability to files sitting in cloud storage: ACID transactions (a write either fully succeeds or fully fails), schema enforcement and evolution, and "time travel" — the ability to query a table as it existed at an earlier point, invaluable for debugging a bad run.</p>
+      <div class="term-context"><b>In practice</b>Delta Lake is the default table format on Databricks — the pipeline's tables are typically Delta tables rather than plain files.</div>
     </div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Unity Catalog</span><span class="term-tag">Governance</span></div>
-      <p class="term-def">Databricks' centralized governance layer for data and AI assets. It provides fine-grained access control (down to specific columns, not just whole tables), a searchable catalog of what data exists and where, lineage tracking (showing exactly which upstream tables and columns fed into a given result), and audit logging of who accessed what.</p>
-      <div class="term-context"><b>In practice</b>This is what lets a program prove — to auditors or to itself — exactly where a number in the client portal actually came from.</div>
+      <p class="term-def">Databricks' centralized governance layer for data assets: fine-grained access control (down to specific columns), a searchable catalog of what data exists and where, lineage tracking showing which upstream tables fed a given result, and audit logging of who accessed what.</p>
+      <div class="term-context"><b>In practice</b>This is what lets a team prove exactly where a client-facing number came from — a direct extension of the data governance the role requires.</div>
     </div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Medallion Architecture (Bronze / Silver / Gold)</span><span class="term-tag">Pattern</span></div>
-      <p class="term-def">A data design pattern, sometimes called "multi-hop," that organizes a lakehouse into progressively refined layers. The Bronze layer holds raw, largely untouched data exactly as it arrived from source systems — append-only, kept for history and auditability. The Silver layer cleans, deduplicates, and standardizes that data into a validated, joined view. The Gold layer holds business-ready, aggregated tables shaped specifically for reporting and downstream consumption.</p>
-      <p class="term-def">Keeping the raw Bronze copy matters because it lets a team rebuild Silver and Gold from scratch if a transformation turns out to be wrong — without needing to re-pull from the original source system.</p>
-      <div class="term-context"><b>In practice</b>The files eventually delivered to the portal vendor are effectively a Gold-layer output — the end product of data that has already passed through Bronze and Silver.</div>
+      <p class="term-def">A data design pattern that organizes a lakehouse into progressively refined layers. Bronze holds raw, largely untouched data exactly as it arrived from source systems. Silver cleans, deduplicates, and standardizes that data into a validated view. Gold holds business-ready, aggregated tables shaped for reporting and downstream use.</p>
+      <div class="term-context"><b>In practice</b>Reconciliation is often done layer by layer — checking that Silver still matches Bronze, then that Gold still matches Silver, to isolate exactly where a discrepancy was introduced.</div>
     </div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Batch vs. Streaming</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">Two different ways to move data through a pipeline. Batch processing handles data in scheduled, discrete chunks — for example, a job that runs once every night. Streaming (in Databricks, using Spark Structured Streaming) processes data continuously as it arrives, which matters when near-real-time freshness is required rather than a daily snapshot.</p>
-      <div class="term-context"><b>In practice</b>Most portfolio and performance reporting is well served by batch processing on a daily schedule; streaming is reserved for cases where staleness of even a few hours would be a real problem.</div>
+      <p class="term-def">Two ways to move data through a pipeline. Batch processing handles data in scheduled, discrete chunks — for example, a job that runs once every night on the prior day's custodian feed. Streaming processes data continuously as it arrives, used when near-real-time freshness genuinely matters.</p>
+      <div class="term-context"><b>In practice</b>Most wealth-management reporting is well served by nightly batch processing; daily custodian feeds are themselves a batch pattern.</div>
     </div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Cluster & Notebook</span><span class="term-tag">Compute</span></div>
-      <p class="term-def">A cluster is the actual set of compute resources — virtual machines — that runs the processing work; clusters can scale up or down with the workload and shut off automatically when idle to control cost. A notebook is the interactive, cell-by-cell coding environment engineers use to write and run that processing code, mixing Python, SQL, and markdown documentation in one place.</p>
-      <div class="term-context"><b>In practice</b>Ad hoc exploration usually happens in a notebook run manually on a small cluster; the finished logic then gets scheduled to run automatically as part of the production pipeline.</div>
+      <p class="term-def">A cluster is the actual compute resources — virtual machines — running the processing work, scaling up or down with the workload. A notebook is the interactive, cell-by-cell coding environment used to write and run that code, mixing Python, SQL, and documentation in one place.</p>
+      <div class="term-context"><b>In practice</b>Ad hoc data discovery and profiling typically happens directly in a notebook against a small cluster before any logic gets scheduled to run automatically.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Source System</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">Any system where data originates — the "system of record" for a particular kind of information, before it's copied or transformed anywhere else. Common examples on a wealth-management program include account-opening tools and the CRM.</p>
-      <div class="term-context"><b>In practice</b>Every downstream number should be traceable back to a specific source system — that traceability is what makes debugging a bad number possible.</div>
+      <div class="term-head"><span class="term-name">Cloud Data Platforms (AWS, Azure, Snowflake)</span><span class="term-tag">Platform</span></div>
+      <p class="term-def">Beyond Databricks, the other major cloud platforms an analyst may encounter: AWS and Azure are the underlying cloud infrastructure providers Databricks and other tools often run on top of, while Snowflake is a SQL-first, fully-managed data warehouse — strong for analysts running dashboards and reports, with less emphasis on large-scale engineering than a Spark-based platform.</p>
+      <div class="term-context"><b>In practice</b>Many organizations run more than one of these together — for example, Databricks for ingestion and transformation, with Snowflake or a BI tool serving the final reporting layer.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Governance, Compliance & Risk</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Data Governance</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">The set of policies, roles, and controls that determine who can access data, how it's classified, how its quality is maintained, and how changes to it are tracked. Governance is what turns "we have a lot of data" into "we can trust and control this data."</p>
+      <div class="term-context"><b>In practice</b>In financial services this isn't optional — governance decisions directly support regulatory requirements around data accuracy and access control.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">CRM (Customer Relationship Management)</span><span class="term-tag">System</span></div>
-      <p class="term-def">Software for tracking clients, advisors, interactions, and account relationships — the operational record of who a firm serves and how. In wealth management specifically, firms typically choose between a large, highly customizable horizontal platform and a purpose-built advisor CRM.</p>
-      <p class="term-def">Salesforce, through its Financial Services Cloud product, is the dominant horizontal option — powerful and extensively customizable, but more expensive and more complex to configure, and generally favored by larger enterprise firms. Purpose-built alternatives like Redtail (the longtime market-share leader on affordability and integrations) and Wealthbox (newer, known for a modern interface and faster onboarding) trade some of that flexibility for lower cost and CRM features built specifically around advisor workflows, and are more common at small-to-mid-sized firms.</p>
-      <div class="term-context"><b>In practice</b>Whichever CRM is in use, it's typically one of the named source systems feeding client and account data into the data platform.</div>
+      <div class="term-head"><span class="term-name">Data Quality Framework</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">A structured, repeatable approach to measuring and maintaining data quality — typically defined across dimensions like accuracy, completeness, consistency, timeliness, and uniqueness, with specific rules and thresholds for each. A framework turns ad hoc "this looks wrong" checks into a consistent, monitored process.</p>
+      <div class="term-context"><b>In practice</b>Rather than reinventing checks for every new dataset, a mature team applies the same quality dimensions consistently across all of its pipelines.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Data Ecosystem</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">The full collection of systems, pipelines, storage, and tools that together produce, move, transform, and consume an organization's data — the bigger picture that any one source system or pipeline is just a piece of.</p>
-      <div class="term-context"><b>In practice</b>Early program work often includes mapping this whole ecosystem before committing to a specific pipeline design, so nothing gets missed.</div>
+      <div class="term-head"><span class="term-name">Regulatory Compliance (Financial Services)</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">The requirement that data handling, recordkeeping, and reporting meet standards set by financial regulators — in the U.S., bodies like the SEC and FINRA. This includes rules around recordkeeping retention, accurate client reporting, and data security, all of which shape how a pipeline is designed, not just how it's used.</p>
+      <div class="term-context"><b>In practice</b>A data quality issue in a regulated firm isn't just an internal inconvenience — it can have compliance implications, which is part of why documentation and reconciliation matter so much.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Data Quality Checks</span><span class="term-tag">Process</span></div>
-      <p class="term-def">Automated validation rules that confirm data is accurate, complete, and consistent before it's trusted or passed downstream — checking for things like missing fields, out-of-range values, or mismatched records between systems.</p>
-      <div class="term-context"><b>In practice</b>These checks typically run inside the data platform, before any file is generated for the vendor — catching problems before a client ever sees them.</div>
+      <div class="term-head"><span class="term-name">Predictive Analytics & ML Applications</span><span class="term-tag">Concept</span></div>
+      <p class="term-def">Using historical data to build models that estimate future outcomes or classify clients, rather than simply reporting what already happened. Two common financial-services examples: client segmentation, which groups clients by behavior or characteristics to tailor service or outreach, and risk modeling, which estimates the likelihood or size of a potential loss or adverse event.</p>
+      <div class="term-context"><b>In practice</b>This is listed as a "plus," not a core requirement — a data analyst is more likely to prepare clean, reliable data that a data scientist then models than to build the model itself, but basic familiarity helps in cross-functional conversations.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Certifications</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">CFA (Chartered Financial Analyst)</span><span class="term-tag">Certification</span></div>
+      <p class="term-def">A globally recognized credential from the CFA Institute focused on investment analysis, portfolio management, and ethics, earned through three graduate-level exams plus qualifying work experience. It's considered the standard credential for investment management roles broadly, not specific to data or performance-reporting work.</p>
+      <div class="term-context"><b>In practice</b>A CFA signals broad investment knowledge — useful context for a data analyst, though the role itself is centered on data and pipeline skills rather than investment decision-making.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Business Logic</span><span class="term-tag">Process</span></div>
-      <p class="term-def">The set of rules that encode how the business actually wants data handled or transformed, beyond simply copying it from one place to another. Business logic is what turns raw data into the correct answer for a specific real-world use case — for example, how to treat an account differently depending on which custodian holds it.</p>
-      <div class="term-context"><b>In practice</b>Business logic is usually scoped around a specific, limited set of integrations rather than built generically for every possible case up front.</div>
+      <div class="term-head"><span class="term-name">CIPM (Certificate in Investment Performance Measurement)</span><span class="term-tag">Certification</span></div>
+      <p class="term-def">Also offered by the CFA Institute, but narrower and more directly relevant to this kind of role: CIPM focuses specifically on investment performance measurement, attribution, and the GIPS (Global Investment Performance Standards) that govern how performance is calculated and presented. It's earned through two exam levels and has no work-experience prerequisite.</p>
+      <div class="term-context"><b>In practice</b>Of the two, CIPM maps more directly onto the performance-returns and reconciliation work this role actually does day to day.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Engineering Practices & Tooling</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">CI/CD Pipeline</span><span class="term-tag">Practice</span></div>
+      <p class="term-def">"CI" (Continuous Integration) means code changes are automatically tested and merged frequently, rather than sitting unintegrated for a long time. "CD" (Continuous Delivery/Deployment) means those changes are automatically packaged and pushed toward production once they pass. Together, a CI/CD pipeline automates the path from a code change to a running, tested change — reducing manual, error-prone release steps.</p>
+      <div class="term-context"><b>In practice</b>Moving data pipeline code onto CI/CD is what makes it safe to change business logic without someone manually deploying it and hoping nothing breaks.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Exception Queue</span><span class="term-tag">Process</span></div>
-      <p class="term-def">A holding area where records that fail a validation or business-logic rule get routed, instead of either silently passing through wrong or breaking the whole pipeline. Someone, or some downstream process, works the queue to fix or discard those records.</p>
-      <div class="term-context"><b>In practice</b>A healthy exception queue is actively worked, not just accumulated — an ever-growing queue is usually a sign the upstream data or rules need attention.</div>
+      <div class="term-head"><span class="term-name">SFTP (Secure File Transfer Protocol)</span><span class="term-tag">Delivery Method</span></div>
+      <p class="term-def">A network protocol for securely transferring files between systems, encrypting both the login credentials and the file contents in transit. It's a common, standardized way for one organization to deliver files to another on a schedule — for example, dropping a daily reconciliation file for a vendor to pick up.</p>
+      <div class="term-context"><b>In practice</b>Moving file delivery to SFTP is typically about standardizing and securing a handoff that may have previously relied on a less secure or more manual method.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Production Pipeline</span><span class="term-tag">Process</span></div>
-      <p class="term-def">An automated data workflow running in the live ("production") environment on a real schedule, with monitoring and alerting — as opposed to a one-off script or something only running in development or testing.</p>
-      <div class="term-context"><b>In practice</b>This is the machinery that reliably moves data from source systems to the vendor on an ongoing basis, not just for the initial rollout.</div>
-    </div>
-
-    <div class="cat-header"><span class="cat-label">Custody & Integrations</span></div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">Custodian</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">A financial institution that physically holds and safeguards a client's securities and cash on behalf of the advisor or firm, and handles trade settlement and recordkeeping. Advisors direct the investment decisions; the custodian holds the assets and is subject to regulatory oversight designed to protect them.</p>
-      <p class="term-def">The custody market is concentrated among a handful of large players. Charles Schwab is generally the largest, followed by Fidelity, then BNY Pershing and LPL Financial — together these four control the large majority of custodied assets among independent advisory firms in the U.S. Pershing tends to serve larger, more operationally complex firms and family offices; LPL operates as both a broker-dealer and a custodian, appealing to hybrid advisors; and newer, tech-first entrants like Altruist target smaller firms with modern digital tools, no account minimums, and simplified pricing. Most sizeable advisory firms end up integrating with more than one custodian rather than just one.</p>
-      <div class="term-context"><b>In practice</b>Because almost every wealth-management data program eventually has to build a custodian integration, this is one of the highest-value concepts to understand cold.</div>
+      <div class="term-head"><span class="term-name">Infrastructure as Code (Terraform)</span><span class="term-tag">Practice</span></div>
+      <p class="term-def">The practice of defining infrastructure — servers, networking, permissions, cloud resources — in version-controlled configuration files instead of setting it up by hand through a UI. Terraform is a widely used tool for this: you describe the infrastructure you want, and it creates, updates, or tears it down to match, consistently and repeatably.</p>
+      <div class="term-context"><b>In practice</b>Whether a team uses Terraform (or a similar tool) versus configuring environments by hand is a real, meaningful choice — it determines how easy it is to reliably reproduce a dev/test/prod environment.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Charles Schwab</span><span class="term-tag">Custodian</span></div>
-      <p class="term-def">Charles Schwab & Co., through its Schwab Advisor Services division, is one of the largest and most established custodians serving independent Registered Investment Advisors in the U.S. It provides custody, trade execution, and account administration for client assets, along with the technology and support services advisors rely on to run their practices — account opening, reporting integrations, and consultative support for growing a firm.</p>
-      <p class="term-def">As a registered broker-dealer and SIPC member, Schwab is subject to extensive regulatory oversight designed to protect assets held in accounts at the firm. Its scale is a major differentiator: Schwab custodies several trillion dollars in advisory assets across well over ten thousand advisory firms, more than any other custodian, which is part of why so many wealth-management data programs treat a Schwab integration as a default rather than an edge case.</p>
-      <div class="term-context"><b>In practice</b>A named custodian integration like this is typically one of a small, explicitly-scoped set the business logic is built around — not an open-ended list.</div>
+      <div class="term-head"><span class="term-name">Azure DevOps</span><span class="term-tag">Platform</span></div>
+      <p class="term-def">A Microsoft platform that bundles several software delivery tools together: source control (repos), CI/CD pipelines, work-item/board tracking, and test management, all in one product. It serves a similar overall purpose to combining separate tools like GitHub, Jenkins, and Jira — just packaged as one integrated suite.</p>
+      <div class="term-context"><b>In practice</b>Which platform a team standardizes on shapes daily workflow — code review, deployment approvals, and task tracking all happen inside it.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Direct Business</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">Assets or accounts held directly by the firm itself, rather than through an outside custodian relationship. Direct business typically needs its own data-handling rules, since it doesn't arrive through a standardized custodian feed the way custodied accounts do.</p>
-      <div class="term-context"><b>In practice</b>Direct business is often the trickier of any two paired integrations, precisely because there's no external custodian format to lean on.</div>
-    </div>
-
-    <div class="cat-header"><span class="cat-label">Process & Delivery</span></div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">Knowledge Transfer (KT) Session</span><span class="term-tag">Process</span></div>
-      <p class="term-def">A working session, usually led by whoever already knows a system or domain, designed to transfer that knowledge to a new or growing team — walking through file structures, logic, and history rather than just handing over documentation.</p>
-      <div class="term-context"><b>In practice</b>Effective KT is often two-track: one thread onboarding people to the technical environment, another onboarding them to the business/domain context — both matter equally.</div>
+      <div class="term-head"><span class="term-name">Source Control & Issue Tracking (Bitbucket, GitHub, Jira)</span><span class="term-tag">Tooling</span></div>
+      <p class="term-def">Bitbucket and GitHub are both Git-based source control platforms for storing and collaborating on code, with pull requests, code review, and integrated CI/CD; Bitbucket is more common in shops already standardized on Atlassian's tools. Jira, also from Atlassian, is separate from either — it's a work-tracking tool for tickets, sprints, and backlogs, used to plan and track the work itself rather than store the code.</p>
+      <div class="term-context"><b>In practice</b>Knowing which of these a team actually uses (and whether they're separate products or bundled, as in Azure DevOps) is basic but essential onboarding information.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Phased Rollout</span><span class="term-tag">Process</span></div>
-      <p class="term-def">Delivering a program in stages over time, rather than launching everything at once (a "big bang" release). Each phase typically expands scope, user population, or functionality once the prior phase has proven stable.</p>
-      <div class="term-context"><b>In practice</b>An initial client-facing release usually lands well before the program is fully "done" — the remaining phases continue to expand coverage afterward.</div>
+      <div class="term-head"><span class="term-name">Static Code Analysis (SonarQube)</span><span class="term-tag">Tooling</span></div>
+      <p class="term-def">Automatically scanning source code for bugs, security vulnerabilities, and style/maintainability issues without actually running the code. SonarQube is a common tool for this, typically wired into a CI/CD pipeline so every code change gets scanned automatically before it can be merged.</p>
+      <div class="term-context"><b>In practice</b>This is a quality gate that catches issues earlier and more consistently than relying on manual code review alone.</div>
     </div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Data Practice</span><span class="term-tag">Concept</span></div>
-      <p class="term-def">A formalized, repeatable organizational capability for managing data — standards, roles, tooling, and process — as opposed to data work happening ad hoc, project by project. Building one is a long-term investment that outlasts any single implementation.</p>
-      <div class="term-context"><b>In practice</b>A single high-visibility implementation like a client-portal build is often used as the proof point that justifies investing in a broader, lasting data practice.</div>
+      <div class="term-head"><span class="term-name">Databricks Workspaces & Non-Prod Catalogs</span><span class="term-tag">Environment</span></div>
+      <p class="term-def">A Databricks workspace is a separate environment (with its own clusters, notebooks, and access controls) — teams commonly maintain separate workspaces for development, testing, and production so that work-in-progress code never touches live data or live jobs. Unity Catalog can likewise be scoped per environment, so a non-production catalog holds non-production data and schemas, distinct from the catalog production jobs actually read from and write to.</p>
+      <p class="term-def">Without this separation, engineers end up editing and testing directly against production — a real risk, since an untested change can immediately affect live client-facing data with no safety net.</p>
+      <div class="term-context"><b>In practice</b>Standing up a genuine dev/test/prod split (separate workspaces, and ideally a separate non-prod catalog) is usually a prerequisite for safely adopting CI/CD in the first place.</div>
+    </div>
+
+    <div class="cat-header"><span class="cat-label">Householding & Requirements Scoping</span></div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Householding</span><span class="term-tag">Wealth Concept</span></div>
+      <p class="term-def">The practice of grouping a client's related accounts — spouses, family members, trusts, multiple account types — into a single "household" view, rather than looking at each account in isolation. Householding supports a more complete picture of a family's total wealth, risk exposure, and tax situation, and increasingly drives coordinated, household-level rebalancing and billing rather than just account-level reporting.</p>
+      <p class="term-def">A common operational challenge: a household and an individual client within it can look similar or ambiguous in a system's UI, so accidentally selecting the wrong level (household vs. an individual client inside it) produces a genuinely different number — since a household's total net worth is not the same figure as any one client's net worth within it.</p>
+      <div class="term-context"><b>In practice</b>Getting householding logic right is a recurring source of gaps between what a portfolio-reporting vendor supports natively and what a firm actually needs.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Logic Enhancement vs. Utility (Scoping Framework)</span><span class="term-tag">Process</span></div>
+      <p class="term-def">A way of triaging a functional gap once it's identified. First check whether the vendor platform already handles it natively — if so, no build is needed. If not, decide whether it belongs in the core pipeline as a <b>logic enhancement</b> (a change to the actual business logic/data pipeline), or whether it's better solved with a purpose-built <b>utility</b> — a separate tool built specifically to handle that gap, kept outside the core pipeline logic.</p>
+      <p class="term-def">The framework exists because a utility can technically be built to handle almost anything, which makes it tempting to overuse; the better test is business impact and whether the fix genuinely belongs inside the core data logic or is a narrower, separable problem.</p>
+      <div class="term-context"><b>In practice</b>Applying this triage consistently — rather than defaulting to "build a utility" every time — is what keeps a data pipeline's core logic from becoming a patchwork of one-off exceptions.</div>
+    </div>
+
+    <div class="term">
+      <div class="term-head"><span class="term-name">Current State vs. Future State Analysis</span><span class="term-tag">Process</span></div>
+      <p class="term-def">A standard business-analysis technique: documenting exactly how something works today (current state) alongside exactly how it should work once a fix or enhancement is complete (future state), so a gap has a clear, agreed starting point and end point rather than an open-ended discussion.</p>
+      <div class="term-context"><b>In practice</b>Defining the future state explicitly — including which parts will be handled by the vendor's interface versus a custom-built utility — is what turns a requirements conversation into something a team can actually estimate and schedule.</div>
     </div>
   </div>
 </section>
@@ -466,20 +584,20 @@
   </div>
   <div class="wrap">
     <p class="lede">
-      50 questions testing whether you actually understand each term — including a deep run through Databricks
-      architecture — not just the definition. Progress saves on this device.
+      71 questions testing whether you actually understand each term — heavy on SQL, data validation, and
+      Databricks/PySpark, matched directly to the job description. Progress saves on this device.
     </p>
 
     <div id="quiz-progress">
-      <span id="progress-text">Question 1 of 50</span>
-      <span id="score-pill">Score: 0 / 50</span>
+      <span id="progress-text">Question 1 of 71</span>
+      <span id="score-pill">Score: 0 / 71</span>
     </div>
 
     <div id="quiz-container"></div>
 
     <div id="quiz-results">
-      <div class="big" id="final-score">0 / 50</div>
-      <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in the glossary and retake — the vendor-comparison questions are worth another pass.</p>
+      <div class="big" id="final-score">0 / 71</div>
+      <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in the glossary and retake — the SQL and reconciliation questions are worth another pass before an interview.</p>
       <button class="btn" id="retry-btn">Retake Quiz</button>
     </div>
   </div>
@@ -487,277 +605,346 @@
 
 <footer>
   <svg width="26" height="26" viewBox="0 0 100 100"><path fill="#E87722" d="M50 55c-18-2-32-20-30-34 1-8 8-6 9 1 1 9 8 17 15 20-3-14 2-27 10-27s13 13 10 27c7-3 14-11 15-20 1-7 8-9 9-1 2 14-12 32-30 34-2 8-2 16 0 24h-8c2-8 2-16 0-24z"/></svg>
-  Wealth Management Data & Client Portal Terminology · Self-Study Guide
+  Wealth Management Data Analyst · Technical Vocabulary Study Guide
 </footer>
 
 <script>
 const QUESTIONS = [
   {
-    q: "What distinguishes an 'end client' from a vendor or consulting partner?",
-    choices: ["They're interchangeable terms", "The end client is the organization actually receiving/using the program's output, not a company supplying software or expertise", "The end client always builds the software in-house", "There is no meaningful difference"],
-    correct: 1,
-    explain: "End client = who the work is for. Vendor = who supplies the product. Consulting partner = who supplies outside expertise."
-  },
-  {
-    q: "A 'strategic program' is best distinguished from a routine project by:",
-    choices: ["Being smaller in scope", "Formal executive sponsorship, dedicated budget, and regular visibility up the leadership chain", "Never having a timeline", "Being run without any documentation"],
-    correct: 1,
-    explain: "Executive-visible programs get steering committees and milestone reporting that routine projects skip."
-  },
-  {
-    q: "A proper vendor evaluation produces:",
-    choices: ["A single person's gut-feel recommendation", "A structured, scored comparison against defined criteria, with a documented recommendation", "A verbal agreement with no paper trail", "An automatic default to the cheapest option"],
-    correct: 1,
-    explain: "Evaluation means criteria + scoring + documentation, not just a preference."
-  },
-  {
-    q: "In the client-portal / portfolio-reporting vendor category, Addepar is generally considered strongest for:",
-    choices: ["Simple, single-account retail portfolios", "Complex, multi-entity, alternative-asset portfolios at the ultra-high-net-worth level", "Free budgeting apps for individuals", "Only CRM functionality"],
-    correct: 1,
-    explain: "Addepar is widely regarded as the benchmark for complex, multi-entity UHNW reporting."
-  },
-  {
-    q: "What differentiates SS&C Black Diamond from Addepar in this vendor category?",
+    q: "What distinguishes a LEFT JOIN from an INNER JOIN?",
     choices: [
-      "Black Diamond is a CRM only",
-      "Black Diamond is generally viewed as more accessible with polished client reporting, while Addepar handles deeper portfolio complexity",
-      "They are the same product under different names",
-      "Neither offers a client portal"
+      "They always return identical results",
+      "A LEFT JOIN keeps every row from the first table even without a match; an INNER JOIN keeps only matching rows",
+      "A LEFT JOIN can only be used with one table",
+      "An INNER JOIN is faster but returns no data"
     ],
     correct: 1,
-    explain: "Black Diamond trades some of Addepar's complexity-handling for a lighter implementation and more approachable interface."
+    explain: "LEFT JOIN preserves unmatched rows from the left table (useful for finding what's missing); INNER JOIN drops them."
   },
   {
-    q: "A consulting partner's typical role on a program like this is to:",
+    q: "What is a CTE (Common Table Expression) used for?",
     choices: [
-      "Own and sell the client-facing product",
-      "Supply outside expertise — evaluation, consulting, technology strategy — without owning the underlying vendor product",
-      "Replace the end client's leadership team",
-      "Serve exclusively as the custodian"
+      "Permanently storing a table in the database",
+      "Defining a named, temporary result set with a WITH clause so a complex query can be broken into readable steps",
+      "Encrypting sensitive columns",
+      "Replacing the need for joins entirely"
     ],
     correct: 1,
-    explain: "Consulting partners advise and often staff the work, but the vendor still owns the product being implemented."
+    explain: "CTEs make multi-step logic readable by naming intermediate steps instead of nesting everything in one query."
   },
   {
-    q: "A 'domain SME' is best described as:",
+    q: "What do window functions let you do that GROUP BY cannot?",
     choices: [
-      "A developer who writes the pipeline code",
-      "Someone with deep business/workflow knowledge who ensures what's built matches real business needs, without necessarily coding it",
-      "The vendor's account manager",
-      "A synonym for Scrum Master"
+      "Nothing — they are identical",
+      "Calculate a value across a set of related rows without collapsing those rows into a single output row",
+      "Delete duplicate rows automatically",
+      "Connect to multiple databases at once"
     ],
     correct: 1,
-    explain: "Domain, not developer, is the defining trait — the value is business/workflow expertise."
+    explain: "Window functions (like running totals or LAG/LEAD) preserve row-level detail while still computing across a group."
   },
   {
-    q: "A Scrum Master's core responsibility is:",
-    choices: ["Writing the business requirements", "Running the Agile process and removing blockers for the team", "Approving vendor contracts", "Performing data quality checks"],
-    correct: 1,
-    explain: "Scrum Master is a process-facilitation role, not a technical or business-analysis role."
-  },
-  {
-    q: "What does a client portal fundamentally provide?",
+    q: "A subquery is:",
     choices: [
-      "Internal reporting for the exec team",
-      "Self-service access for end clients to view their own information directly",
-      "A place for advisors to log support tickets",
-      "A vendor evaluation scorecard"
-    ],
-    correct: 1,
-    explain: "Client portals let end clients see their own data without going through an advisor."
-  },
-  {
-    q: "In wealth management, 'performance' specifically refers to:",
-    choices: ["The list of holdings in an account", "How a portfolio's value has changed over time, usually benchmarked", "The custodian's uptime", "The vendor's delivery timeline"],
-    correct: 1,
-    explain: "Portfolio = what you hold. Performance = how it has done over time, benchmarked against a comparison."
-  },
-  {
-    q: "Why is a 'lakehouse' platform like Databricks described as combining two older approaches?",
-    choices: [
-      "It only stores files, nothing else",
-      "It merges data-warehouse structure/governance with data-lake flexibility and raw storage, plus the compute to process it all in one place",
-      "It's a CRM system",
-      "It's the client-facing portal"
-    ],
-    correct: 1,
-    explain: "Lakehouse = warehouse-style reliability + lake-style flexibility, unified with compute."
-  },
-  {
-    q: "How does Snowflake generally differ from Databricks?",
-    choices: [
-      "Snowflake and Databricks are the same product",
-      "Snowflake is a SQL-first, fully-managed data warehouse optimized for BI/reporting; Databricks leans toward large-scale engineering, streaming, and ML",
-      "Snowflake only runs on-premises",
-      "Databricks cannot run SQL at all"
-    ],
-    correct: 1,
-    explain: "Many organizations run both: Databricks for engineering/ML, Snowflake for downstream analytics."
-  },
-  {
-    q: "A 'source system' is:",
-    choices: [
-      "Any system where data originates, before being copied elsewhere",
-      "The final destination file sent to the vendor",
-      "A synonym for exception queue",
-      "The custodian's internal database"
+      "A query nested inside another query, used to filter, compare, or supply values to the outer query",
+      "A query that only works on one table",
+      "A synonym for a stored procedure",
+      "A type of database index"
     ],
     correct: 0,
-    explain: "Account opening tools and the CRM are typical source systems — origin points for data."
+    explain: "Subqueries live inside WHERE, FROM, or SELECT clauses and are an alternative or complement to CTEs."
   },
   {
-    q: "For a large enterprise wealth management firm, which CRM approach is generally favored?",
+    q: "'Analytical query design' as a skill is best described as:",
     choices: [
-      "A highly customizable horizontal platform like Salesforce Financial Services Cloud",
-      "A free spreadsheet",
-      "No CRM at all",
-      "Exclusively mobile apps"
-    ],
-    correct: 0,
-    explain: "Salesforce FSC is powerful and customizable but costs more and takes more effort to configure — a fit for larger firms."
-  },
-  {
-    q: "Purpose-built advisor CRMs like Redtail and Wealthbox typically trade what for what?",
-    choices: [
-      "They trade cost for extra features nobody uses",
-      "They trade some customization flexibility for lower cost, faster setup, and native advisor-workflow features",
-      "They trade compliance for speed",
-      "They have no meaningful tradeoffs versus Salesforce"
+      "Writing the shortest possible query regardless of readability",
+      "Structuring a query (or sequence of queries) to answer a real business question efficiently and in a way others can follow",
+      "Avoiding joins whenever possible",
+      "Only using SELECT * to keep things simple"
     ],
     correct: 1,
-    explain: "Purpose-built CRMs are faster and cheaper to stand up, with less raw flexibility than a platform like Salesforce."
+    explain: "Good query design balances correctness, performance, and readability — not just getting the right numbers."
   },
   {
-    q: "How does a 'data ecosystem' differ from a single source system?",
+    q: "Why would you choose a CTE over a deeply nested subquery for a complex reconciliation query?",
     choices: [
-      "They're identical terms",
-      "A data ecosystem is the full interconnected collection of systems, pipelines, and tools; a source system is just one origin point within it",
-      "A data ecosystem only refers to one platform",
-      "A source system is larger than a data ecosystem"
+      "CTEs always run faster in every database",
+      "CTEs break logic into named, sequential steps that are easier for a reviewer to follow and debug",
+      "Subqueries are not allowed in SQL",
+      "There is no meaningful difference in any situation"
     ],
     correct: 1,
-    explain: "Ecosystem = the whole web of systems/tools. Source system = one piece of it."
+    explain: "Readability and maintainability are the main practical reason to prefer CTEs for multi-step logic."
   },
   {
-    q: "What is the purpose of data quality checks?",
+    q: "Multi-table joins are especially important in wealth-management analysis because:",
     choices: [
-      "To make the pipeline run faster",
-      "To confirm data is accurate, complete, and consistent before it's trusted downstream",
-      "To replace the need for business logic",
-      "To evaluate vendors"
+      "Wealth-management data is always stored in a single table",
+      "Questions typically span several related tables — accounts, holdings, transactions, fees — that must be combined",
+      "Joins are only used for reporting, never for validation",
+      "Custodian data cannot be joined to internal data"
     ],
     correct: 1,
-    explain: "Quality checks validate data before it's passed further down the pipeline."
+    explain: "Real questions ('fee revenue by advisor,' 'holdings by account') require combining multiple related tables."
   },
   {
-    q: "'Business logic' in a data pipeline refers to:",
+    q: "Which SQL feature would you use to calculate a running total of transactions per account, keeping every row visible?",
+    choices: ["GROUP BY alone", "A window function", "DROP TABLE", "A LEFT JOIN alone"],
+    correct: 1,
+    explain: "Window functions compute a running total across ordered rows without collapsing the detail rows."
+  },
+  {
+    q: "The difference between functional requirements and acceptance criteria is:",
     choices: [
-      "The org chart for the program",
-      "Rules that transform raw data according to real business/use-case requirements, not just copying it",
-      "The custodian's legal terms",
-      "The KT session schedule"
+      "They are the same thing with different names",
+      "Functional requirements describe what work needs to do; acceptance criteria are the specific, testable conditions that prove it does it",
+      "Acceptance criteria come before requirements are gathered",
+      "Functional requirements are only used in Python, not SQL"
     ],
     correct: 1,
-    explain: "Business logic encodes how the business wants data handled — the 'right answer' logic, not raw pass-through."
+    explain: "Requirements describe intent; acceptance criteria make that intent testable and verifiable."
   },
   {
-    q: "An exception queue exists to:",
+    q: "What is the purpose of data discovery and profiling on a new dataset?",
     choices: [
-      "Store all successfully processed records",
-      "Hold records that fail validation or business rules so they can be reviewed/fixed instead of silently breaking the pipeline",
-      "Log every KT session",
-      "House the vendor's source code"
+      "To immediately build a client-facing report",
+      "To understand what exists, how it relates, and where the gaps or inconsistencies are before relying on the data",
+      "To delete data that looks unfamiliar",
+      "To replace the need for reconciliation later"
     ],
     correct: 1,
-    explain: "It's a holding pen for problem records — not a general-purpose log."
+    explain: "Profiling comes first — you can't trust downstream analysis on data you don't yet understand."
   },
   {
-    q: "What distinguishes a 'production pipeline' from a script used only in testing?",
+    q: "In the ETL pattern, what happens during the 'Transform' step?",
     choices: [
-      "Nothing — they're the same",
-      "A production pipeline runs live, on a schedule, with monitoring, and its output actually reaches downstream systems and clients",
-      "Production pipelines don't touch real data",
-      "Production pipelines skip data quality checks"
+      "Data is deleted from the source system",
+      "Data is cleaned and reshaped according to business rules",
+      "Data is only copied, with no changes",
+      "Data is sent directly to clients"
     ],
     correct: 1,
-    explain: "Production means live, scheduled, monitored — with real consequences if it breaks."
+    explain: "Extract pulls data out, Transform applies cleaning/business logic, Load writes the result to its destination."
   },
   {
-    q: "Which four firms are generally described as controlling the large majority of RIA custodied assets in the U.S.?",
+    q: "How does 'ELT' differ from 'ETL'?",
     choices: [
-      "Salesforce, Redtail, Wealthbox, Orion",
+      "They are unrelated concepts",
+      "In ELT, raw data is loaded into the destination first and transformed afterward, inside that platform",
+      "ELT never involves a data platform",
+      "ELT skips the extract step entirely"
+    ],
+    correct: 1,
+    explain: "ELT reorders the steps — load first, then transform in place — common on modern lakehouse platforms."
+  },
+  {
+    q: "What does source-vs-target reconciliation actually verify?",
+    choices: [
+      "That a pipeline ran without throwing an error",
+      "That data at its origin matches the same data after moving through a pipeline — nothing lost, duplicated, or altered incorrectly",
+      "That a report looks visually appealing",
+      "That a custodian's website is online"
+    ],
+    correct: 1,
+    explain: "A pipeline can run error-free and still produce wrong numbers — reconciliation checks the actual output against the source."
+  },
+  {
+    q: "A good test case for validating a data pipeline should include:",
+    choices: [
+      "Only the happy path, never edge cases",
+      "The input, the expected output, and how to check it, including edge cases",
+      "No documentation, just a pass/fail result",
+      "Only manual, undocumented checks"
+    ],
+    correct: 1,
+    explain: "A reusable test case needs enough detail that someone else can run it and verify the same result."
+  },
+  {
+    q: "Why is documenting a data quality issue clearly just as important as finding it?",
+    choices: [
+      "It isn't — finding the issue is enough",
+      "Clear documentation (what's wrong, scope, affected records) is what lets a stakeholder or engineer actually act on it",
+      "Documentation replaces the need to fix anything",
+      "Only automated systems need documentation, not people"
+    ],
+    correct: 1,
+    explain: "An undocumented 'something's off' can't be prioritized or fixed — scope and impact need to be spelled out."
+  },
+  {
+    q: "AUM (Assets Under Management) is best defined as:",
+    choices: [
+      "The number of clients a firm has",
+      "The total market value of investments a firm or advisor manages on behalf of clients",
+      "The total fees collected in a year",
+      "The number of custodians a firm uses"
+    ],
+    correct: 1,
+    explain: "AUM is a value metric — the sum of current holdings' market value across managed accounts."
+  },
+  {
+    q: "Why is reconciling AUM between a custodian feed and internal systems such a common task?",
+    choices: [
+      "AUM never changes, so it's an easy check",
+      "AUM drives fee calculations and firm-level reporting, so a mismatch has direct downstream consequences",
+      "Custodians never provide AUM data",
+      "It's purely a marketing exercise"
+    ],
+    correct: 1,
+    explain: "Because fees and reporting depend on AUM, errors here compound — making reconciliation a routine, high-value check."
+  },
+  {
+    q: "'Portfolio holdings' data is typically:",
+    choices: [
+      "A continuous, unbroken stream with no point-in-time structure",
+      "Snapshot-based — the specific positions and market values held as of a given date",
+      "Only relevant to CRM systems, not portfolios",
+      "The same thing as a transaction record"
+    ],
+    correct: 1,
+    explain: "Holdings represent a point-in-time snapshot; transactions are the events that change those holdings over time."
+  },
+  {
+    q: "Why can two different, both technically 'correct,' performance return numbers exist for the same account?",
+    choices: [
+      "One of them must always be a data error",
+      "Different methodologies (e.g. time-weighted vs. money-weighted return) can produce different, legitimate results",
+      "Performance returns are never calculable",
+      "Custodians do not provide performance data"
+    ],
+    correct: 1,
+    explain: "Methodology differences are a real, common source of reconciliation disputes in performance reporting."
+  },
+  {
+    q: "Advisory or management fees are most commonly calculated as:",
+    choices: [
+      "A flat fee unrelated to account value",
+      "A percentage of AUM, billed on a regular schedule such as quarterly",
+      "A one-time charge at account opening only",
+      "A fee set entirely by the custodian"
+    ],
+    correct: 1,
+    explain: "AUM-based percentage fees, billed periodically, are the standard model in wealth management."
+  },
+  {
+    q: "When a holdings or performance number looks wrong, the first debugging step is usually to:",
+    choices: [
+      "Delete the account from the report",
+      "Trace the number back to the underlying transactions that produced it",
+      "Assume the custodian is always at fault",
+      "Rebuild the entire pipeline from scratch"
+    ],
+    correct: 1,
+    explain: "Since holdings and performance are built from transactions, tracing back to transaction-level detail is the standard first step."
+  },
+  {
+    q: "What is a custodian's core role in wealth management?",
+    choices: [
+      "Providing CRM software to advisors",
+      "Holding and safeguarding client assets and handling trade settlement and recordkeeping",
+      "Building client-facing portals",
+      "Only providing tax advice"
+    ],
+    correct: 1,
+    explain: "Custodians hold the assets and handle settlement; advisors direct the investment decisions."
+  },
+  {
+    q: "Which four firms are generally described as controlling the large majority of custodied assets among U.S. independent advisory firms?",
+    choices: [
+      "Addepar, Orion, Black Diamond, Snowflake",
       "Charles Schwab, Fidelity, BNY Pershing, and LPL Financial",
-      "Addepar, Black Diamond, Orion, Tamarac",
-      "Databricks, Snowflake, AWS, Azure"
+      "AWS, Azure, Databricks, Snowflake",
+      "Python, SQL, PySpark, NumPy"
     ],
     correct: 1,
-    explain: "These four are typically cited as the dominant RIA custodians, controlling most custodied assets."
+    explain: "These four are typically cited as the dominant custodians by assets among RIAs."
   },
   {
-    q: "What makes Charles Schwab's Advisor Services division notable in scale?",
+    q: "Why does each custodian's feed format matter to a data analyst?",
     choices: [
-      "It serves fewer than 100 advisory firms",
-      "It custodies several trillion dollars in advisory assets across well over ten thousand firms — more than any other custodian",
-      "It only serves individual retail investors",
-      "It does not custody any assets"
+      "All custodians use an identical file format, so it doesn't matter",
+      "Each custodian tends to have its own format and quirks, so format changes or dropped records need to be actively caught",
+      "Custodian feeds never contain transaction data",
+      "Custodian feeds are only used for marketing"
     ],
     correct: 1,
-    explain: "Schwab is generally the largest RIA custodian by both assets and number of firms served."
+    explain: "Differences between custodian formats are exactly why reconciliation and format-awareness matter in this role."
   },
   {
-    q: "'Direct business' means:",
+    q: "Addepar is generally considered the strongest fit for:",
     choices: [
-      "Business run entirely through a single named custodian",
-      "Assets/accounts held directly by the firm itself, not through an outside custodian",
-      "Any account opened via the CRM",
-      "A type of exception queue"
+      "Simple, single-account retail portfolios",
+      "Complex, multi-entity, alternative-asset portfolios at the high-net-worth level",
+      "Only CRM functionality",
+      "Custodian trade settlement"
     ],
     correct: 1,
-    explain: "Direct business is the counterpart to custodian-held business — it needs its own handling rules since there's no external custodian feed format to lean on."
+    explain: "Addepar is widely regarded as the benchmark for complex, multi-entity, alternatives-heavy reporting."
   },
   {
-    q: "Why does a program often care about building a lasting 'data practice,' beyond just one implementation?",
+    q: "What differentiates SS&C Black Diamond from Addepar?",
     choices: [
-      "It doesn't — it's unrelated to any single build",
-      "A data practice is a repeatable organizational capability (standards, roles, tooling) for managing data long-term, and one visible program is often used to justify investing in it",
-      "It's another name for a lakehouse platform",
-      "It refers only to the KT session schedule"
+      "They are the same product",
+      "Black Diamond is generally viewed as more accessible with polished client reporting and a lighter implementation, while Addepar handles deeper portfolio complexity",
+      "Black Diamond does not offer any client reporting",
+      "Addepar is a CRM, not a reporting platform"
     ],
     correct: 1,
-    explain: "A single high-visibility build is frequently the proof point for a broader, lasting data capability."
+    explain: "Black Diamond trades some of Addepar's complexity-handling for a more approachable interface and lighter setup."
+  },
+  {
+    q: "In this kind of role, what is Python for data analysis typically used alongside?",
+    choices: [
+      "It fully replaces the need for SQL",
+      "SQL — Python is typically used for tasks SQL is clumsier at, like complex reshaping or one-off validation logic",
+      "It is only used for building client portals",
+      "It cannot connect to any databases"
+    ],
+    correct: 1,
+    explain: "A common pattern is pulling data with SQL, then finishing analysis or validation logic in Python."
+  },
+  {
+    q: "What is pandas, in the context of Python data analysis?",
+    choices: [
+      "A cloud data warehouse",
+      "The standard Python library for working with tabular data, built around the DataFrame object",
+      "A SQL query optimizer",
+      "A custodian data format"
+    ],
+    correct: 1,
+    explain: "pandas is essentially a spreadsheet inside Python, used heavily for profiling and validation scripts."
+  },
+  {
+    q: "What is NumPy's relationship to pandas?",
+    choices: [
+      "They are unrelated, competing libraries",
+      "pandas is built on top of NumPy, which handles the underlying fast numerical array computation",
+      "NumPy replaces the need for pandas entirely",
+      "NumPy is only used for visualizations"
+    ],
+    correct: 1,
+    explain: "NumPy provides the efficient array math that pandas relies on under the hood."
+  },
+  {
+    q: "What does PySpark let an analyst do that plain pandas cannot easily do?",
+    choices: [
+      "Nothing — they are identical in capability",
+      "Write Python/pandas-style code that runs across a cluster of machines in parallel, for datasets too large for one machine",
+      "Connect to custodian feeds directly with no other tools",
+      "Replace the need for SQL entirely"
+    ],
+    correct: 1,
+    explain: "PySpark is Spark's Python interface — it scales familiar-feeling code across a distributed cluster."
   },
   {
     q: "What is Apache Spark, at its core?",
     choices: [
       "A CRM for financial advisors",
-      "An open-source distributed data-processing engine that splits large computations across many machines to run them in parallel",
+      "An open-source distributed data-processing engine that splits large computations across many machines to run in parallel",
       "A custodian data feed format",
-      "A client portal vendor"
+      "A wealth-management reporting platform"
     ],
     correct: 1,
     explain: "Spark distributes processing across machines rather than running everything on one — that's what makes it fast at scale."
-  },
-  {
-    q: "How is Databricks related to Apache Spark?",
-    choices: [
-      "They are unrelated products",
-      "Databricks was built by Spark's original creators and uses Spark as its underlying compute engine",
-      "Spark is a competitor CRM to Databricks",
-      "Spark only runs on Snowflake"
-    ],
-    correct: 1,
-    explain: "Databricks grew directly out of the Apache Spark project and runs transformation code on top of Spark."
-  },
-  {
-    q: "Why does Spark's ability to process data in-memory matter for a pipeline like this?",
-    choices: [
-      "It doesn't matter at all",
-      "In-memory processing is significantly faster for large-scale transformations than repeatedly reading and writing to disk",
-      "It removes the need for data quality checks",
-      "It replaces the need for a data platform entirely"
-    ],
-    correct: 1,
-    explain: "In-memory computation is a major reason Spark-based platforms handle large transformations quickly."
   },
   {
     q: "What does Delta Lake add on top of plain files sitting in cloud storage?",
@@ -771,43 +958,21 @@ const QUESTIONS = [
     explain: "Delta Lake is what turns raw files into something with transactional guarantees and version history."
   },
   {
-    q: "What does 'ACID transaction' mean in the context of Delta Lake?",
-    choices: [
-      "A marketing term with no real meaning",
-      "A write either fully succeeds or fully fails — data is never left half-written or in an inconsistent state",
-      "It means data is automatically deleted after use",
-      "It refers only to how fast a query runs"
-    ],
-    correct: 1,
-    explain: "ACID guarantees prevent partial, corrupted writes — critical when a job fails partway through."
-  },
-  {
     q: "What is 'time travel' in Delta Lake used for?",
     choices: [
       "Predicting future portfolio performance",
       "Querying a table as it existed at an earlier point in time — useful for debugging a bad transformation",
-      "Scheduling future KT sessions",
-      "Automatically archiving old client accounts"
+      "Automatically archiving old client accounts",
+      "Scheduling future reports"
     ],
     correct: 1,
-    explain: "Time travel lets engineers see exactly what a table looked like before a problematic change, without restoring from a separate backup."
-  },
-  {
-    q: "What does schema enforcement in Delta Lake protect against?",
-    choices: [
-      "Slow query performance",
-      "Data that doesn't match the expected structure silently corrupting a table",
-      "Unauthorized custodian access",
-      "Vendor evaluation errors"
-    ],
-    correct: 1,
-    explain: "Schema enforcement rejects writes that don't match the expected structure, catching problems before they spread downstream."
+    explain: "Time travel lets you see exactly what a table looked like before a problematic change."
   },
   {
     q: "What is Unity Catalog primarily used for?",
     choices: [
       "Running Spark jobs faster",
-      "Centralized data governance — access control, a searchable catalog, lineage tracking, and audit logging across the platform",
+      "Centralized data governance — access control, a searchable catalog, lineage tracking, and audit logging",
       "Generating client-facing performance reports",
       "Custodian trade settlement"
     ],
@@ -815,21 +980,10 @@ const QUESTIONS = [
     explain: "Unity Catalog is the governance layer: who can see what, where data came from, and who accessed it."
   },
   {
-    q: "What does 'lineage tracking' in Unity Catalog let a team do?",
-    choices: [
-      "Track advisor sales performance",
-      "Trace exactly which upstream tables and columns fed into a given downstream result",
-      "Automatically fix data quality issues",
-      "Replace the need for exception queues"
-    ],
-    correct: 1,
-    explain: "Lineage shows the full trail from a final number back to its original source — essential for debugging and audits."
-  },
-  {
     q: "In the medallion architecture, what does the Bronze layer contain?",
     choices: [
       "Fully aggregated, business-ready reporting tables",
-      "Raw, largely untouched data exactly as it arrived from source systems, kept for history and auditability",
+      "Raw, largely untouched data exactly as it arrived from source systems",
       "Only data that has passed all quality checks",
       "Client-facing portal content"
     ],
@@ -837,15 +991,15 @@ const QUESTIONS = [
     explain: "Bronze is the raw, append-only landing zone — the unaltered source of truth."
   },
   {
-    q: "What happens to data in the Silver layer of a medallion architecture?",
+    q: "What happens to data in the Silver layer?",
     choices: [
       "It is deleted to save storage",
-      "It is cleaned, deduplicated, and standardized into a validated, joined view",
-      "It is sent directly to the client portal untouched",
+      "It is cleaned, deduplicated, and standardized into a validated view",
+      "It is sent directly to clients untouched",
       "It skips all validation"
     ],
     correct: 1,
-    explain: "Silver is where cleansing, deduplication, and standardization happen — a validated, joined view of the data."
+    explain: "Silver is where cleansing, deduplication, and standardization happen."
   },
   {
     q: "What is the Gold layer designed for?",
@@ -856,29 +1010,18 @@ const QUESTIONS = [
       "Running Spark clusters"
     ],
     correct: 1,
-    explain: "Gold tables are the polished, consumption-ready output — the layer closest to what a report or portal actually uses."
+    explain: "Gold tables are the polished, consumption-ready output layer."
   },
   {
-    q: "Why does the medallion architecture keep a raw Bronze copy instead of transforming data immediately?",
+    q: "Why is layer-by-layer reconciliation (Bronze vs. Silver vs. Gold) a useful debugging technique?",
     choices: [
-      "It doesn't — Bronze is deleted after use",
-      "So the team can rebuild Silver and Gold from scratch if a transformation turns out to be wrong, without re-pulling from the original source",
-      "Because source systems require it contractually",
-      "Bronze is purely a legal formality with no technical purpose"
+      "It isn't useful — you should only check the final output",
+      "It isolates exactly where a discrepancy was introduced, rather than only knowing the final number is wrong",
+      "It replaces the need for source-vs-target reconciliation",
+      "It only works with streaming data"
     ],
     correct: 1,
-    explain: "Keeping raw history means a bad transformation is recoverable — you can always reprocess from Bronze."
-  },
-  {
-    q: "Why is medallion architecture sometimes called 'multi-hop'?",
-    choices: [
-      "Because data must physically move between different countries",
-      "Because data progressively 'hops' through Bronze, Silver, and Gold layers, improving in quality at each stage",
-      "Because it requires multiple vendors",
-      "Because it only applies to streaming data"
-    ],
-    correct: 1,
-    explain: "Each layer is a 'hop' — the data is the same information, progressively refined as it moves forward."
+    explain: "Checking each layer against the one before it pinpoints exactly which transformation introduced an error."
   },
   {
     q: "What's the practical difference between batch and streaming data processing?",
@@ -892,21 +1035,21 @@ const QUESTIONS = [
     explain: "Batch = scheduled chunks (e.g. nightly). Streaming = continuous, near-real-time processing."
   },
   {
-    q: "For most portfolio and performance reporting, which processing approach is typically sufficient?",
+    q: "Why is nightly batch processing usually sufficient for wealth-management reporting?",
     choices: [
-      "Streaming, because clients need second-by-second updates",
-      "Batch processing on a regular schedule, since daily freshness is usually enough",
-      "Neither — reporting requires manual data entry",
-      "Only Unity Catalog, with no processing engine"
+      "Clients require second-by-second updates",
+      "Custodian feeds themselves typically arrive daily, so batch matches the natural cadence of the underlying data",
+      "Streaming is not technically possible in finance",
+      "Batch processing cannot handle financial data"
     ],
     correct: 1,
-    explain: "Streaming is reserved for cases where even a few hours of staleness is a real problem — most reporting doesn't need that."
+    explain: "Since custodian feeds are usually daily, a nightly batch pipeline matches the actual rate the source data changes."
   },
   {
     q: "What is a Databricks cluster?",
     choices: [
       "A type of client portal",
-      "The actual set of compute resources (virtual machines) that runs the processing work, which can scale up/down and shut off when idle",
+      "The actual compute resources (virtual machines) that run the processing work",
       "A CRM data table",
       "A custodian's trading desk"
     ],
@@ -917,100 +1060,331 @@ const QUESTIONS = [
     q: "What is a notebook used for in a Databricks workflow?",
     choices: [
       "Storing client contact information",
-      "An interactive, cell-by-cell coding environment for writing and running processing code, often mixing Python, SQL, and documentation",
+      "An interactive, cell-by-cell coding environment for writing and running processing code",
       "Running the client-facing portal",
       "Replacing Unity Catalog"
     ],
     correct: 1,
-    explain: "Notebooks are where engineers write and test the code that a cluster then executes."
+    explain: "Notebooks are where engineers and analysts write and test code, mixing Python, SQL, and documentation."
   },
   {
-    q: "How does exploratory work in a notebook typically relate to the production pipeline?",
+    q: "How does Snowflake generally differ from a Spark-based platform like Databricks?",
     choices: [
-      "They are entirely unrelated",
-      "Logic is often prototyped manually in a notebook, then scheduled to run automatically as part of the production pipeline once finished",
-      "Notebooks replace the need for a production pipeline",
-      "Production pipelines cannot use any code written in a notebook"
+      "They are the same product",
+      "Snowflake is a SQL-first, fully-managed data warehouse strong for analysts and reporting; Databricks leans toward large-scale engineering",
+      "Snowflake cannot run SQL",
+      "Databricks only works with streaming data"
     ],
     correct: 1,
-    explain: "Notebooks are common for prototyping; the finished logic then gets scheduled as an automated job."
+    explain: "Snowflake emphasizes managed SQL analytics; Databricks/Spark emphasizes large-scale engineering and ML."
   },
   {
-    q: "What role does a data platform like Databricks play relative to Unity Catalog, Delta Lake, and Spark?",
+    q: "What roles do AWS and Azure typically play relative to a platform like Databricks?",
     choices: [
-      "They are four unrelated, competing products",
-      "Spark is the processing engine, Delta Lake is the storage format, and Unity Catalog is the governance layer — all unified within the Databricks platform",
-      "Unity Catalog replaces the need for Spark",
-      "Delta Lake is a competitor to Databricks"
+      "They are competitor CRM products",
+      "They are cloud infrastructure providers that platforms like Databricks and Snowflake often run on top of",
+      "They replace the need for SQL",
+      "They are custodian feed formats"
     ],
     correct: 1,
-    explain: "These pieces work together: Spark processes, Delta Lake stores reliably, and Unity Catalog governs access and lineage across it all."
+    explain: "AWS/Azure provide the underlying cloud infrastructure; Databricks and similar platforms run on top of them."
   },
   {
-    q: "Which of the following best describes the relationship between an 'end client' and a 'vendor' on a program like this?",
+    q: "What is the purpose of a data governance program?",
     choices: [
-      "They are the same organization",
-      "The end client receives and uses the outcome of the program; the vendor supplies a packaged product the program implements",
-      "The vendor always outranks the end client",
-      "There is no functional distinction between them"
+      "To make data harder to access for everyone",
+      "To define who can access data, how it's classified, how quality is maintained, and how changes are tracked",
+      "To replace the need for data quality checks",
+      "It only applies to client-facing systems"
     ],
     correct: 1,
-    explain: "Keeping this distinction straight is useful on any program, regardless of employer."
+    explain: "Governance is the policy and control layer that makes data trustworthy and properly access-controlled."
   },
   {
-    q: "What typically triggers a formal vendor evaluation rather than an informal choice?",
+    q: "A data quality framework typically defines quality across which kind of dimensions?",
     choices: [
-      "A program being small and low-visibility",
-      "A strategic, executive-visible program, where a documented, criteria-based comparison is expected before committing to a vendor",
-      "The absence of any consulting partner",
-      "A program with no budget"
+      "Only whether a report looks visually appealing",
+      "Dimensions like accuracy, completeness, consistency, timeliness, and uniqueness, each with specific rules",
+      "Only the speed of a query",
+      "Only the number of tables in a database"
     ],
     correct: 1,
-    explain: "Executive visibility raises the bar — decisions need to be justified with a scored comparison, not just a preference."
+    explain: "A real framework applies consistent, named quality dimensions rather than ad hoc, one-off checks."
   },
   {
-    q: "Why does traceability from the client portal's 'performance' number back to a specific source system matter?",
+    q: "In U.S. financial services, which bodies are commonly referenced in regulatory compliance around data and recordkeeping?",
     choices: [
-      "It doesn't — clients only care about the final number",
-      "It's what makes debugging a wrong number possible, and is central to what data quality checks and lineage tracking are for",
-      "It is only relevant to the CRM, not the data platform",
-      "It replaces the need for a custodian"
+      "The CFA Institute only",
+      "The SEC and FINRA",
+      "Only individual custodians, with no external regulator",
+      "There is no regulatory oversight of financial data"
     ],
     correct: 1,
-    explain: "Without traceability back to source, a wrong number in the portal is nearly impossible to root-cause."
+    explain: "The SEC and FINRA are the primary U.S. regulators shaping recordkeeping and reporting requirements in this space."
   },
   {
-    q: "Why would a program pair a custodian integration with its own dedicated business logic, rather than one generic rule set for all data?",
+    q: "Why can a data quality issue at a regulated financial firm carry more than just an internal inconvenience?",
     choices: [
-      "Generic rules always work fine for every custodian",
-      "Different custodians (and direct business) arrive in different formats and need their own handling rules to be processed correctly",
-      "Business logic is unrelated to custodians",
-      "Custodians do not provide any data at all"
+      "It never has consequences beyond the data team",
+      "It can have compliance implications, since accurate client reporting and recordkeeping are regulatory requirements",
+      "Regulators do not care about data accuracy",
+      "Only custodians face regulatory consequences, not advisory firms"
     ],
     correct: 1,
-    explain: "Each integration typically needs its own explicitly scoped business logic, since the underlying data formats differ."
+    explain: "In financial services, data quality is tied directly to regulatory obligations, not just internal accuracy."
   },
   {
-    q: "Taken together, what's the actual path data travels in a program like this, start to finish?",
+    q: "In predictive analytics for financial services, 'client segmentation' refers to:",
     choices: [
-      "Client portal → CRM → custodian, in that order",
-      "Source systems → data platform (Bronze/Silver/Gold, with quality checks and business logic) → exception handling → files → vendor → client portal",
-      "Custodian → exception queue → CRM, with no data platform involved",
-      "Vendor → source systems → client portal, skipping the data platform entirely"
+      "Physically separating client accounts by custodian",
+      "Grouping clients by behavior or characteristics to tailor service or outreach",
+      "A synonym for reconciliation",
+      "A type of SQL join"
     ],
     correct: 1,
-    explain: "This is the full chain: raw data in, progressively refined and validated, then delivered out to the vendor and finally the portal."
+    explain: "Segmentation groups clients for more tailored service, marketing, or advisory attention."
   },
   {
-    q: "The term 'lakehouse' is meant to capture the idea that Databricks combines:",
+    q: "What does 'risk modeling' generally estimate?",
     choices: [
-      "Two completely unrelated products bundled together for marketing purposes",
-      "The flexibility and raw-storage economics of a data lake with the structure, reliability, and governance of a data warehouse",
-      "A CRM and a custodian in a single tool",
-      "Streaming with no support for batch processing at all"
+      "The exact date a client will retire",
+      "The likelihood or size of a potential loss or adverse event",
+      "The color scheme of a client portal",
+      "The number of custodians a firm uses"
     ],
     correct: 1,
-    explain: "Lakehouse = data lake flexibility + data warehouse reliability, unified in one platform via Delta Lake and Unity Catalog."
+    explain: "Risk models estimate probability or magnitude of adverse financial outcomes, not unrelated business details."
+  },
+  {
+    q: "Why is a data analyst more likely to prepare data for a model than build the model itself?",
+    choices: [
+      "Data analysts are never involved in ML work at all",
+      "Predictive analytics/ML is typically listed as a 'plus' skill — the core role centers on clean, reliable data that a data scientist can then model",
+      "Models require no underlying data",
+      "Data preparation and modeling are the same task"
+    ],
+    correct: 1,
+    explain: "The role's core requirements are data-centric; ML familiarity is a bonus that helps in cross-functional work."
+  },
+  {
+    q: "What is the primary focus of the CFA (Chartered Financial Analyst) credential?",
+    choices: [
+      "SQL and data pipeline validation",
+      "Investment analysis, portfolio management, and ethics, broadly across investment management",
+      "Client portal design",
+      "Databricks administration"
+    ],
+    correct: 1,
+    explain: "CFA is a broad investment-management credential, not a data or technical certification."
+  },
+  {
+    q: "How does CIPM differ from CFA in focus?",
+    choices: [
+      "They are identical in scope",
+      "CIPM focuses specifically on investment performance measurement, attribution, and the GIPS standards, rather than broad investment management",
+      "CIPM has no connection to the CFA Institute",
+      "CIPM requires more work experience than CFA"
+    ],
+    correct: 1,
+    explain: "CIPM is narrower and more directly tied to performance measurement/reporting than the broader CFA program."
+  },
+  {
+    q: "Why does CIPM map more directly onto a wealth-management data analyst role than CFA does?",
+    choices: [
+      "It doesn't — CFA is always more relevant",
+      "CIPM's focus on performance measurement and GIPS standards aligns closely with the performance-returns and reconciliation work the role actually does",
+      "CIPM is unrelated to performance reporting",
+      "CFA is only relevant to custodians, not analysts"
+    ],
+    correct: 1,
+    explain: "The role's day-to-day work — validating performance and reconciling data — lines up closely with what CIPM covers."
+  },
+  {
+    q: "What does the 'CI' in CI/CD stand for, and what does it mean in practice?",
+    choices: [
+      "Client Integration — connecting to custodian feeds",
+      "Continuous Integration — code changes are automatically tested and merged frequently rather than sitting unintegrated",
+      "Cloud Infrastructure — a synonym for AWS",
+      "Custodian Interface — a type of data feed"
+    ],
+    correct: 1,
+    explain: "CI means frequent, automatically-tested integration of code changes rather than long-lived, unmerged branches."
+  },
+  {
+    q: "What problem does moving data pipeline code onto CI/CD primarily solve?",
+    choices: [
+      "It eliminates the need for any code review",
+      "It replaces manual, error-prone deployment steps with automated testing and release",
+      "It removes the need for a data platform",
+      "It guarantees business logic is always correct"
+    ],
+    correct: 1,
+    explain: "CI/CD automates the path from code change to tested, deployed change — reducing manual deployment risk."
+  },
+  {
+    q: "What does SFTP add compared to a plain, unencrypted file transfer?",
+    choices: [
+      "Nothing — it's identical to FTP",
+      "Encryption of both login credentials and file contents in transit",
+      "Automatic data quality checks",
+      "It only works for Databricks-to-Databricks transfers"
+    ],
+    correct: 1,
+    explain: "SFTP secures both the authentication and the file contents during transfer, unlike plain FTP."
+  },
+  {
+    q: "What is 'Infrastructure as Code' (using a tool like Terraform)?",
+    choices: [
+      "Writing SQL queries against infrastructure tables",
+      "Defining infrastructure in version-controlled configuration files instead of setting it up manually through a UI",
+      "A synonym for CI/CD",
+      "A method for encrypting file transfers"
+    ],
+    correct: 1,
+    explain: "Terraform-style IaC describes desired infrastructure in code, which is then created/updated/torn down to match — repeatably."
+  },
+  {
+    q: "Why does it matter whether a team uses Terraform versus configuring environments by hand?",
+    choices: [
+      "It doesn't matter at all",
+      "It determines how reliably and consistently environments like dev/test/prod can be reproduced",
+      "Manual configuration is always faster and safer",
+      "Terraform can only be used for Databricks specifically"
+    ],
+    correct: 1,
+    explain: "Codified infrastructure is reproducible and consistent; manual setup is harder to replicate reliably across environments."
+  },
+  {
+    q: "What does Azure DevOps bundle together in one platform?",
+    choices: [
+      "Only source control, nothing else",
+      "Source control, CI/CD pipelines, work-item/board tracking, and test management",
+      "Only a custodian data feed viewer",
+      "Only client portal hosting"
+    ],
+    correct: 1,
+    explain: "Azure DevOps combines several tools (repos, pipelines, boards) that other shops might run as separate products."
+  },
+  {
+    q: "What is the core difference between GitHub/Bitbucket and Jira?",
+    choices: [
+      "They are the same type of tool",
+      "GitHub/Bitbucket store and manage code (with review and CI/CD); Jira tracks the work itself — tickets, sprints, backlogs",
+      "Jira is used only for custodian reconciliation",
+      "GitHub is only for documentation, not code"
+    ],
+    correct: 1,
+    explain: "Source control platforms manage code; Jira manages the planning and tracking of the work around that code."
+  },
+  {
+    q: "What does a tool like SonarQube do?",
+    choices: [
+      "Runs the production data pipeline",
+      "Automatically scans source code for bugs, security issues, and maintainability problems without running the code",
+      "Delivers files via SFTP",
+      "Tracks Jira tickets"
+    ],
+    correct: 1,
+    explain: "Static code analysis tools like SonarQube catch code-quality and security issues automatically, often as part of CI/CD."
+  },
+  {
+    q: "Why do teams typically maintain separate Databricks workspaces for dev, test, and production?",
+    choices: [
+      "It's purely a licensing requirement with no technical purpose",
+      "So that work-in-progress code never touches live data or live jobs, avoiding untested changes hitting production directly",
+      "Because a single workspace cannot run more than one notebook",
+      "Because Unity Catalog requires exactly one workspace per company"
+    ],
+    correct: 1,
+    explain: "Separate workspaces prevent in-progress work from accidentally affecting production data or jobs."
+  },
+  {
+    q: "What is the risk of not having a separate non-production catalog and directly editing production code?",
+    choices: [
+      "There is no real risk",
+      "An untested change can immediately affect live, client-facing data with no safety net",
+      "It only affects Jira ticket tracking",
+      "It makes SFTP delivery faster"
+    ],
+    correct: 1,
+    explain: "Without dev/test separation, mistakes go straight to production, since there's no buffer to catch them first."
+  },
+  {
+    q: "What is 'householding' in wealth management?",
+    choices: [
+      "A type of custodian",
+      "Grouping a client's related accounts (spouses, family members, trusts) into a single household view rather than looking at each account in isolation",
+      "A method for encrypting client data",
+      "A synonym for AUM"
+    ],
+    correct: 1,
+    explain: "Householding aggregates related accounts to give a complete picture of a family's total wealth, risk, and tax position."
+  },
+  {
+    q: "Why can householding create a real operational risk in a portal's UI?",
+    choices: [
+      "It cannot create any risk since households are always clearly labeled",
+      "A household and an individual client within it can look similar, so selecting the wrong one produces a genuinely different net worth figure",
+      "Householding always overstates a client's net worth",
+      "It only affects custodian feed formats, not the UI"
+    ],
+    correct: 1,
+    explain: "A household's total net worth is a different number from any one client's within it — picking the wrong level matters."
+  },
+  {
+    q: "In the logic-enhancement-vs-utility scoping framework, what's the first question to ask about a functional gap?",
+    choices: [
+      "Whether it's cheaper to build a utility than to fix the logic",
+      "Whether the vendor platform already handles it natively, in which case no build is needed at all",
+      "Whether Jira has a ticket for it already",
+      "Whether the custodian supports it"
+    ],
+    correct: 1,
+    explain: "Checking native vendor capability first avoids building something that already exists in the platform."
+  },
+  {
+    q: "How does a 'logic enhancement' differ from a 'utility' in this framework?",
+    choices: [
+      "They are the same thing",
+      "A logic enhancement changes the core business logic/pipeline itself; a utility is a separate, purpose-built tool kept outside that core logic",
+      "A utility always replaces the need for a data pipeline",
+      "A logic enhancement is always cheaper to build than a utility"
+    ],
+    correct: 1,
+    explain: "Logic enhancements live inside the core pipeline; utilities are separable tools built around a specific gap."
+  },
+  {
+    q: "Why does the framework warn against defaulting to 'build a utility' for every gap?",
+    choices: [
+      "Utilities are technically impossible to build",
+      "A utility can technically be built to handle almost anything, which makes it tempting to overuse rather than fixing the actual logic when that's the better fit",
+      "Utilities always cost more than logic enhancements",
+      "Utilities are not compatible with CI/CD"
+    ],
+    correct: 1,
+    explain: "The ease of 'just build a utility' is exactly why business impact — not convenience — should drive the decision."
+  },
+  {
+    q: "What is the purpose of documenting 'current state vs. future state' for a functional gap?",
+    choices: [
+      "It's a purely academic exercise with no practical use",
+      "It gives the gap a clear, agreed starting point and end point, turning an open-ended discussion into something a team can estimate and schedule",
+      "It replaces the need for acceptance criteria",
+      "It only applies to custodian integrations"
+    ],
+    correct: 1,
+    explain: "Current/future state analysis turns a vague problem into a concrete before-and-after that can actually be planned against."
+  },
+  {
+    q: "When defining a 'future state' for a UI-driven gap like householding, what should be specified?",
+    choices: [
+      "Nothing beyond a general wish for it to work better",
+      "Which parts will be handled by the vendor's interface versus a custom-built utility, and what the advisor should be able to do directly",
+      "Only the custodian feed format involved",
+      "Only the CI/CD tooling to be used"
+    ],
+    correct: 1,
+    explain: "A usable future-state definition assigns each piece to a clear owner — vendor interface, utility, or advisor action."
   }
 ];
 
@@ -1026,7 +1400,7 @@ const finalScore = document.getElementById('final-score');
 
 function loadState(){
   try{
-    const saved = JSON.parse(localStorage.getItem('wealthTechGlossaryQuiz'));
+    const saved = JSON.parse(localStorage.getItem('wealthAnalystVocabQuiz'));
     if(saved && saved.answered && saved.answered.length === QUESTIONS.length){
       answered = saved.answered;
       score = saved.score;
@@ -1035,7 +1409,7 @@ function loadState(){
 }
 function saveState(){
   try{
-    localStorage.setItem('wealthTechGlossaryQuiz', JSON.stringify({answered, score}));
+    localStorage.setItem('wealthAnalystVocabQuiz', JSON.stringify({answered, score}));
   }catch(e){}
 }
 
