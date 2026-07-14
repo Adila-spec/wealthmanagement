@@ -93,7 +93,11 @@
   .pill{
     font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.05em;
     color:var(--orange-bright); border:1px solid var(--orange-bright); padding:5px 12px; border-radius:20px;
+    cursor:pointer; transition:background .15s, color .15s;
   }
+  .pill:hover{background:var(--orange-bright); color:#141210; text-decoration:none;}
+  .cat-header{scroll-margin-top:70px;}
+  .term{scroll-margin-top:70px;}
 
   section{padding:0 0 60px; border-top:1px solid var(--line-solid);}
   .header-bar{background:#0B0B0A; padding:30px 0; margin-bottom:34px;}
@@ -145,6 +149,19 @@
   }
   .term-context b{color:var(--orange-bright); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.04em; display:block; margin-bottom:4px;}
 
+  .fill-row{display:flex; gap:10px; flex-wrap:wrap; align-items:stretch;}
+  .fill-input{
+    flex:1 1 220px; background:var(--surface-2); border:1px solid var(--line-solid);
+    color:var(--text); padding:12px 14px; font-size:14.5px; font-family:var(--mono);
+    border-radius:2px;
+  }
+  .fill-input:focus{outline:none; border-color:var(--orange-bright);}
+  .fill-input.correct{border-color:#4C9A4C; background:#4C9A4C22;}
+  .fill-input.incorrect{border-color:#C4432E; background:#C4432E22;}
+  .check-btn{margin-top:0; flex:0 0 auto;}
+  .q-card table{margin-top:4px; font-size:13.5px;}
+  .q-card th{padding:6px 10px; background:#0B0B0A; color:#F5F1E9;}
+  .q-card td{padding:6px 10px;}
   #quiz-progress{
     display:flex; justify-content:space-between; align-items:center;
     font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:20px;
@@ -226,13 +243,16 @@
           full definition, then a quiz to prove you've actually got it.
         </p>
         <div class="pill-row">
-          <span class="pill">SQL & Query Design</span>
-          <span class="pill">Data Validation & ETL</span>
-          <span class="pill">Wealth Management Data</span>
-          <span class="pill">Databricks & PySpark</span>
-          <span class="pill">Governance & Certifications</span>
-          <span class="pill">CI/CD & DevOps</span>
-          <span class="pill">Householding</span>
+          <a class="pill" href="#cat-sql">SQL & Query Design</a>
+          <a class="pill" href="#cat-requirements">Requirements & Validation</a>
+          <a class="pill" href="#cat-wealth-data">Wealth Management Data</a>
+          <a class="pill" href="#cat-custodians">Custodians & Platforms</a>
+          <a class="pill" href="#cat-python">Python & Tooling</a>
+          <a class="pill" href="#cat-databricks">Databricks & PySpark</a>
+          <a class="pill" href="#cat-governance">Governance & Risk</a>
+          <a class="pill" href="#cat-certifications">Certifications</a>
+          <a class="pill" href="#cat-engineering">CI/CD & DevOps</a>
+          <a class="pill" href="#cat-householding">Householding</a>
         </div>
       </div>
 
@@ -267,7 +287,7 @@
       then the wealth-management domain knowledge, then the tooling and governance around it.
     </p>
 
-    <div class="cat-header"><span class="cat-label">SQL & Query Design</span></div>
+    <div class="cat-header" id="cat-sql"><span class="cat-label">SQL & Query Design</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">SQL (Structured Query Language)</span><span class="term-tag">Language</span></div>
@@ -305,7 +325,7 @@
       <div class="term-context"><b>In practice</b>This is the difference between a query that happens to return the right numbers and one that's maintainable, explainable, and fast on a large dataset.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Requirements, Discovery & Validation</span></div>
+    <div class="cat-header" id="cat-requirements"><span class="cat-label">Requirements, Discovery & Validation</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Functional Requirements & Acceptance Criteria</span><span class="term-tag">Process</span></div>
@@ -343,7 +363,7 @@
       <div class="term-context"><b>In practice</b>Clear documentation of a quality issue is what lets a business stakeholder or engineer actually act on it, rather than just being told "something's off."</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Wealth Management Data Concepts</span></div>
+    <div class="cat-header" id="cat-wealth-data"><span class="cat-label">Wealth Management Data Concepts</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">AUM (Assets Under Management)</span><span class="term-tag">Metric</span></div>
@@ -375,7 +395,7 @@
       <div class="term-context"><b>In practice</b>When a holdings or performance number looks wrong, tracing it back to the underlying transactions is usually the first debugging step.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Custodians & Wealth-Tech Platforms</span></div>
+    <div class="cat-header" id="cat-custodians"><span class="cat-label">Custodians & Wealth-Tech Platforms</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Custodian Feeds</span><span class="term-tag">Data Source</span></div>
@@ -390,7 +410,7 @@
       <div class="term-context"><b>In practice</b>Whichever platform is in use, an analyst's work usually ends with data landing in one of these — so understanding the shape of data they expect matters directly.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Python & Data Tooling</span></div>
+    <div class="cat-header" id="cat-python"><span class="cat-label">Python & Data Tooling</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Python for Data Analysis</span><span class="term-tag">Language</span></div>
@@ -412,19 +432,22 @@
 
     <div class="term">
       <div class="term-head"><span class="term-name">PySpark</span><span class="term-tag">Library</span></div>
-      <p class="term-def">The Python interface to Apache Spark, the distributed data-processing engine. PySpark lets an analyst write familiar-feeling Python/pandas-style code that actually runs across a cluster of machines in parallel, which matters once a dataset is too large for a single machine's memory to handle efficiently.</p>
-      <div class="term-context"><b>In practice</b>PySpark is the tool of choice once profiling or transformation work outgrows what pandas can comfortably handle on one machine — commonly inside Databricks.</div>
+      <p class="term-def">PySpark is the official Python API for Apache Spark, the distributed data-processing engine. It lets an analyst write code in familiar, pandas-like syntax — filtering, joining, grouping, aggregating — but instead of that code running on one machine, Spark splits the work across many machines (a cluster) and runs it in parallel. The core object in PySpark is the DataFrame, conceptually similar to a pandas DataFrame or a SQL table, but backed by distributed computation rather than in-memory, single-machine storage.</p>
+      <p class="term-def">PySpark also exposes Spark SQL, which lets you run actual SQL queries directly against these DataFrames — so a team doesn't have to choose between SQL and Python; the same underlying engine handles both, and it's common to move fluidly between a SQL query and a PySpark transformation within the same notebook. PySpark supports both batch jobs (processing a fixed dataset once) and Structured Streaming (processing data continuously as it arrives), using the same DataFrame API for either.</p>
+      <div class="term-context"><b>In practice</b>PySpark is the tool of choice once profiling or transformation work outgrows what pandas can comfortably handle on one machine — commonly used inside Databricks, where it runs directly against Delta Lake tables across Bronze, Silver, and Gold layers.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Databricks & Cloud Data Platforms</span></div>
+    <div class="cat-header" id="cat-databricks"><span class="cat-label">Databricks & Cloud Data Platforms</span></div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">Data Platform (Lakehouse)</span><span class="term-tag">Platform</span></div>
-      <p class="term-def">A unified data platform — often called a "lakehouse" — that combines large-scale data storage with the compute needed to process, transform, and analyze that data in one place, instead of storage and processing living in separate, disconnected tools. Databricks is a leading example, built on the open-source Apache Spark project and the Delta Lake storage format.</p>
-      <div class="term-context"><b>In practice</b>This is typically where a wealth-management analyst would query and profile large datasets — custodian feeds, transaction history — using SQL or PySpark.</div>
+      <div class="term-head"><span class="term-name">Databricks (Data Platform / Lakehouse)</span><span class="term-tag">Platform</span></div>
+      <p class="term-def">Databricks is a cloud-based data platform built around the "lakehouse" idea: combining the flexibility and low storage cost of a data lake (which can hold raw files of any type) with the structure, reliability, and fast query performance traditionally associated with a data warehouse. Rather than storage and processing living in separate, disconnected tools, Databricks unifies them — the same platform stores the data, runs the transformation code, and serves the queries analysts and reports rely on.</p>
+      <p class="term-def">Under the hood, Databricks is built on three pieces that work together: <b>Apache Spark</b> as the distributed processing engine that actually executes queries and transformations, <b>Delta Lake</b> as the storage format that gives tables database-like reliability (ACID transactions, schema enforcement, time travel), and <b>Unity Catalog</b> as the governance layer controlling who can access what and tracking where data came from. Work happens in <b>notebooks</b> — interactive, cell-by-cell documents mixing Python, SQL, and markdown — running against a <b>cluster</b>, the actual compute resources doing the work, which can scale up or down or shut off automatically when idle. Data itself is commonly organized using the <b>medallion architecture</b>: a Bronze layer of raw data, a Silver layer of cleaned and validated data, and a Gold layer of business-ready, reporting-friendly tables.</p>
+      <div class="term-context"><b>In practice</b>For a wealth-management data analyst, Databricks is typically where custodian feeds and transaction history actually get queried, profiled, and validated — using either SQL or PySpark against the same underlying tables.</div>
     </div>
 
     <div class="term">
+
       <div class="term-head"><span class="term-name">Apache Spark</span><span class="term-tag">Engine</span></div>
       <p class="term-def">An open-source distributed data-processing engine that splits large computations across many machines so they run in parallel, instead of on one machine at a time. Spark can process data in-memory, which makes it fast for large-scale transformations, and it supports multiple languages — Python, SQL, Scala, and R — often in the same notebook.</p>
       <div class="term-context"><b>In practice</b>Databricks was built by Spark's original creators, and Spark is the engine actually executing the query or transformation underneath every Databricks job.</div>
@@ -466,7 +489,7 @@
       <div class="term-context"><b>In practice</b>Many organizations run more than one of these together — for example, Databricks for ingestion and transformation, with Snowflake or a BI tool serving the final reporting layer.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Governance, Compliance & Risk</span></div>
+    <div class="cat-header" id="cat-governance"><span class="cat-label">Governance, Compliance & Risk</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Data Governance</span><span class="term-tag">Concept</span></div>
@@ -492,7 +515,7 @@
       <div class="term-context"><b>In practice</b>This is listed as a "plus," not a core requirement — a data analyst is more likely to prepare clean, reliable data that a data scientist then models than to build the model itself, but basic familiarity helps in cross-functional conversations.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Certifications</span></div>
+    <div class="cat-header" id="cat-certifications"><span class="cat-label">Certifications</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">CFA (Chartered Financial Analyst)</span><span class="term-tag">Certification</span></div>
@@ -506,7 +529,7 @@
       <div class="term-context"><b>In practice</b>Of the two, CIPM maps more directly onto the performance-returns and reconciliation work this role actually does day to day.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Engineering Practices & Tooling</span></div>
+    <div class="cat-header" id="cat-engineering"><span class="cat-label">Engineering Practices & Tooling</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">CI/CD Pipeline</span><span class="term-tag">Practice</span></div>
@@ -551,7 +574,7 @@
       <div class="term-context"><b>In practice</b>Standing up a genuine dev/test/prod split (separate workspaces, and ideally a separate non-prod catalog) is usually a prerequisite for safely adopting CI/CD in the first place.</div>
     </div>
 
-    <div class="cat-header"><span class="cat-label">Householding & Requirements Scoping</span></div>
+    <div class="cat-header" id="cat-householding"><span class="cat-label">Householding & Requirements Scoping</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Householding</span><span class="term-tag">Wealth Concept</span></div>
@@ -584,19 +607,20 @@
   </div>
   <div class="wrap">
     <p class="lede">
-      71 questions testing whether you actually understand each term — heavy on SQL, data validation, and
-      Databricks/PySpark, matched directly to the job description. Progress saves on this device.
+      78 questions, mixing formats on purpose: SQL questions give you a real table and a blank to type your
+      answer into, Databricks and PySpark terms are fill-in-the-blank, and wealth-management concepts stay
+      multiple choice. Progress saves on this device.
     </p>
 
     <div id="quiz-progress">
-      <span id="progress-text">Question 1 of 71</span>
-      <span id="score-pill">Score: 0 / 71</span>
+      <span id="progress-text">Question 1 of 78</span>
+      <span id="score-pill">Score: 0 / 78</span>
     </div>
 
     <div id="quiz-container"></div>
 
     <div id="quiz-results">
-      <div class="big" id="final-score">0 / 71</div>
+      <div class="big" id="final-score">0 / 78</div>
       <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in the glossary and retake — the SQL and reconciliation questions are worth another pass before an interview.</p>
       <button class="btn" id="retry-btn">Retake Quiz</button>
     </div>
@@ -611,87 +635,102 @@
 <script>
 const QUESTIONS = [
   {
-    q: "What distinguishes a LEFT JOIN from an INNER JOIN?",
-    choices: [
-      "They always return identical results",
-      "A LEFT JOIN keeps every row from the first table even without a match; an INNER JOIN keeps only matching rows",
-      "A LEFT JOIN can only be used with one table",
-      "An INNER JOIN is faster but returns no data"
-    ],
-    correct: 1,
-    explain: "LEFT JOIN preserves unmatched rows from the left table (useful for finding what's missing); INNER JOIN drops them."
+    type: "sql",
+    q: "Given these two tables, if you run an INNER JOIN on account_id, how many rows appear in the result?",
+    table: {
+      tables: [
+        {name: "accounts", columns: ["account_id","client_name"], rows: [["1001","Client A"],["1002","Client B"],["1003","Client C"]]},
+        {name: "transactions", columns: ["account_id","amount"], rows: [["1001","500"],["1001","250"],["1002","900"]]}
+      ]
+    },
+    answer: "3",
+    numeric: true,
+    explain: "Only account_ids present in both tables survive an INNER JOIN: 1001 matches twice (two transaction rows) and 1002 matches once — 3 rows total. Account 1003 has no transactions, so it's dropped entirely."
   },
   {
-    q: "What is a CTE (Common Table Expression) used for?",
-    choices: [
-      "Permanently storing a table in the database",
-      "Defining a named, temporary result set with a WITH clause so a complex query can be broken into readable steps",
-      "Encrypting sensitive columns",
-      "Replacing the need for joins entirely"
-    ],
-    correct: 1,
-    explain: "CTEs make multi-step logic readable by naming intermediate steps instead of nesting everything in one query."
+    type: "sql",
+    q: "Using the same two tables, if you run a LEFT JOIN from accounts to transactions instead, how many rows appear in the result?",
+    table: {
+      tables: [
+        {name: "accounts", columns: ["account_id","client_name"], rows: [["1001","Client A"],["1002","Client B"],["1003","Client C"]]},
+        {name: "transactions", columns: ["account_id","amount"], rows: [["1001","500"],["1001","250"],["1002","900"]]}
+      ]
+    },
+    answer: "4",
+    numeric: true,
+    explain: "A LEFT JOIN keeps every account row even without a match. That's 3 matched rows (two for 1001, one for 1002) plus one unmatched row for 1003 (with a null transaction) — 4 rows total."
   },
   {
-    q: "What do window functions let you do that GROUP BY cannot?",
-    choices: [
-      "Nothing — they are identical",
-      "Calculate a value across a set of related rows without collapsing those rows into a single output row",
-      "Delete duplicate rows automatically",
-      "Connect to multiple databases at once"
-    ],
-    correct: 1,
-    explain: "Window functions (like running totals or LAG/LEAD) preserve row-level detail while still computing across a group."
+    type: "sql",
+    q: "Fill in the missing SQL clause keyword: '_____ total_fees AS (SELECT account_id, SUM(fee_amount) AS total FROM fees GROUP BY account_id) SELECT * FROM total_fees;' — what keyword starts this query to define total_fees as a named, temporary result set?",
+    table: {
+      tables: [
+        {name: "fees", columns: ["account_id","fee_amount"], rows: [["1001","45.00"],["1001","30.00"],["1002","60.00"]]}
+      ]
+    },
+    answer: "WITH",
+    explain: "A CTE always begins with the WITH keyword, followed by the name you're giving the temporary result set and an AS (...) block."
   },
   {
-    q: "A subquery is:",
-    choices: [
-      "A query nested inside another query, used to filter, compare, or supply values to the outer query",
-      "A query that only works on one table",
-      "A synonym for a stored procedure",
-      "A type of database index"
-    ],
-    correct: 0,
-    explain: "Subqueries live inside WHERE, FROM, or SELECT clauses and are an alternative or complement to CTEs."
+    q: "Using SUM(amount) OVER (ORDER BY txn_date) as a running total on this table, what value would appear on the 2026-01-03 row?",
+    type: "sql",
+    table: {
+      tables: [
+        {name: "daily_txns", columns: ["txn_date","amount"], rows: [["2026-01-01","100"],["2026-01-02","150"],["2026-01-03","75"]]}
+      ]
+    },
+    answer: "325",
+    numeric: true,
+    explain: "A running total adds each row to the sum of all prior rows in order: 100, then 100+150=250, then 250+75=325."
   },
   {
-    q: "'Analytical query design' as a skill is best described as:",
-    choices: [
-      "Writing the shortest possible query regardless of readability",
-      "Structuring a query (or sequence of queries) to answer a real business question efficiently and in a way others can follow",
-      "Avoiding joins whenever possible",
-      "Only using SELECT * to keep things simple"
-    ],
-    correct: 1,
-    explain: "Good query design balances correctness, performance, and readability — not just getting the right numbers."
+    q: "Using ROW_NUMBER() OVER (PARTITION BY account_id ORDER BY market_value DESC), what row number would MSFT get for account 1001?",
+    type: "sql",
+    table: {
+      tables: [
+        {name: "holdings", columns: ["account_id","position","market_value"], rows: [["1001","AAPL","500"],["1001","MSFT","800"],["1001","GOOG","300"]]}
+      ]
+    },
+    answer: "1",
+    numeric: true,
+    explain: "ROW_NUMBER() ordered by market_value DESC ranks the highest value first. MSFT at 800 is the largest position for account 1001, so it gets row number 1."
   },
   {
-    q: "Why would you choose a CTE over a deeply nested subquery for a complex reconciliation query?",
-    choices: [
-      "CTEs always run faster in every database",
-      "CTEs break logic into named, sequential steps that are easier for a reviewer to follow and debug",
-      "Subqueries are not allowed in SQL",
-      "There is no meaningful difference in any situation"
-    ],
-    correct: 1,
-    explain: "Readability and maintainability are the main practical reason to prefer CTEs for multi-step logic."
+    q: "Using a subquery to compute the average AUM across all advisors below, which single advisor has AUM above that average?",
+    type: "sql",
+    table: {
+      tables: [
+        {name: "aum_by_advisor", columns: ["advisor","aum"], rows: [["A","2000000"],["B","3500000"],["C","1200000"]]}
+      ]
+    },
+    answer: "B",
+    aliases: ["advisor b"],
+    explain: "The average is (2,000,000 + 3,500,000 + 1,200,000) / 3 ≈ 2,233,333. Only Advisor B's 3,500,000 is above that average."
   },
   {
-    q: "Multi-table joins are especially important in wealth-management analysis because:",
-    choices: [
-      "Wealth-management data is always stored in a single table",
-      "Questions typically span several related tables — accounts, holdings, transactions, fees — that must be combined",
-      "Joins are only used for reporting, never for validation",
-      "Custodian data cannot be joined to internal data"
-    ],
-    correct: 1,
-    explain: "Real questions ('fee revenue by advisor,' 'holdings by account') require combining multiple related tables."
+    q: "Using LAG() to compare each month's return to the prior month, what is the change (this month minus prior month) for March?",
+    type: "sql",
+    table: {
+      tables: [
+        {name: "monthly_return", columns: ["month","return_pct"], rows: [["Jan","2.0"],["Feb","3.5"],["Mar","1.0"]]}
+      ]
+    },
+    answer: "-2.5",
+    numeric: true,
+    explain: "LAG() pulls the prior row's value into the current row. March (1.0) minus February (3.5) = -2.5."
   },
   {
-    q: "Which SQL feature would you use to calculate a running total of transactions per account, keeping every row visible?",
-    choices: ["GROUP BY alone", "A window function", "DROP TABLE", "A LEFT JOIN alone"],
-    correct: 1,
-    explain: "Window functions compute a running total across ordered rows without collapsing the detail rows."
+    q: "If you first build a CTE that sums transactions per account_id, then LEFT JOIN that CTE back to the accounts table below, how many rows would the final result have?",
+    type: "sql",
+    table: {
+      tables: [
+        {name: "accounts", columns: ["account_id","client_name"], rows: [["1001","Client A"],["1002","Client B"],["1003","Client C"]]},
+        {name: "transactions", columns: ["account_id","amount"], rows: [["1001","500"],["1001","250"],["1002","900"]]}
+      ]
+    },
+    answer: "3",
+    numeric: true,
+    explain: "Once transactions are pre-aggregated in the CTE (one row per account_id), joining back to accounts produces exactly one row per account — 3 rows, matching the 3 accounts, with account 1003 showing a null or zero total."
   },
   {
     q: "The difference between functional requirements and acceptance criteria is:",
@@ -769,6 +808,111 @@ const QUESTIONS = [
     ],
     correct: 1,
     explain: "An undocumented 'something's off' can't be prioritized or fixed — scope and impact need to be spelled out."
+  },
+  {
+    q: "If an account's value increases due to both new deposits and investment gains, which figure isolates just the investment performance?",
+    choices: [
+      "The total account value change",
+      "The performance return, since it's calculated to exclude cash flows like deposits and withdrawals",
+      "AUM",
+      "The advisory fee"
+    ],
+    correct: 1,
+    explain: "Performance return methodology specifically backs out deposits/withdrawals so the number reflects investment performance, not account activity."
+  },
+  {
+    q: "A firm's AUM is best understood as:",
+    choices: [
+      "The number of clients a firm has",
+      "The total market value of the investments it manages on behalf of clients",
+      "The number of custodians it uses",
+      "The total fees billed last year"
+    ],
+    correct: 1,
+    explain: "AUM is a value metric — the sum of current holdings' market value across managed accounts, not a headcount or fee total."
+  },
+  {
+    q: "Which of the following is a transaction, not a holding?",
+    choices: [
+      "A position of 100 shares of a stock as of today",
+      "A dividend payment posted to an account",
+      "The total portfolio value on a statement date",
+      "A performance benchmark"
+    ],
+    correct: 1,
+    explain: "A dividend payment is an event that changes the account — a transaction. Holdings are the point-in-time positions that result from transactions."
+  },
+  {
+    q: "Why do advisory fees typically need to tie precisely back to AUM and the firm's billing methodology?",
+    choices: [
+      "They don't need to tie back to anything",
+      "Fee errors directly affect client statements and revenue reporting, and compound across every account they touch",
+      "Fees are unrelated to AUM",
+      "Custodians calculate all fees independently with no firm involvement"
+    ],
+    correct: 1,
+    explain: "Because fees are usually AUM-based and billed repeatedly, a small calculation error compounds across every account and billing cycle it touches."
+  },
+  {
+    q: "Portfolio holdings data is best described as:",
+    choices: [
+      "A continuous stream with no point-in-time structure",
+      "A snapshot of specific positions and market values as of a given date",
+      "The same thing as a performance return",
+      "Only relevant for tax reporting"
+    ],
+    correct: 1,
+    explain: "Holdings are snapshot-based (as-of a date), distinct from the transaction stream that produces changes in those holdings."
+  },
+  {
+    q: "Which platform would most likely be selected for a firm managing complex, multi-entity, alternative-asset portfolios at the ultra-high-net-worth level?",
+    choices: ["Addepar", "A generic spreadsheet", "A basic budgeting app", "None of these can support complex portfolios"],
+    correct: 0,
+    explain: "Addepar is widely regarded as the benchmark for complex, multi-entity, alternatives-heavy portfolio reporting."
+  },
+  {
+    q: "Orion Advisor Tech differs from a pure portfolio-reporting tool like Addepar in that it:",
+    choices: [
+      "Cannot generate any client reports",
+      "Bundles CRM and trading functionality alongside portfolio reporting",
+      "Is exclusively a custodian",
+      "Only works with a single named custodian"
+    ],
+    correct: 1,
+    explain: "Orion is a broader all-in-one platform, combining reporting with CRM and trading rather than reporting alone."
+  },
+  {
+    q: "If total AUM at a firm suddenly drops while no accounts were closed, which of these is a routine first thing to check?",
+    choices: [
+      "Whether a custodian feed dropped or misreported some transactions or holdings",
+      "Nothing — AUM cannot change unexpectedly",
+      "Whether fees can affect AUM (they can't)",
+      "Whether the client portal's color scheme changed"
+    ],
+    correct: 0,
+    explain: "A custodian feed issue — dropped records, a formatting change — is a common, checkable cause of an unexplained AUM shift."
+  },
+  {
+    q: "Time-weighted return and money-weighted return, as two performance methodologies, are best described as:",
+    choices: [
+      "Always producing identical numbers for the same account",
+      "Different, both legitimate methodologies that can produce genuinely different results for the same account",
+      "Interchangeable terms for the same calculation",
+      "Concepts that don't apply to wealth management"
+    ],
+    correct: 1,
+    explain: "Methodology differences (time-weighted vs. money-weighted) are a real, common source of reconciliation disputes in performance reporting."
+  },
+  {
+    q: "A custodian's core responsibilities include:",
+    choices: [
+      "Only marketing to prospective clients",
+      "Holding and safeguarding client assets, and handling trade settlement and recordkeeping",
+      "Directing investment decisions on behalf of the advisor",
+      "Providing CRM software exclusively"
+    ],
+    correct: 1,
+    explain: "Custodians hold and safeguard assets and handle settlement/recordkeeping; advisors direct the investment decisions."
   },
   {
     q: "AUM (Assets Under Management) is best defined as:",
@@ -892,202 +1036,98 @@ const QUESTIONS = [
     explain: "Black Diamond trades some of Addepar's complexity-handling for a more approachable interface and lighter setup."
   },
   {
-    q: "In this kind of role, what is Python for data analysis typically used alongside?",
-    choices: [
-      "It fully replaces the need for SQL",
-      "SQL — Python is typically used for tasks SQL is clumsier at, like complex reshaping or one-off validation logic",
-      "It is only used for building client portals",
-      "It cannot connect to any databases"
-    ],
-    correct: 1,
-    explain: "A common pattern is pulling data with SQL, then finishing analysis or validation logic in Python."
+    type: "fill",
+    q: "The Python API for Apache Spark, which lets you write pandas-like code that runs across a distributed cluster, is called ______.",
+    answer: "PySpark",
+    explain: "PySpark is Spark's official Python interface, scaling familiar-feeling DataFrame code across many machines."
   },
   {
-    q: "What is pandas, in the context of Python data analysis?",
-    choices: [
-      "A cloud data warehouse",
-      "The standard Python library for working with tabular data, built around the DataFrame object",
-      "A SQL query optimizer",
-      "A custodian data format"
-    ],
-    correct: 1,
-    explain: "pandas is essentially a spreadsheet inside Python, used heavily for profiling and validation scripts."
+    type: "fill",
+    q: "The core object in PySpark — conceptually similar to a pandas table, but backed by distributed computation — is called a ______.",
+    answer: "DataFrame",
+    aliases: ["spark dataframe"],
+    explain: "PySpark's DataFrame is the distributed equivalent of a pandas DataFrame or a SQL table."
   },
   {
-    q: "What is NumPy's relationship to pandas?",
-    choices: [
-      "They are unrelated, competing libraries",
-      "pandas is built on top of NumPy, which handles the underlying fast numerical array computation",
-      "NumPy replaces the need for pandas entirely",
-      "NumPy is only used for visualizations"
-    ],
-    correct: 1,
-    explain: "NumPy provides the efficient array math that pandas relies on under the hood."
+    type: "fill",
+    q: "The part of PySpark that lets you run actual SQL queries directly against DataFrames, using the same engine as the Python API, is called ______.",
+    answer: "Spark SQL",
+    explain: "Spark SQL means you don't have to choose between SQL and Python — both run on the same underlying engine."
   },
   {
-    q: "What does PySpark let an analyst do that plain pandas cannot easily do?",
-    choices: [
-      "Nothing — they are identical in capability",
-      "Write Python/pandas-style code that runs across a cluster of machines in parallel, for datasets too large for one machine",
-      "Connect to custodian feeds directly with no other tools",
-      "Replace the need for SQL entirely"
-    ],
-    correct: 1,
-    explain: "PySpark is Spark's Python interface — it scales familiar-feeling code across a distributed cluster."
+    type: "fill",
+    q: "Processing data continuously as it arrives, rather than in scheduled chunks — using the same DataFrame API as batch jobs in PySpark — is called ______.",
+    answer: "Structured Streaming",
+    aliases: ["streaming"],
+    explain: "Structured Streaming lets PySpark process data continuously, as an alternative to batch processing."
   },
   {
-    q: "What is Apache Spark, at its core?",
-    choices: [
-      "A CRM for financial advisors",
-      "An open-source distributed data-processing engine that splits large computations across many machines to run in parallel",
-      "A custodian data feed format",
-      "A wealth-management reporting platform"
-    ],
-    correct: 1,
-    explain: "Spark distributes processing across machines rather than running everything on one — that's what makes it fast at scale."
+    type: "fill",
+    q: "The open-source, distributed data-processing engine that Databricks is built on top of is called ______.",
+    answer: "Apache Spark",
+    aliases: ["spark"],
+    explain: "Databricks was built by Spark's original creators, and Spark is the engine executing every Databricks job."
   },
   {
-    q: "What does Delta Lake add on top of plain files sitting in cloud storage?",
-    choices: [
-      "Nothing beyond basic file storage",
-      "ACID transactions, schema enforcement/evolution, and time travel — database-like reliability for lakehouse data",
-      "A client-facing portal",
-      "CRM contact records"
-    ],
-    correct: 1,
-    explain: "Delta Lake is what turns raw files into something with transactional guarantees and version history."
+    type: "fill",
+    q: "The storage layer that gives Databricks tables ACID transactions, schema enforcement, and time travel is called ______.",
+    answer: "Delta Lake",
+    explain: "Delta Lake is the default table format on Databricks, adding database-like reliability to lakehouse storage."
   },
   {
-    q: "What is 'time travel' in Delta Lake used for?",
-    choices: [
-      "Predicting future portfolio performance",
-      "Querying a table as it existed at an earlier point in time — useful for debugging a bad transformation",
-      "Automatically archiving old client accounts",
-      "Scheduling future reports"
-    ],
-    correct: 1,
-    explain: "Time travel lets you see exactly what a table looked like before a problematic change."
+    type: "fill",
+    q: "The ability to query a Delta Lake table exactly as it existed at an earlier point in time — useful for debugging a bad run — is called ______.",
+    answer: "time travel",
+    explain: "Time travel lets you see what a table looked like before a problematic change, without a separate backup."
   },
   {
-    q: "What is Unity Catalog primarily used for?",
-    choices: [
-      "Running Spark jobs faster",
-      "Centralized data governance — access control, a searchable catalog, lineage tracking, and audit logging",
-      "Generating client-facing performance reports",
-      "Custodian trade settlement"
-    ],
-    correct: 1,
-    explain: "Unity Catalog is the governance layer: who can see what, where data came from, and who accessed it."
+    type: "fill",
+    q: "The Databricks governance layer providing fine-grained access control, a searchable catalog, and lineage tracking is called ______.",
+    answer: "Unity Catalog",
+    explain: "Unity Catalog governs who can access what data and tracks exactly where a result came from."
   },
   {
-    q: "In the medallion architecture, what does the Bronze layer contain?",
-    choices: [
-      "Fully aggregated, business-ready reporting tables",
-      "Raw, largely untouched data exactly as it arrived from source systems",
-      "Only data that has passed all quality checks",
-      "Client-facing portal content"
-    ],
-    correct: 1,
-    explain: "Bronze is the raw, append-only landing zone — the unaltered source of truth."
+    type: "fill",
+    q: "The data design pattern that organizes a lakehouse into Bronze, Silver, and Gold layers is called the ______ architecture.",
+    answer: "medallion",
+    aliases: ["medallion architecture"],
+    explain: "Medallion architecture is also called 'multi-hop,' since data progressively hops through each layer."
   },
   {
-    q: "What happens to data in the Silver layer?",
-    choices: [
-      "It is deleted to save storage",
-      "It is cleaned, deduplicated, and standardized into a validated view",
-      "It is sent directly to clients untouched",
-      "It skips all validation"
-    ],
-    correct: 1,
-    explain: "Silver is where cleansing, deduplication, and standardization happen."
+    type: "fill",
+    q: "In the medallion architecture, the layer holding raw, largely untouched data exactly as it arrived from source systems is called ______.",
+    answer: "Bronze",
+    explain: "Bronze is the raw, append-only landing zone — kept for history and auditability."
   },
   {
-    q: "What is the Gold layer designed for?",
-    choices: [
-      "Storing raw, unvalidated data",
-      "Business-ready, aggregated tables shaped specifically for reporting and downstream consumption",
-      "Holding failed records for review",
-      "Running Spark clusters"
-    ],
-    correct: 1,
-    explain: "Gold tables are the polished, consumption-ready output layer."
+    type: "fill",
+    q: "The medallion layer that cleans, deduplicates, and standardizes data into a validated, joined view is called ______.",
+    answer: "Silver",
+    explain: "Silver is where cleansing, deduplication, and standardization happen, ahead of final reporting tables."
   },
   {
-    q: "Why is layer-by-layer reconciliation (Bronze vs. Silver vs. Gold) a useful debugging technique?",
-    choices: [
-      "It isn't useful — you should only check the final output",
-      "It isolates exactly where a discrepancy was introduced, rather than only knowing the final number is wrong",
-      "It replaces the need for source-vs-target reconciliation",
-      "It only works with streaming data"
-    ],
-    correct: 1,
-    explain: "Checking each layer against the one before it pinpoints exactly which transformation introduced an error."
+    type: "fill",
+    q: "The medallion layer holding business-ready, aggregated tables shaped specifically for reporting is called ______.",
+    answer: "Gold",
+    explain: "Gold tables are the polished, consumption-ready output — closest to what a report or portal actually uses."
   },
   {
-    q: "What's the practical difference between batch and streaming data processing?",
-    choices: [
-      "There is no real difference",
-      "Batch processes data in scheduled, discrete chunks; streaming processes data continuously as it arrives",
-      "Streaming is always slower than batch",
-      "Batch only works with Delta Lake"
-    ],
-    correct: 1,
-    explain: "Batch = scheduled chunks (e.g. nightly). Streaming = continuous, near-real-time processing."
+    type: "fill",
+    q: "The interactive, cell-by-cell coding environment used to write and run Databricks code, mixing Python, SQL, and documentation, is called a ______.",
+    answer: "notebook",
+    explain: "Notebooks are where engineers and analysts write and test transformation and validation code."
   },
   {
-    q: "Why is nightly batch processing usually sufficient for wealth-management reporting?",
-    choices: [
-      "Clients require second-by-second updates",
-      "Custodian feeds themselves typically arrive daily, so batch matches the natural cadence of the underlying data",
-      "Streaming is not technically possible in finance",
-      "Batch processing cannot handle financial data"
-    ],
-    correct: 1,
-    explain: "Since custodian feeds are usually daily, a nightly batch pipeline matches the actual rate the source data changes."
+    type: "fill",
+    q: "The actual compute resources (virtual machines) that run the processing work in Databricks are called a ______.",
+    answer: "cluster",
+    explain: "A cluster is the compute layer — it can scale up/down and shut off automatically when idle."
   },
   {
-    q: "What is a Databricks cluster?",
-    choices: [
-      "A type of client portal",
-      "The actual compute resources (virtual machines) that run the processing work",
-      "A CRM data table",
-      "A custodian's trading desk"
-    ],
-    correct: 1,
-    explain: "A cluster is the compute layer — the machines actually doing the processing."
-  },
-  {
-    q: "What is a notebook used for in a Databricks workflow?",
-    choices: [
-      "Storing client contact information",
-      "An interactive, cell-by-cell coding environment for writing and running processing code",
-      "Running the client-facing portal",
-      "Replacing Unity Catalog"
-    ],
-    correct: 1,
-    explain: "Notebooks are where engineers and analysts write and test code, mixing Python, SQL, and documentation."
-  },
-  {
-    q: "How does Snowflake generally differ from a Spark-based platform like Databricks?",
-    choices: [
-      "They are the same product",
-      "Snowflake is a SQL-first, fully-managed data warehouse strong for analysts and reporting; Databricks leans toward large-scale engineering",
-      "Snowflake cannot run SQL",
-      "Databricks only works with streaming data"
-    ],
-    correct: 1,
-    explain: "Snowflake emphasizes managed SQL analytics; Databricks/Spark emphasizes large-scale engineering and ML."
-  },
-  {
-    q: "What roles do AWS and Azure typically play relative to a platform like Databricks?",
-    choices: [
-      "They are competitor CRM products",
-      "They are cloud infrastructure providers that platforms like Databricks and Snowflake often run on top of",
-      "They replace the need for SQL",
-      "They are custodian feed formats"
-    ],
-    correct: 1,
-    explain: "AWS/Azure provide the underlying cloud infrastructure; Databricks and similar platforms run on top of them."
+    type: "fill",
+    q: "A SQL-first, fully-managed data warehouse often compared to Databricks — strong for analysts running dashboards and reports — is called ______.",
+    answer: "Snowflake",
+    explain: "Snowflake emphasizes managed SQL analytics; Databricks/Spark emphasizes large-scale engineering and ML workloads."
   },
   {
     q: "What is the purpose of a data governance program?",
@@ -1413,43 +1453,117 @@ function saveState(){
   }catch(e){}
 }
 
+function normalizeAnswer(s){
+  return String(s).trim().toLowerCase().replace(/[^\w.\-]+/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function isAnswerCorrect(userInput, item){
+  const userNorm = normalizeAnswer(userInput);
+  if(!userNorm) return false;
+  if(item.numeric){
+    const userNum = parseFloat(userInput.replace(/[^0-9.\-]/g, ''));
+    const answerNum = parseFloat(String(item.answer).replace(/[^0-9.\-]/g, ''));
+    if(!isNaN(userNum) && !isNaN(answerNum)){
+      return Math.abs(userNum - answerNum) < 0.01;
+    }
+  }
+  const accepted = [item.answer, ...(item.aliases || [])].map(normalizeAnswer);
+  return accepted.some(a => a && (userNorm === a || userNorm.includes(a) || a.includes(userNorm)));
+}
+
+function renderTable(tableSpec){
+  if(!tableSpec || !tableSpec.tables) return '';
+  return tableSpec.tables.map(t => `
+    <div style="margin-bottom:14px; overflow-x:auto;">
+      <div style="font-family:var(--mono); font-size:11px; color:var(--muted-2); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">${t.name}</div>
+      <table style="width:auto; min-width:220px;">
+        <thead><tr>${t.columns.map(c => `<th>${c}</th>`).join('')}</tr></thead>
+        <tbody>${t.rows.map(r => `<tr>${r.map(v => `<td>${v}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table>
+    </div>
+  `).join('');
+}
+
 function renderQuestion(i){
   const item = QUESTIONS[i];
+  const type = item.type || 'mc';
   const card = document.createElement('div');
   card.className = 'q-card';
-  card.innerHTML = `
-    <div class="q-meta">Question ${i+1} of ${QUESTIONS.length}</div>
-    <div class="q-text">${item.q}</div>
-    <div class="choices"></div>
-    <div class="explain"></div>
-  `;
-  const choicesEl = card.querySelector('.choices');
-  const explainEl = card.querySelector('.explain');
 
-  item.choices.forEach((choiceText, idx) => {
-    const btn = document.createElement('button');
-    btn.className = 'choice';
-    btn.textContent = choiceText;
-    btn.addEventListener('click', () => {
-      if(btn.disabled) return;
-      const allBtns = choicesEl.querySelectorAll('.choice');
-      allBtns.forEach(b => b.disabled = true);
-      if(idx === item.correct){
-        btn.classList.add('correct');
+  if(type === 'mc'){
+    card.innerHTML = `
+      <div class="q-meta">Question ${i+1} of ${QUESTIONS.length} · Multiple Choice</div>
+      <div class="q-text">${item.q}</div>
+      <div class="choices"></div>
+      <div class="explain"></div>
+    `;
+    const choicesEl = card.querySelector('.choices');
+    const explainEl = card.querySelector('.explain');
+
+    item.choices.forEach((choiceText, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'choice';
+      btn.textContent = choiceText;
+      btn.addEventListener('click', () => {
+        if(btn.disabled) return;
+        const allBtns = choicesEl.querySelectorAll('.choice');
+        allBtns.forEach(b => b.disabled = true);
+        if(idx === item.correct){
+          btn.classList.add('correct');
+          if(!answered[i]){ score++; }
+        } else {
+          btn.classList.add('incorrect');
+          allBtns[item.correct].classList.add('correct');
+        }
+        answered[i] = true;
+        explainEl.textContent = item.explain;
+        explainEl.classList.add('show');
+        saveState();
+        updateProgress();
+        setTimeout(() => advance(i), 500);
+      });
+      choicesEl.appendChild(btn);
+    });
+
+  } else {
+    // 'fill' or 'sql' — text input with a Check Answer button
+    const meta = type === 'sql' ? 'Question ' + (i+1) + ' of ' + QUESTIONS.length + ' · SQL — Table + Answer' : 'Question ' + (i+1) + ' of ' + QUESTIONS.length + ' · Fill in the Blank';
+    card.innerHTML = `
+      <div class="q-meta">${meta}</div>
+      ${type === 'sql' ? renderTable(item.table) : ''}
+      <div class="q-text">${item.q}</div>
+      <div class="fill-row">
+        <input type="text" class="fill-input" placeholder="Type your answer..." autocomplete="off" spellcheck="false">
+        <button class="btn check-btn" type="button">Check Answer</button>
+      </div>
+      <div class="explain"></div>
+    `;
+    const input = card.querySelector('.fill-input');
+    const checkBtn = card.querySelector('.check-btn');
+    const explainEl = card.querySelector('.explain');
+
+    function submit(){
+      if(input.disabled) return;
+      const correct = isAnswerCorrect(input.value, item);
+      input.disabled = true;
+      checkBtn.disabled = true;
+      input.classList.add(correct ? 'correct' : 'incorrect');
+      if(correct){
         if(!answered[i]){ score++; }
-      } else {
-        btn.classList.add('incorrect');
-        allBtns[item.correct].classList.add('correct');
       }
       answered[i] = true;
-      explainEl.textContent = item.explain;
+      explainEl.innerHTML = (correct ? '' : `<div style="margin-bottom:6px;"><strong>Correct answer:</strong> ${item.answer}</div>`) + item.explain;
       explainEl.classList.add('show');
       saveState();
       updateProgress();
-      setTimeout(() => advance(i), 500);
-    });
-    choicesEl.appendChild(btn);
-  });
+      checkBtn.textContent = 'Continue →';
+      checkBtn.disabled = false;
+      checkBtn.removeEventListener('click', submit);
+      checkBtn.addEventListener('click', () => advance(i));
+    }
+    checkBtn.addEventListener('click', submit);
+    input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); submit(); } });
+  }
 
   container.innerHTML = '';
   container.appendChild(card);
