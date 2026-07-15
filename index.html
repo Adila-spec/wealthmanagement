@@ -162,6 +162,32 @@
   .q-card table{margin-top:4px; font-size:13.5px;}
   .q-card th{padding:6px 10px; background:#0B0B0A; color:#F5F1E9;}
   .q-card td{padding:6px 10px;}
+  .concept-block{
+    background:var(--surface); border:1px solid var(--line-solid);
+    margin:0 0 28px; border-radius:2px; overflow:hidden;
+  }
+  .concept-head{
+    background:#0B0B0A; color:#F5F1E9; font-family:var(--serif);
+    font-size:19px; font-weight:600; padding:16px 22px;
+  }
+  .concept-body{padding:22px 24px 6px;}
+  .concept-body p{color:var(--text); font-size:14.5px; margin-bottom:14px;}
+  .concept-body code{
+    font-family:var(--mono); font-size:13px; background:var(--surface-2);
+    padding:1px 6px; border-radius:3px; color:var(--orange-dark);
+  }
+  .mini-quiz{
+    border-top:1px solid var(--line-solid); padding:20px 24px 24px; background:var(--surface-2);
+  }
+  .mini-quiz-head{
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--orange-bright); font-weight:700; margin-bottom:14px;
+  }
+  .mini-quiz .q-card{border-top:2px solid var(--orange-bright); margin-bottom:0;}
+  .mini-quiz-results{text-align:center; padding:20px;}
+  .mini-quiz-results .big{font-family:var(--serif); font-size:28px; color:var(--orange-bright);}
+
   #quiz-progress{
     display:flex; justify-content:space-between; align-items:center;
     font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-bottom:20px;
@@ -247,7 +273,6 @@
           <a class="pill" href="#cat-requirements">Requirements & Validation</a>
           <a class="pill" href="#cat-wealth-data">Wealth Management Data</a>
           <a class="pill" href="#cat-custodians">Custodians & Platforms</a>
-          <a class="pill" href="#cat-python">Python & Tooling</a>
           <a class="pill" href="#cat-databricks">Databricks & PySpark</a>
           <a class="pill" href="#cat-governance">Governance & Risk</a>
           <a class="pill" href="#cat-certifications">Certifications</a>
@@ -290,12 +315,6 @@
     <div class="cat-header" id="cat-sql"><span class="cat-label">SQL & Query Design</span></div>
 
     <div class="term">
-      <div class="term-head"><span class="term-name">SQL (Structured Query Language)</span><span class="term-tag">Language</span></div>
-      <p class="term-def">The standard language for querying and manipulating data stored in relational databases. "Expert-level SQL" means being fluent well beyond basic <code>SELECT</code> statements — comfortable combining multiple tables, writing readable multi-step logic, and reasoning about performance on large datasets.</p>
-      <div class="term-context"><b>In practice</b>SQL is the primary tool for both building analysis and validating that a pipeline's output actually matches what it should.</div>
-    </div>
-
-    <div class="term">
       <div class="term-head"><span class="term-name">Multi-Table Joins</span><span class="term-tag">SQL Skill</span></div>
       <p class="term-def">Combining rows from two or more tables based on a related column — for example, joining an accounts table to a transactions table on account ID. An <code>INNER JOIN</code> keeps only matching rows; a <code>LEFT JOIN</code> keeps every row from the first table even without a match, which matters when you specifically need to see what's missing.</p>
       <div class="term-context"><b>In practice</b>Wealth-management questions almost always span several tables — accounts, holdings, transactions, fees — so comfortable multi-table joins are a baseline expectation, not a bonus skill.</div>
@@ -305,12 +324,6 @@
       <div class="term-head"><span class="term-name">CTE (Common Table Expression)</span><span class="term-tag">SQL Skill</span></div>
       <p class="term-def">A named, temporary result set defined with a <code>WITH</code> clause at the start of a query, which the rest of the query can then reference like a table. CTEs break a complex query into readable, logical steps instead of one dense nested subquery, and can be chained one after another.</p>
       <div class="term-context"><b>In practice</b>CTEs are how you make a multi-step reconciliation or aggregation query something a reviewer can actually follow.</div>
-    </div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">Window Functions</span><span class="term-tag">SQL Skill</span></div>
-      <p class="term-def">Functions that calculate a value across a set of related rows — a "window" — without collapsing those rows into a single output row the way <code>GROUP BY</code> does. Common examples include <code>ROW_NUMBER()</code>, running totals, and calculating period-over-period change using <code>LAG()</code>/<code>LEAD()</code>.</p>
-      <div class="term-context"><b>In practice</b>Window functions are exactly what's needed to calculate something like month-over-month portfolio performance without losing the individual transaction-level detail.</div>
     </div>
 
     <div class="term">
@@ -325,7 +338,28 @@
       <div class="term-context"><b>In practice</b>This is the difference between a query that happens to return the right numbers and one that's maintainable, explainable, and fast on a large dataset.</div>
     </div>
 
+    <div class="concept-block">
+      <div class="concept-head">Window Functions: PARTITION BY, ORDER BY, ROW_NUMBER, RANK, DENSE_RANK</div>
+      <div class="concept-body">
+        <p>A window function calculates a value across a set of related rows — a "window" — without collapsing those rows into one output row the way <code>GROUP BY</code> does. You get the aggregate-style calculation <em>and</em> every original row back. The syntax always follows the same shape: a function, then <code>OVER (...)</code> describing the window.</p>
+        <p><code>PARTITION BY</code> is what resets the calculation per group — think of it as "GROUP BY, but don't collapse the rows." <code>PARTITION BY account_id</code> means the window function starts over for each account, the same way <code>GROUP BY account_id</code> would, except every underlying row is still visible in the result. <code>ORDER BY</code> inside the same <code>OVER (...)</code> clause defines the sequence the function uses — which row comes first, second, third within each partition — and it's what makes ranking and running totals possible at all.</p>
+        <p>The three ranking functions differ only in how they handle ties. <code>ROW_NUMBER()</code> always assigns a unique, sequential integer — even tied rows get different numbers, broken arbitrarily by whatever tiebreaker you give it. <code>RANK()</code> gives tied rows the same rank, then skips ahead by the number of ties — three rows tied for 2nd all get rank 2, and the next row gets rank 5. <code>DENSE_RANK()</code> also gives tied rows the same rank, but the next rank is always just +1, with no gap — those same three rows tied for 2nd get rank 2, and the next row gets rank 3.</p>
+      </div>
+      <div id="miniquiz-window" class="mini-quiz" data-quiz="window"></div>
+    </div>
+
+    <div class="concept-block">
+      <div class="concept-head">Advanced Aggregations: CASE WHEN, CAST & Conditional Logic</div>
+      <div class="concept-body">
+        <p><code>CASE WHEN</code> is SQL's conditional expression — it evaluates conditions in order and returns a different value depending on which one matches, similar to if/elif/else in most programming languages: <code>CASE WHEN condition1 THEN result1 WHEN condition2 THEN result2 ELSE default END</code>. On its own it's useful for recoding values, but its real power shows up combined with an aggregate function: wrapping a <code>CASE WHEN</code> inside <code>SUM()</code> or <code>COUNT()</code> lets you calculate multiple conditional totals in a single pass over the data, instead of running separate queries for each condition — for example, summing fee amounts separately by fee type, or counting accounts above and below a threshold, all in one <code>SELECT</code>.</p>
+        <p><code>CAST</code> (or the equivalent <code>::</code> shorthand in some databases) explicitly converts a value from one data type to another — turning text into a number, or a number into a date-formatted string, for example. This matters constantly in real data: a column that looks numeric can still be stored as text if it came from a file import, and math or comparisons on it will behave unpredictably (or fail outright) until it's cast to the correct type. <code>CAST(fee_amount AS DECIMAL(10,2))</code> is a typical pattern before doing arithmetic on a value you don't fully trust the stored type of.</p>
+        <p>A close cousin worth knowing: <code>COALESCE()</code> returns the first non-null value from a list of arguments — commonly used to substitute a default (like <code>0</code>) when a value is missing, which matters a lot when a <code>CASE WHEN</code> or aggregation would otherwise choke on a null.</p>
+      </div>
+      <div id="miniquiz-agg" class="mini-quiz" data-quiz="agg"></div>
+    </div>
+
     <div class="cat-header" id="cat-requirements"><span class="cat-label">Requirements, Discovery & Validation</span></div>
+
 
     <div class="term">
       <div class="term-head"><span class="term-name">Functional Requirements & Acceptance Criteria</span><span class="term-tag">Process</span></div>
@@ -410,34 +444,14 @@
       <div class="term-context"><b>In practice</b>Whichever platform is in use, an analyst's work usually ends with data landing in one of these — so understanding the shape of data they expect matters directly.</div>
     </div>
 
-    <div class="cat-header" id="cat-python"><span class="cat-label">Python & Data Tooling</span></div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">Python for Data Analysis</span><span class="term-tag">Language</span></div>
-      <p class="term-def">Python is a general-purpose programming language widely used for ad hoc data exploration, scripting, and automation because of its readable syntax and mature data-analysis libraries. In this kind of role it typically supplements SQL — used for tasks SQL is clumsier at, like complex reshaping, statistical checks, or generating a one-off report.</p>
-      <div class="term-context"><b>In practice</b>A common workflow is pulling data with SQL, then using Python for the last mile of analysis or validation logic that's awkward to express in a query.</div>
-    </div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">pandas</span><span class="term-tag">Library</span></div>
-      <p class="term-def">The standard Python library for working with tabular data — think of it as a spreadsheet inside Python. Its core object, the DataFrame, supports filtering, joining, grouping, and reshaping data with code instead of clicking through a UI, and it's the most common tool for ad hoc data profiling and validation scripts.</p>
-      <div class="term-context"><b>In practice</b>pandas is typically where a reconciliation script actually lives — pulling both source and target data, then comparing them programmatically instead of by hand.</div>
-    </div>
-
-    <div class="term">
-      <div class="term-head"><span class="term-name">NumPy</span><span class="term-tag">Library</span></div>
-      <p class="term-def">A foundational Python library for fast numerical computation, built around efficient array operations. pandas itself is built on top of NumPy — so even when an analyst doesn't call NumPy directly, it's usually doing the underlying math whenever pandas performs a calculation across a column of numbers.</p>
-      <div class="term-context"><b>In practice</b>NumPy shows up directly when doing vectorized calculations — like computing returns across thousands of accounts at once — faster than looping row by row.</div>
-    </div>
+    <div class="cat-header" id="cat-databricks"><span class="cat-label">Databricks & PySpark</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">PySpark</span><span class="term-tag">Library</span></div>
       <p class="term-def">PySpark is the official Python API for Apache Spark, the distributed data-processing engine. It lets an analyst write code in familiar, pandas-like syntax — filtering, joining, grouping, aggregating — but instead of that code running on one machine, Spark splits the work across many machines (a cluster) and runs it in parallel. The core object in PySpark is the DataFrame, conceptually similar to a pandas DataFrame or a SQL table, but backed by distributed computation rather than in-memory, single-machine storage.</p>
       <p class="term-def">PySpark also exposes Spark SQL, which lets you run actual SQL queries directly against these DataFrames — so a team doesn't have to choose between SQL and Python; the same underlying engine handles both, and it's common to move fluidly between a SQL query and a PySpark transformation within the same notebook. PySpark supports both batch jobs (processing a fixed dataset once) and Structured Streaming (processing data continuously as it arrives), using the same DataFrame API for either.</p>
-      <div class="term-context"><b>In practice</b>PySpark is the tool of choice once profiling or transformation work outgrows what pandas can comfortably handle on one machine — commonly used inside Databricks, where it runs directly against Delta Lake tables across Bronze, Silver, and Gold layers.</div>
+      <div class="term-context"><b>In practice</b>PySpark is the tool of choice once profiling or transformation work outgrows what a single machine can comfortably handle — commonly used inside Databricks, where it runs directly against Delta Lake tables across Bronze, Silver, and Gold layers.</div>
     </div>
-
-    <div class="cat-header" id="cat-databricks"><span class="cat-label">Databricks & Cloud Data Platforms</span></div>
 
     <div class="term">
       <div class="term-head"><span class="term-name">Databricks (Data Platform / Lakehouse)</span><span class="term-tag">Platform</span></div>
@@ -1603,6 +1617,227 @@ document.getElementById('retry-btn').addEventListener('click', () => {
 loadState();
 updateProgress();
 renderQuestion(current);
+
+// ---- Inline mini knowledge checks (5 questions each, embedded after a concept explanation) ----
+const MINI_QUIZZES = {
+  window: [
+    {
+      type: "sql",
+      q: "Using ROW_NUMBER() OVER (PARTITION BY region ORDER BY aum DESC), what row number would the East advisor with 300 in AUM receive?",
+      table: { tables: [
+        { name: "region_aum", columns: ["region","advisor","aum"], rows: [["East","Advisor 1","500"],["East","Advisor 2","500"],["East","Advisor 3","300"],["West","Advisor 4","700"]] }
+      ]},
+      answer: "3",
+      numeric: true,
+      explain: "Within the East partition, Advisor 1 and Advisor 2 tie for the top two AUM values (500 each), taking row numbers 1 and 2 in some order. ROW_NUMBER() never ties, so Advisor 3 — the only remaining East row — gets 3."
+    },
+    {
+      type: "sql",
+      q: "Now using RANK() OVER (PARTITION BY region ORDER BY aum DESC) on the same table, what rank would that same Advisor 3 (East, 300) receive?",
+      table: { tables: [
+        { name: "region_aum", columns: ["region","advisor","aum"], rows: [["East","Advisor 1","500"],["East","Advisor 2","500"],["East","Advisor 3","300"],["West","Advisor 4","700"]] }
+      ]},
+      answer: "3",
+      numeric: true,
+      explain: "Advisor 1 and Advisor 2 tie for rank 1 (both are the highest AUM in East). RANK() skips ahead by the number of tied rows, so the next distinct value — Advisor 3 — lands on rank 3, not 2."
+    },
+    {
+      type: "sql",
+      q: "Now using DENSE_RANK() OVER (PARTITION BY region ORDER BY aum DESC) on the same table, what rank would that same Advisor 3 (East, 300) receive?",
+      table: { tables: [
+        { name: "region_aum", columns: ["region","advisor","aum"], rows: [["East","Advisor 1","500"],["East","Advisor 2","500"],["East","Advisor 3","300"],["West","Advisor 4","700"]] }
+      ]},
+      answer: "2",
+      numeric: true,
+      explain: "DENSE_RANK() also gives tied rows the same rank (1 and 1), but unlike RANK(), the next rank is always just +1 with no gap — so Advisor 3 gets rank 2, not 3."
+    },
+    {
+      type: "fill",
+      q: "Which clause resets a window function's calculation separately for each group (e.g. each region), without collapsing the underlying rows the way GROUP BY does?",
+      answer: "PARTITION BY",
+      explain: "PARTITION BY behaves like GROUP BY for the purpose of the window calculation, but every original row is still returned."
+    },
+    {
+      type: "fill",
+      q: "Which clause inside OVER (...) defines the sequence a window function uses — which row counts as first, second, third within each partition?",
+      answer: "ORDER BY",
+      explain: "ORDER BY inside OVER (...) is what makes ranking and running totals possible — without it, there's no defined sequence to rank against."
+    }
+  ],
+  agg: [
+    {
+      type: "sql",
+      q: "Using SUM(CASE WHEN type = 'fee' THEN amount ELSE 0 END), what is the total fee amount across all rows in this table?",
+      table: { tables: [
+        { name: "transactions", columns: ["account_id","type","amount"], rows: [["1001","buy","500"],["1001","fee","-20"],["1002","buy","300"],["1002","fee","-15"],["1003","sell","200"]] }
+      ]},
+      answer: "-35",
+      numeric: true,
+      explain: "Only the two 'fee' rows contribute: -20 + -15 = -35. Every other row gets replaced with 0 by the ELSE, so it doesn't affect the sum."
+    },
+    {
+      type: "sql",
+      q: "Using COUNT(CASE WHEN type = 'buy' THEN 1 END), how many buy transactions are in this table?",
+      table: { tables: [
+        { name: "transactions", columns: ["account_id","type","amount"], rows: [["1001","buy","500"],["1001","fee","-20"],["1002","buy","300"],["1002","fee","-15"],["1003","sell","200"]] }
+      ]},
+      answer: "2",
+      numeric: true,
+      explain: "COUNT() ignores nulls, and rows that don't match the CASE condition return null (no ELSE given) — so only the 2 'buy' rows get counted."
+    },
+    {
+      type: "sql",
+      q: "This account_id column is stored as text, not a number. Which SQL function would you use to explicitly convert fee_amount_text to a numeric type before summing it?",
+      table: { tables: [
+        { name: "raw_fees", columns: ["account_id","fee_amount_text"], rows: [["1001","45.00"],["1002","60.00"]] }
+      ]},
+      answer: "CAST",
+      aliases: ["cast()"],
+      explain: "CAST(fee_amount_text AS DECIMAL(10,2)) explicitly converts the text value to a numeric type so arithmetic behaves predictably."
+    },
+    {
+      type: "sql",
+      q: "Using COALESCE(secondary_advisor, 'None'), what would display for account 1001?",
+      table: { tables: [
+        { name: "accounts", columns: ["account_id","secondary_advisor"], rows: [["1001","NULL"],["1002","B"]] }
+      ]},
+      answer: "None",
+      explain: "COALESCE() returns the first non-null argument. Since secondary_advisor is null for account 1001, it falls through to the default, 'None'."
+    },
+    {
+      type: "sql",
+      q: "Using SUM(CASE WHEN fee_amount > 40 THEN 1 ELSE 0 END), how many rows in this table have a fee amount greater than 40?",
+      table: { tables: [
+        { name: "fees", columns: ["account_id","fee_amount"], rows: [["1001","45.00"],["1001","30.00"],["1002","60.00"]] }
+      ]},
+      answer: "2",
+      numeric: true,
+      explain: "45.00 and 60.00 are both greater than 40 (contributing 1 each); 30.00 is not (contributes 0). Total: 2."
+    }
+  ]
+};
+
+function initMiniQuiz(container, questions){
+  let mCurrent = 0, mScore = 0;
+  const mAnswered = new Array(questions.length).fill(false);
+
+  function renderHead(){
+    let head = container.querySelector('.mini-quiz-head');
+    if(!head){
+      head = document.createElement('div');
+      head.className = 'mini-quiz-head';
+      container.prepend(head);
+    }
+    head.innerHTML = `<span>Knowledge Check · ${Math.min(mCurrent+1, questions.length)} of ${questions.length}</span><span>Score: ${mScore} / ${questions.length}</span>`;
+  }
+
+  function renderMiniQuestion(i){
+    const item = questions[i];
+    const type = item.type || 'mc';
+    const card = document.createElement('div');
+    card.className = 'q-card';
+
+    if(type === 'mc'){
+      card.innerHTML = `
+        <div class="q-text">${item.q}</div>
+        <div class="choices"></div>
+        <div class="explain"></div>
+      `;
+      const choicesEl = card.querySelector('.choices');
+      const explainEl = card.querySelector('.explain');
+      item.choices.forEach((choiceText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'choice';
+        btn.textContent = choiceText;
+        btn.addEventListener('click', () => {
+          if(btn.disabled) return;
+          const allBtns = choicesEl.querySelectorAll('.choice');
+          allBtns.forEach(b => b.disabled = true);
+          if(idx === item.correct){
+            btn.classList.add('correct');
+            if(!mAnswered[i]){ mScore++; }
+          } else {
+            btn.classList.add('incorrect');
+            allBtns[item.correct].classList.add('correct');
+          }
+          mAnswered[i] = true;
+          explainEl.textContent = item.explain;
+          explainEl.classList.add('show');
+          renderHead();
+          setTimeout(() => mAdvance(i), 500);
+        });
+        choicesEl.appendChild(btn);
+      });
+    } else {
+      card.innerHTML = `
+        ${type === 'sql' ? renderTable(item.table) : ''}
+        <div class="q-text">${item.q}</div>
+        <div class="fill-row">
+          <input type="text" class="fill-input" placeholder="Type your answer..." autocomplete="off" spellcheck="false">
+          <button class="btn check-btn" type="button">Check Answer</button>
+        </div>
+        <div class="explain"></div>
+      `;
+      const input = card.querySelector('.fill-input');
+      const checkBtn = card.querySelector('.check-btn');
+      const explainEl = card.querySelector('.explain');
+      function submit(){
+        if(input.disabled) return;
+        const correct = isAnswerCorrect(input.value, item);
+        input.disabled = true;
+        checkBtn.disabled = true;
+        input.classList.add(correct ? 'correct' : 'incorrect');
+        if(correct && !mAnswered[i]){ mScore++; }
+        mAnswered[i] = true;
+        explainEl.innerHTML = (correct ? '' : `<div style="margin-bottom:6px;"><strong>Correct answer:</strong> ${item.answer}</div>`) + item.explain;
+        explainEl.classList.add('show');
+        renderHead();
+        checkBtn.textContent = 'Continue →';
+        checkBtn.disabled = false;
+        checkBtn.removeEventListener('click', submit);
+        checkBtn.addEventListener('click', () => mAdvance(i));
+      }
+      checkBtn.addEventListener('click', submit);
+      input.addEventListener('keydown', (e) => { if(e.key === 'Enter'){ e.preventDefault(); submit(); } });
+    }
+
+    const existingCard = container.querySelector('.q-card');
+    if(existingCard) existingCard.remove();
+    const existingResults = container.querySelector('.mini-quiz-results');
+    if(existingResults) existingResults.remove();
+    container.appendChild(card);
+    renderHead();
+  }
+
+  function mAdvance(i){
+    if(i < questions.length - 1){
+      mCurrent = i + 1;
+      renderMiniQuestion(mCurrent);
+    } else {
+      const existingCard = container.querySelector('.q-card');
+      if(existingCard) existingCard.remove();
+      const results = document.createElement('div');
+      results.className = 'mini-quiz-results';
+      results.innerHTML = `<div class="big">${mScore} / ${questions.length}</div><button class="btn retry-mini">Retake This Check</button>`;
+      results.querySelector('.retry-mini').addEventListener('click', () => {
+        mCurrent = 0; mScore = 0;
+        mAnswered.fill(false);
+        renderMiniQuestion(mCurrent);
+      });
+      container.appendChild(results);
+      renderHead();
+    }
+  }
+
+  renderMiniQuestion(mCurrent);
+}
+
+document.querySelectorAll('.mini-quiz').forEach(el => {
+  const key = el.getAttribute('data-quiz');
+  if(MINI_QUIZZES[key]){
+    initMiniQuiz(el, MINI_QUIZZES[key]);
+  }
+});
 </script>
 
 </body>
