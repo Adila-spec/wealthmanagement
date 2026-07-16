@@ -63,6 +63,11 @@
   .tab-btn.active{background:#0B0B0A; color:#F5F1E9; border-left-color:var(--orange-bright);}
   .tab-btn.active .count{color:var(--orange-bright);}
   .tab-btn.quiz-btn{margin-top:10px; border-top:1px solid var(--line-solid); padding-top:14px;}
+  .tab-btn.issues-btn{border-left-color:var(--red); color:var(--red); font-weight:700;}
+  .tab-btn.issues-btn:hover{background:#C4432E18;}
+  .tab-btn.issues-btn.active{background:#0B0B0A; color:#F0A390; border-left-color:var(--red);}
+  .tab-btn.issues-btn .count{color:var(--red);}
+  .tab-btn.issues-btn.active .count{color:#F0A390;}
 
   .panel-area{flex:1 1 auto; min-width:0; padding-left:32px; border-left:1px solid var(--line-solid);}
   .tab-panel{display:none;}
@@ -76,22 +81,32 @@
   .jump-pills{display:flex; flex-wrap:wrap; gap:7px; margin:14px 0 20px;}
   .jump-pill{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; color:var(--orange-bright); border:1px solid var(--orange-bright); background:none; padding:5px 11px; border-radius:20px; cursor:pointer;}
   .jump-pill:hover{background:var(--orange-bright); color:#141210;}
+  .jump-pill.issue-pill{color:var(--red); border-color:var(--red);}
+  .jump-pill.issue-pill:hover{background:var(--red); color:#F5F1E9;}
 
   .term{background:var(--surface); border:1px solid var(--line-solid); border-left:4px solid var(--orange-bright); padding:20px 22px; margin:0 0 16px; border-radius:2px; scroll-margin-top:20px;}
+  .term.issue{border-left:4px solid var(--red);}
   .term.flash{animation:flashglow 1.2s ease;}
   @keyframes flashglow{0%{box-shadow:0 0 0 3px var(--orange-bright);} 100%{box-shadow:none;}}
+  .term.issue.flash{animation:flashglowred 1.2s ease;}
+  @keyframes flashglowred{0%{box-shadow:0 0 0 3px var(--red);} 100%{box-shadow:none;}}
   .term-head{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; background:#0B0B0A; margin:-20px -22px 14px -22px; padding:12px 20px; cursor:pointer;}
   .term-head-left{display:flex; align-items:center; gap:10px;}
   .chevron{color:var(--orange-bright); font-size:11px; transition:transform .15s; display:inline-block;}
+  .term.issue .chevron{color:var(--red);}
   .term.collapsed .chevron{transform:rotate(-90deg);}
-  .term.collapsed .term-def, .term.collapsed .term-context, .term.collapsed .check{display:none;}
+  .term.collapsed .term-def, .term.collapsed .term-context, .term.collapsed .check, .term.collapsed .impact-line{display:none;}
   .term-name{font-family:var(--serif); font-size:17.5px; font-weight:600; color:#F5F1E9;}
   .term-tag{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.05em; color:var(--orange-bright); border:1px solid var(--orange-bright); padding:2px 8px; border-radius:20px; white-space:nowrap;}
+  .term-tag.issue-tag{color:var(--red); border-color:var(--red);}
   .term-def{color:var(--text); font-size:14px; margin-top:8px;}
   .term-def + .term-def{margin-top:8px;}
   .term-def code{font-family:var(--mono); font-size:12.5px; background:var(--surface-2); padding:1px 6px; border-radius:3px; color:var(--orange-dark);}
   .term-context{color:var(--muted); font-size:13px; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line-solid);}
   .term-context b{color:var(--orange-bright); font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:3px;}
+  .term.issue .term-context b{color:var(--red);}
+  .impact-line{font-family:var(--mono); font-size:12px; color:var(--red); background:#C4432E14; border:1px solid #C4432E44; padding:8px 12px; border-radius:2px; margin-top:10px;}
+  .impact-line b{text-transform:uppercase; letter-spacing:.04em; font-size:10.5px; display:block; margin-bottom:2px;}
 
   .check{margin-top:14px; padding:14px 22px 18px; border-top:1px solid var(--line-solid); background:var(--surface-2); margin-left:-22px; margin-right:-22px; margin-bottom:-20px;}
   .check-label{font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:var(--orange-bright); font-weight:700; margin-bottom:8px;}
@@ -140,6 +155,10 @@
 
   .accordion-hint{font-family:var(--mono); font-size:11px; color:var(--muted-2); margin-bottom:14px;}
 
+  .issues-banner{background:#0B0B0A; border:1px solid var(--red); border-left:4px solid var(--red); border-radius:2px; padding:16px 20px; margin-bottom:20px;}
+  .issues-banner-label{font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:#F0A390; font-weight:700; margin-bottom:6px;}
+  .issues-banner p{color:#D9C9BC; font-size:13.5px;}
+
   footer{padding:40px 0 60px; text-align:center; color:var(--muted-2); font-family:var(--mono); font-size:11px; border-top:1px solid var(--line-solid); background:var(--nav-bg); display:flex; flex-direction:column; align-items:center; gap:12px; margin-top:20px;}
 
   @media (max-width:880px){
@@ -148,6 +167,7 @@
     .sidebar-inner{display:flex; flex-wrap:wrap; gap:6px;}
     .tab-btn{width:auto; border-left:none; border-bottom:3px solid transparent; border-radius:4px 4px 0 0;}
     .tab-btn.active{border-left-color:transparent; border-bottom-color:var(--orange-bright);}
+    .tab-btn.issues-btn.active{border-bottom-color:var(--red);}
     .panel-area{padding-left:0; border-left:none; padding-top:20px; border-top:1px solid var(--line-solid); margin-top:16px;}
   }
 </style>
@@ -161,7 +181,7 @@
       Wealth Data Analyst Vocabulary
     </div>
     <div class="nav-right">
-      <span class="nav-meta" id="nav-progress">11 topics · 1 full quiz</span>
+      <span class="nav-meta" id="nav-progress">12 topics · 1 full quiz</span>
       <button id="theme-toggle" type="button">🌙 Dark</button>
     </div>
   </div>
@@ -174,7 +194,7 @@
       Self-Study · Wealth Management Data Analyst Role
     </div>
     <h1>Search, click, learn — <em>no more endless scrolling.</em></h1>
-    <p class="hero-sub">Every term from the job description, plus everything from your meeting notes — Addepar, eMoney, Black Diamond, Orion, Tamarac included — organized into tabs. Search jumps straight to a term; each card collapses once you know it; every definition has an immediate check.</p>
+    <p class="hero-sub">Every term from the job description, plus everything from your meeting notes — Addepar, eMoney, Black Diamond, Orion, Tamarac included — organized into tabs. The <strong>Key Issues</strong> tab opens first: the unresolved gaps and decisions from your actual meetings, front and center before the glossary. Search jumps straight to a term; each card collapses once you know it; every definition has an immediate check.</p>
   </div>
 </header>
 
@@ -201,32 +221,63 @@
 
 const CATEGORIES = [
   {
-    id:"meetingnotes", label:"Meeting Notes", lede:"Process-level concepts pulled straight from your meeting transcripts — separate from the technical glossary, since these are about how decisions actually get made on this program.",
+    id:"issues", label:"Key Issues", lede:"The open, unresolved items pulled directly from your meeting notes — decisions still being made, gaps still being scoped, and risks still live. This is the front door to the site; everything else here is background for these.",
+    jumpPills:true,
+    banner:"These aren't settled definitions — they're live discussion points as of the latest meetings. Each card below states the issue, why it matters, and what's still undecided.",
     terms:[
-      { name:"Requirements Gathering & the BA Bridge", tag:"Process",
-        def:["The Business Analyst acts as the bridge between developers and Kestra: gathering and re-validating requirements (roughly 90% of current documentation was produced this way), which then get converted into Jira tickets for a scrum master to plan development against. In your notes, Diego holds this role, with his last working day being the training day noted in the meeting."],
-        context:"Since Diego's departure was flagged directly in the meeting, who backfills this bridge role is one of the clearest open questions to raise before requirements work stalls.",
-        check:{type:"mc", q:"What happens to raw stakeholder requirements before development work is planned against them?", choices:["They're built from directly, with no intermediate step","The BA gathers/validates them, then they're converted into Jira tickets for a scrum master to plan against","They're sent straight to production","They're only used for Group Automation configuration"], correct:1, explain:"The BA is the translation layer between plain-language requirements and a plannable, ticketed backlog." }
+      { name:"Household vs. Client Naming Collision", tag:"Open Issue",
+        def:["A household and an individual client can look nearly identical in the list view, and the system doesn't clearly distinguish between them. An advisor can accidentally select the wrong one — the household view when they meant the individual client, or vice versa."],
+        impact:"Household-level and individual-level figures are genuinely different numbers — so picking the wrong one changes the net worth an advisor sees or reports to a client.",
+        context:"This is the single most-repeated risk across all three sets of meeting notes — it shows up in the tech-stack discussion, the householding deep-dive, and the client-facing implications both times.",
+        check:{type:"mc", q:"Why does the household/client naming collision matter beyond just being a UI annoyance?", choices:["It doesn't affect any real numbers","Household and individual client figures differ, so picking the wrong one changes the reported net worth","It only affects internal reporting, never client-facing numbers","It's already been fully resolved in Addepar"], correct:1, explain:"Because household and client net worth are different values, this UI ambiguity has a direct, client-facing financial impact." }
       },
-      { name:"Vendor Limitations: What Addepar Can't Do Natively", tag:"Discussion",
-        def:["A recurring theme in the householding conversation: before building anything, check what Addepar's portal and Group Automation already handle. Group Automation today resolves roughly 20% of known householding gaps but can't cleanly distinguish 'grace the household' from 'grace the client.' Everything outside Addepar's native capability then needs to be triaged into a logic enhancement or a utility."],
-        context:"This is the practical, applied version of the logic-enhancement-vs-utility framework covered in the Householding Logic tab — here it's specifically about what was found to be missing in Addepar itself.",
-        check:{type:"fill", q:"Fill in the blank: roughly ______ percent of known householding gaps are already resolved by Addepar's Group Automation today.", answer:"20", aliases:["20%","twenty"], explain:"Group Automation covers about 20% of identified gaps per the meeting notes — the rest is split between logic enhancement and utility." }
+      { name:"\"Grace the Household\" vs. \"Grace the Client\"", tag:"Open Issue",
+        def:["Addepar's Group Automation lets advisors group or override duplicate accounts at either the household or the client level — but today it doesn't clearly separate the two actions during a manual override."],
+        impact:"An advisor doing a manual household override could mistakenly grace the wrong level, again changing the net worth calculation with no clear warning.",
+        context:"This is the sharpest, most concrete version of the naming-collision risk above — it's the exact moment in the UI where the ambiguity turns into an actual data error.",
+        check:{type:"mc", q:"What specifically can't Addepar's current Group Automation distinguish between?", choices:["NFS accounts vs. Schwab accounts","\"Grace the household\" vs. \"grace the client\" during a manual override","Joint accounts vs. individual accounts","Pilot firms vs. direct-business firms"], correct:1, explain:"The gap is specifically in distinguishing which level (household or client) an override action is applied to." }
       },
-      { name:"Meeting Cadence & Service Tickets", tag:"Operations",
-        def:["Kestra's internal team holds standing calls with the Addepar team on Monday/Wednesday/Friday. Separately, when an advisor hits a problem (like a household that formed incorrectly), they raise a service ticket in Jira, which routes to the service team for investigation — a distinct path from the planned-development Jira tickets that come out of requirements gathering."],
-        context:"Worth distinguishing clearly: a service ticket is reactive (something's broken for a specific advisor today), while a requirements-driven Jira ticket is proactive (planned system change).",
-        check:{type:"mc", q:"What's the difference between an advisor's service ticket and a requirements-driven Jira ticket?", choices:["There is no difference, they're the same process","A service ticket is a reactive fix for a specific advisor issue; a requirements ticket comes from planned, gathered requirements","Service tickets are only used for CI/CD issues","Requirements tickets are raised only by advisors"], correct:1, explain:"Service tickets react to an in-the-moment advisor problem; requirements tickets come from the proactive BA-led planning process." }
+      { name:"Multigenerational Household Gap", tag:"Open Issue",
+        def:["Current household formation rules handle joint accounts and shared addresses, but don't reliably capture a child who doesn't have their own account — even though the parents sharing an account are correctly grouped."],
+        impact:"Complex or multigenerational families may be under-represented in a household view, with no agreed rule yet for how they should be captured.",
+        context:"Flagged explicitly as a known gap in the householding rules (rule 2/3 in the Ownership Stage file) rather than something Group Automation or a quick fix already resolves.",
+        check:{type:"fill", q:"Fill in the blank: parents sharing an account are correctly grouped into one household, but a ______ without their own account often isn't captured.", answer:"child", aliases:["children"], explain:"This is the specific multigenerational gap called out in the householding discussion — no defined rule exists for it yet." }
       },
-      { name:"Workflow: Current State → Future State (Applied)", tag:"Process",
-        def:["Applied directly in the householding discussion: rather than debating gaps in the abstract, the team was pushed to first document how each piece works today, then define explicitly what the end state should look like — including which parts are managed in Addepar's interface versus handled by a custom utility — before scoping any build."],
-        context:"This is the same current-state/future-state technique defined in the Householding Logic tab, but the emphasis here is on how the meeting actually used it to stop an open-ended debate and get to concrete next steps.",
-        check:{type:"mc", q:"In the meeting, what was the practical effect of insisting on a documented current state and future state before continuing the householding discussion?", choices:["It ended the conversation with no outcome","It stopped an open-ended debate and forced the team toward specific, plannable next steps","It replaced the need for a BA entirely","It automatically fixed the Group Automation gap"], correct:1, explain:"Explicitly defining current/future state is what let the team move from debate to an assignable, schedulable set of next steps." }
+      { name:"Logic Enhancement vs. Utility vs. Group Automation — Undecided Framework", tag:"Open Issue",
+        def:["For every householding gap, the team needs to decide whether the fix is a pipeline change (logic enhancement), a custom tool (utility), or already handled natively by Addepar (group automation). Group Automation reportedly covers only about 20% of known gaps; the rest is still unsplit between the other two buckets.", "Explicit caution raised in the notes: a utility can technically be built to handle almost anything, so it's easy to over-use that bucket without discipline."],
+        impact:"Until this framework is settled, individual gaps (like the two above) can't be confidently assigned an owner or a build plan.",
+        context:"Proposed decision rule: prioritize by business impact, not ease of building — but that criterion itself hasn't been formally agreed or applied yet.",
+        check:{type:"fill", q:"Fill in the blank: Addepar's native Group Automation reportedly resolves only about ______ percent of known householding gaps today.", answer:"20", aliases:["20%","twenty"], explain:"20% is the figure cited in the meeting notes — leaving the majority of gaps still to be split between logic enhancement and utility." }
       },
-      { name:"Access & Onboarding Threads", tag:"Operations",
-        def:["Several access requests were still in progress as of this meeting: Databricks, Customer Care, and VPN access (being raised by a team member); dev/test notebook access (via Tally); and possible access to k3psource in addition to k3pclean. Addepar platform access itself had already been granted, coordinated by Grace."],
-        context:"These threads are easy to lose track of across a long meeting — worth a standalone follow-up checklist rather than leaving them buried in the broader notes.",
-        check:{type:"mc", q:"Who was coordinating the Addepar platform access that had already been granted, per the notes?", choices:["Tally","Diego","Grace","Rajesh Singh"], correct:2, explain:"Grace (Product Owner) was noted as coordinating Addepar platform access and remaining access requests." }
+      { name:"No Dev/Test Separation (Editing Production Directly)", tag:"Open Issue",
+        def:["The team currently has no write access to a separate development environment — all code lives directly in production, and current changes are effectively data adjustments rather than tracked code changes."],
+        impact:"Any change carries direct production risk with no safety net; standing up a real dev environment and CI/CD pipeline is described as the near-term priority before anything else gets built.",
+        context:"This is a foundational blocker — several other open items (Databricks catalog, workspace setup) are really sub-parts of solving this one problem.",
+        check:{type:"mc", q:"What's the core risk of the team's current setup with no dev/test separation?", choices:["Slower query performance only","An untested change can immediately affect live, client-facing production data with no safety net","It only affects Jira ticket tracking","It has no real risk since Addepar validates everything"], correct:1, explain:"Without a dev environment, there's no buffer between a change and its effect on live production data." }
+      },
+      { name:"CI/CD & Source Control Tooling Still Unconfirmed", tag:"Open Issue",
+        def:["Azure DevOps is the working assumption for CI/CD (not Jenkins or Terraform), but this needs confirmation on the client side. Source control is still an open question too — Bitbucket vs. GitHub — along with whether Jira and SonarQube are actually in active use."],
+        impact:"Until this is nailed down, the team can't fully commit its dev-environment migration plan to a specific toolchain.",
+        context:"A recurring 'basic open question' across multiple meetings — worth explicitly confirming rather than continuing to work from an assumption.",
+        check:{type:"mc", q:"What is the current working assumption for CI/CD, still needing client-side confirmation?", choices:["Jenkins","Terraform","Azure DevOps","GitHub Actions"], correct:2, explain:"Azure DevOps is the working assumption, explicitly not Jenkins or Terraform, per the notes." }
+      },
+      { name:"Databricks Environment & Access Gaps", tag:"Open Issue",
+        def:["Three related open items: (1) only one Databricks catalog currently exists, and whether non-prod needs its own is unresolved; (2) the team may need k3psource access in addition to k3pclean, particularly for account-pull logic on the config page; (3) there has been no visibility into how upstream source data is generated since the team was onboarded."],
+        impact:"All three limit how confidently the team can build, test, or debug the pipeline independent of production.",
+        context:"These are the concrete access/environment requests that need to be raised, distinct from the higher-level 'no dev/test separation' blocker above.",
+        check:{type:"mc", q:"Besides k3pclean, what additional source access has the team flagged as possibly needed?", choices:["k3psource","Snowflake admin rights","Addepar superuser access","A second Azure DevOps license"], correct:0, explain:"k3psource is the deeper/raw source layer flagged as potentially needed in addition to the current k3pclean access." }
+      },
+      { name:"Rep Code Gap & October Scope Expansion", tag:"Open Issue",
+        def:["Rep codes — used to drive viewable-group access — aren't available from all data sources, which risks duplicating data and complicates access as scope grows. This becomes more pressing in October, when direct-business data for all custodians (including Schwab) comes into scope, beyond the current NFS-only pilot."],
+        impact:"If the rep code gap isn't resolved before October, the access-control problem scales up along with the new custodian data.",
+        context:"This connects two separate threads in the notes — a known technical limitation (rep code sourcing) and a hard calendar deadline (the October scope expansion) — worth tracking together.",
+        check:{type:"mc", q:"Why does the rep code gap become more urgent heading into October?", choices:["Rep codes are being deprecated entirely","October expands scope to direct-business data across all custodians, scaling up the same access-control problem","October is when Diego's replacement starts","Rep codes only matter for NFS, which is being phased out"], correct:1, explain:"The scope expansion in October means the existing rep-code limitation will apply across more custodians and more data, not less." }
+      },
+      { name:"Staffing & Timeline Risk", tag:"Open Issue",
+        def:["Diego, who did roughly 90% of documentation and acted as the BA bridge between developers and Kestra, has left as of the training day noted in the meeting, with no confirmed backfill yet. Separately, the September 10 deadline has been flagged as too tight relative to Brandon's expectations."],
+        impact:"Losing the BA bridge role right as a tight deadline looms compounds both risks — there may be no one owning requirements translation exactly when the timeline is already under pressure.",
+        context:"Neither of these has a resolution in the notes yet — both are flagged as open questions to raise directly rather than settled facts.",
+        check:{type:"mc", q:"What two staffing/timeline risks were flagged together in the notes?", choices:["A hiring freeze and a budget cut","Diego's departure with no confirmed backfill, and the September 10 deadline being seen as too tight","A missing Product Owner and a cancelled contract","Grace leaving and a scope increase"], correct:1, explain:"Diego's departure (BA/documentation role) and the September 10 deadline concern were both raised as live, unresolved risks." }
       }
     ]
   },
@@ -759,15 +810,16 @@ function mountInlineCheck(container, item, catId){
 
 function renderTermCard(term, catId){
   const card = document.createElement('div');
-  card.className = 'term';
+  card.className = 'term' + (catId === 'issues' ? ' issue' : '');
   const id = 'term-' + catId + '-' + slugify(term.name);
   card.id = id;
   card.innerHTML = `
     <div class="term-head">
       <div class="term-head-left"><span class="chevron">▾</span><span class="term-name">${term.name}</span></div>
-      <span class="term-tag">${term.tag}</span>
+      <span class="term-tag${catId === 'issues' ? ' issue-tag' : ''}">${term.tag}</span>
     </div>
     ${term.def.map(d => `<p class="term-def">${d}</p>`).join('')}
+    ${term.impact ? `<div class="impact-line"><b>Why it matters</b>${term.impact}</div>` : ''}
     ${term.context ? `<div class="term-context"><b>In practice</b>${term.context}</div>` : ''}
   `;
   card.querySelector('.term-head').addEventListener('click', () => card.classList.toggle('collapsed'));
@@ -925,12 +977,19 @@ function renderCategoryPanel(cat){
   head.innerHTML = `<h2>${cat.label}</h2><p class="panel-lede">${cat.lede}</p>`;
   panel.appendChild(head);
 
+  if(cat.banner){
+    const bannerEl = document.createElement('div');
+    bannerEl.className = 'issues-banner';
+    bannerEl.innerHTML = `<div class="issues-banner-label">Status as of latest meetings</div><p>${cat.banner}</p>`;
+    panel.appendChild(bannerEl);
+  }
+
   if(cat.jumpPills && cat.terms){
     const pillRow = document.createElement('div');
     pillRow.className = 'jump-pills';
     cat.terms.forEach(term => {
       const pill = document.createElement('button');
-      pill.className = 'jump-pill'; pill.type = 'button'; pill.textContent = term.name;
+      pill.className = 'jump-pill' + (cat.id === 'issues' ? ' issue-pill' : ''); pill.type = 'button'; pill.textContent = term.name;
       pill.addEventListener('click', () => goToTerm(cat.id, 'term-' + cat.id + '-' + slugify(term.name)));
       pillRow.appendChild(pill);
     });
@@ -968,7 +1027,7 @@ function renderQuizPanel(){
     <div id="quiz-container"></div>
     <div id="quiz-results">
       <div class="big" id="final-score">0 / ${QUESTIONS.length}</div>
-      <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in their tab and retake — the SQL, householding, and program-specific questions are worth another pass before an interview.</p>
+      <p style="color:var(--muted); margin-top:10px;">Solid work. Reread any missed terms in their tab and retake — the Key Issues, householding, and program-specific questions are worth another pass before an interview or status update.</p>
       <button class="btn" id="retry-btn">Retake Quiz</button>
     </div>
   `;
@@ -1140,14 +1199,14 @@ function initApp(){
 
   CATEGORIES.forEach(cat => { PROGRESS[cat.id] = { correct:0, total:(cat.terms||[]).filter(t=>t.check).length }; });
 
-  const allTabs = [...CATEGORIES.map(c => ({ id:c.id, label:c.label, count:(c.terms?c.terms.length:0)+(c.concepts?c.concepts.length:0) })),
+  const allTabs = [...CATEGORIES.map(c => ({ id:c.id, label:c.label, count:(c.terms?c.terms.length:0)+(c.concepts?c.concepts.length:0), isIssues:c.id==='issues' })),
                     { id:'quiz', label:'Full Quiz', count: collectAllQuizQuestions().length, isQuiz:true }];
 
   allTabs.forEach(t => {
     const btn = document.createElement('button');
-    btn.className = 'tab-btn' + (t.isQuiz ? ' quiz-btn' : '');
+    btn.className = 'tab-btn' + (t.isQuiz ? ' quiz-btn' : '') + (t.isIssues ? ' issues-btn' : '');
     btn.dataset.tab = t.id;
-    btn.innerHTML = `<span>${t.label}</span><span class="count">${t.count}</span>`;
+    btn.innerHTML = `<span>${t.isIssues ? '⚠ ' : ''}${t.label}</span><span class="count">${t.count}</span>`;
     btn.addEventListener('click', () => activateTab(t.id));
     sidebar.appendChild(btn);
   });
